@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { use } from "react";
 import { useState } from "react";
 import Image from "next/image";
 import { FaRegHeart } from "react-icons/fa";
@@ -11,6 +11,7 @@ import {
 import { FiUser } from "react-icons/fi";
 import { IoSearchOutline } from "react-icons/io5";
 import Link from "next/link";
+import { useShoppingCart } from "use-shopping-cart";
 
 const Navbar = () => {
   const [dropdown1Open, setDropdown1Open] = useState(false);
@@ -29,6 +30,7 @@ const Navbar = () => {
     setDropdown3Open(!dropdown3Open);
   };
 
+  const { handleCartClick } = useShoppingCart();
   return (
     <>
       <section className="bg-[#FFEECD] text-[11.5px] md:text-[14px] hidden md:flex gap-4 md:gap-10 items-center justify-center px-6 py-1.5 md:p-2.5 text-center leading-4">
@@ -67,7 +69,7 @@ const Navbar = () => {
               <FaRegHeart className="w-5 md:w-6 h-5 md:h-6 mb-1" />
               WISHLIST
             </span>
-            <span className="flex flex-col items-center justify-center relative">
+            <span onClick={() => handleCartClick()} className="flex flex-col items-center justify-center relative cursor-pointer">
               <MdOutlineShoppingCart className="w-5 md:w-6 h-5 md:h-6 mb-1" />
               CART
               <div className="absolute text-[12px] md:text-[13px] -top-1 md:-top-1.5 -right-0 md:-right-0.5 bg-[#4FA2AE] text-white w-[14px] md:w-[18px] h-[14px] md:h-[18px] flex items-center justify-center rounded-full font-semibold">
