@@ -5,6 +5,7 @@ import React, { useRef, useState } from "react";
 import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
 import { FaEye } from "react-icons/fa";
+import axios from "axios";
 
 const Hero = ({ data }) => {
   const [mainImageIndex, setMainImageIndex] = useState(0);
@@ -26,6 +27,20 @@ const Hero = ({ data }) => {
   const decrement = () => {
     setValue(value - 1 >= 0 ? value - 1 : 0);
   };
+
+  const handleBuyNow = async () => {
+    try{
+      const res = await axios.post("http://localhost:3001/api/checkout", {
+        productIds: [data.id.toString()],
+        quantity: value
+    })
+
+    window.location = res.data.url}
+
+    catch(error){
+        console.log("error" ,error)
+    }
+  }
 
   return (
     <section className="bg-[#30304C] pt-7 md:pt-10 px-[1.2rem] md:px-[2.5rem]">
@@ -139,7 +154,7 @@ const Hero = ({ data }) => {
                 +
               </button>
             </div>
-            <button className="w-full bg-[#4FA2AE] text-white font-semibold text-[14px] md:text-[16px]">
+            <button onClick={() => handleBuyNow()} className="w-full bg-[#4FA2AE] text-white font-semibold text-[14px] md:text-[16px]">
               BUY NOW
             </button>
           </div>

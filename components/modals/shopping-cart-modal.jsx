@@ -36,7 +36,8 @@ export default function ShoppingCartModal() {
   const onCheckout = async () => {
     console.log("cartDetails", cartDetails)
     try{const res = await axios.post("http://localhost:3001/api/checkout", {
-        productIds: Object.values(cartDetails ?? {}).map((entry) => entry.prodcutId)
+        productIds: Object.values(cartDetails ?? {}).map((entry) => entry.prodcutId),
+        quantity:1
     })
 
     window.location = res.data.url}
