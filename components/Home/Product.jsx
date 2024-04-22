@@ -5,6 +5,7 @@ import Stack from "@mui/material/Stack";
 import AddToBag from "../ui/AddToBag";
 
 const Product = ({
+  prodcutId,
   imageSrc,
   productName,
   currentPrice,
@@ -15,7 +16,7 @@ const Product = ({
 }) => {
   const [showButton, setShowButton] = useState(false);
   
-
+   
   return (
     <div className="min-w-[14rem] md:min-w-[17rem]">
       <div
@@ -32,7 +33,7 @@ const Product = ({
         <span className="px-2 py-2 rounded-full text-white text-[12px] bg-[#4FA2AE] absolute top-3 right-3">
           <FaRegHeart className="h-4 w-4" />
         </span>
-        <AddToBag imageSrc={imageSrc} productName={productName} currentPrice={currentPrice} originalPrice={originalPrice} discount={discount} rating={rating} totalRatings={totalRatings}
+        <AddToBag id={prodcutId} imageSrc={imageSrc} productName={productName} currentPrice={currentPrice} originalPrice={originalPrice} discount={discount} rating={rating} totalRatings={totalRatings}
         />
       </div>
 

@@ -6,6 +6,7 @@ import { useShoppingCart } from "use-shopping-cart";
 
 
 export default function AddToBag({
+    id,
     imageSrc,
     productName,
     currentPrice,
@@ -16,7 +17,9 @@ export default function AddToBag({
 
 }) {
   const { addItem, handleCartClick } = useShoppingCart();
-  const Product = ({
+  console.log("Add to bag from original", id)
+  const Product = {
+  prodcutId: id,
   imageSrc,
   productName,
   price: currentPrice,
@@ -24,7 +27,8 @@ export default function AddToBag({
   discount ,
   rating,
   totalRatings,
-})
+}
+    console.log("Add to bag", Product)
   return (
     <Button
       onClick={() => {

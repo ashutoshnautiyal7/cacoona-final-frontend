@@ -8,7 +8,10 @@ import {
 } from "@/components/ui/sheet";
 
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
+import { useEffect } from "react";
 import { useShoppingCart } from "use-shopping-cart";
+import axios from "axios";
 
 export default function ShoppingCartModal() {
   const {
@@ -18,22 +21,31 @@ export default function ShoppingCartModal() {
     cartDetails,
     removeItem,
     totalPrice,
-    redirectToCheckout,
   } = useShoppingCart();
 
-  async function handleCheckoutClick(event) {
-    event.preventDefault();
-    try {
-      const result = await redirectToCheckout();
-      if (result?.error) {
-        console.log("result");
-      }
-    } catch (error) {
-      console.log(error);
+//   useEffect(() => {
+//     if(useSearchParams.get('success')){
+//         console.log("success"),   
+//     }
+//     else{
+//         console.log("failure")
+//     }
+//   }, [serachParams])
+
+ 
+  const onCheckout = async () => {
+    console.log("cartDetails", cartDetails)
+    try{const res = await axios.post("http://localhost:3001/api/checkout", {
+        productIds: Object.values(cartDetails ?? {}).map((entry) => entry.prodcutId)
+    })
+
+    window.location = res.data.url}
+
+    catch(error){
+        console.log("error" ,error)
     }
   }
 
-  console.log("cartdetails are " ,cartDetails)
   return (
     <Sheet open={shouldDisplayCart} onOpenChange={() => handleCartClick()}>
       <SheetContent className="sm:max-w-lg w-[90vw]">
@@ -101,7 +113,7 @@ export default function ShoppingCartModal() {
             </p>
 
             <div className="mt-6">
-              <Button onClick={handleCheckoutClick} className="w-full">
+              <Button onClick={onCheckout} className="w-full">
                 Checkout
               </Button>
             </div>
