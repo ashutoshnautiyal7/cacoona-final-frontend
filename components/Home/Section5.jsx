@@ -6,79 +6,6 @@ import {
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
 
-const productList = [
-  {
-    id: 1,
-    imageSrc: "/Images/p1.png",
-    productName: "Starry Night Keychain",
-    currentPrice: "$12.99",
-    originalPrice: "$19.49",
-    discount: "-40%",
-    rating: 4.5,
-    totalRatings: 88,
-  },
-  {
-    id: 1,
-    imageSrc: "/Images/p1.png",
-    productName: "Starry Night Keychain",
-    currentPrice: "$12.99",
-    originalPrice: "$19.49",
-    discount: "-40%",
-    rating: 4.5,
-    totalRatings: 88,
-  },
-  {
-    id: 1,
-    imageSrc: "/Images/p1.png",
-    productName: "Starry Night Keychain",
-    currentPrice: "$12.99",
-    originalPrice: "$19.49",
-    discount: "-40%",
-    rating: 4.5,
-    totalRatings: 88,
-  },
-  {
-    id: 1,
-    imageSrc: "/Images/p1.png",
-    productName: "Starry Night Keychain",
-    currentPrice: "$12.99",
-    originalPrice: "$19.49",
-    discount: "-40%",
-    rating: 4.5,
-    totalRatings: 88,
-  },
-  {
-    id: 1,
-    imageSrc: "/Images/p1.png",
-    productName: "Starry Night Keychain",
-    currentPrice: "$12.99",
-    originalPrice: "$19.49",
-    discount: "-40%",
-    rating: 4.5,
-    totalRatings: 88,
-  },
-  {
-    id: 1,
-    imageSrc: "/Images/p1.png",
-    productName: "Starry Night Keychain",
-    currentPrice: "$12.99",
-    originalPrice: "$19.49",
-    discount: "-40%",
-    rating: 4.5,
-    totalRatings: 88,
-  },
-  {
-    id: 1,
-    imageSrc: "/Images/p1.png",
-    productName: "Starry Night Keychain",
-    currentPrice: "$12.99",
-    originalPrice: "$19.49",
-    discount: "-40%",
-    rating: 4.5,
-    totalRatings: 88,
-  },
-];
-
 const Section5 = ({ productList }) => {
   const scrollContainerRef = useRef(null);
   const handleScrollRight = () => {
@@ -107,21 +34,21 @@ const Section5 = ({ productList }) => {
   };
 
   return (
-    <section className="px-[1.2rem] md:px-[2.5rem] py-14 bg-[#30304C]">
+    <section className="px-[1.2rem] md:px-[2.5rem] py-8 md:py-14 bg-[#30304C]">
       <div className="flex items-center gap-4">
         <div className="bg-[#4FA2AE] h-9 w-5 rounded-sm"></div>
-        <h2 className="text-[#4FA2AE] text-[14px] md:text-[16px] font-semibold">
+        <h2 className="text-[#4FA2AE] text-[14px] md:text-[16px] font-semibold leading-[120%]">
           Our Products
         </h2>
       </div>
-      <div className="mt-4 text-white flex md:gap-20 items-start md:items-end justify-between">
+      <div className="mt-4 text-white flex gap-6 md:gap-20 items-start md:items-end justify-between">
         <div className="flex flex-col lg:flex-row lg:items-end gap-2 lg:gap-20">
-          <h3 className="font-semibold text-[30px] md:text-[36px]">
+          <h3 className="font-semibold text-[30px] md:text-[36px] leading-[120%]">
             Explore Our Products
           </h3>
         </div>
 
-        {/* <div className="flex mt-2 md:mt-0">
+        <div className="flex mt-2 md:mt-0">
           <button className="md:px-2  " onClick={handleScrollLeft}>
             {" "}
             <BsFillArrowLeftCircleFill className="h-6 md:h-8 w-6 md:w-8" />
@@ -130,17 +57,17 @@ const Section5 = ({ productList }) => {
             {" "}
             <BsFillArrowRightCircleFill className="h-6 md:h-8 w-6 md:w-8" />
           </button>
-        </div> */}
+        </div>
       </div>
       <div
-        className="mt-6 md:mt-10 flex flex-wrap gap-10"
+        className="mt-6 md:mt-10 flex overflow-x-scroll no-scrollbar gap-10"
         style={{ scrollbarWidth: "none" }}
         ref={scrollContainerRef}
       >
         {productList.map((product) => (
           <Product
             key={product.id}
-            prodcutId={product.id}
+            Id={product.id}
             imageSrc={product.images[0].url}
             productName={product.name}
             currentPrice={product.currentPrice}

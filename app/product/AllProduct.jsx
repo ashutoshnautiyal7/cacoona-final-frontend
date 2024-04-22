@@ -1,6 +1,7 @@
 "use client";
+import Product from "@/components/Home/Product";
 import React, { useRef } from "react";
-import Product from "./Product";
+// import Product from "./Product";
 import {
   BsFillArrowLeftCircleFill,
   BsFillArrowRightCircleFill,
@@ -79,7 +80,7 @@ const productList = [
   },
 ];
 
-const Section3 = ({ productList }) => {
+const AllProduct = () => {
   const scrollContainerRef = useRef(null);
   const handleScrollRight = () => {
     if (scrollContainerRef.current) {
@@ -107,7 +108,7 @@ const Section3 = ({ productList }) => {
   };
 
   return (
-    <section className="px-[1.2rem] md:px-[2.5rem] py-14 bg-[#30304C]">
+    <section className="px-[1.2rem] md:px-[2.5rem] py-9 md:py-14 bg-[#30304C]">
       <div className="flex items-center gap-4">
         <div className="bg-[#4FA2AE] h-9 w-5 rounded-sm"></div>
         <h2 className="text-[#4FA2AE] text-[14px] md:text-[16px] font-semibold">
@@ -126,15 +127,15 @@ const Section3 = ({ productList }) => {
           </button>
         </div>
         {/* <div className="flex mt-2 md:mt-0">
-          <button className="md:px-2  " onClick={handleScrollLeft}>
-            {" "}
-            <BsFillArrowLeftCircleFill className="h-6 md:h-8 w-6 md:w-8" />
-          </button>
-          <button className="px-2 md:px-2" onClick={handleScrollRight}>
-            {" "}
-            <BsFillArrowRightCircleFill className="h-6 md:h-8 w-6 md:w-8" />
-          </button>
-        </div> */}
+            <button className="md:px-2  " onClick={handleScrollLeft}>
+              {" "}
+              <BsFillArrowLeftCircleFill className="h-6 md:h-8 w-6 md:w-8" />
+            </button>
+            <button className="px-2 md:px-2" onClick={handleScrollRight}>
+              {" "}
+              <BsFillArrowRightCircleFill className="h-6 md:h-8 w-6 md:w-8" />
+            </button>
+          </div> */}
       </div>
       <div
         className="mt-6 md:mt-10 flex overflow-x-scroll no-scrollbar gap-10"
@@ -144,14 +145,13 @@ const Section3 = ({ productList }) => {
         {productList.map((product) => (
           <Product
             key={product.id}
-            Id={product.id}
-            imageSrc={product.images[0].url}
-            productName={product.name}
+            imageSrc={product.imageSrc}
+            productName={product.productName}
             currentPrice={product.currentPrice}
             originalPrice={product.originalPrice}
-            discount={product.category}
-            rating={4.5}
-            totalRatings={5}
+            discount={product.discount}
+            rating={product.rating}
+            totalRatings={product.totalRatings}
           />
         ))}
       </div>
@@ -159,4 +159,4 @@ const Section3 = ({ productList }) => {
   );
 };
 
-export default Section3;
+export default AllProduct;

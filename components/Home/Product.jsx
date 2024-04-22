@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { FaRegHeart } from "react-icons/fa";
 import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
+import Link from "next/link";
 import AddToBag from "../ui/AddToBag";
 
 const Product = ({
-  prodcutId,
+  Id,
   imageSrc,
   productName,
   currentPrice,
@@ -24,7 +25,13 @@ const Product = ({
         onMouseEnter={() => setShowButton(true)}
         onMouseLeave={() => setShowButton(false)}
       >
-        <img src={imageSrc} alt="" className="w-[14rem] md:w-[17rem] h-[13.5rem] md:h-[16rem] rounded-md" />
+        <Link href={`/product/${Id}`}>
+          <img
+            src={imageSrc}
+            alt=""
+            className="w-[14rem] md:w-[17rem] h-[13.5rem] md:h-[16rem] rounded-md"
+          />
+        </Link>
         {discount && (
           <span className="px-3.5 py-1.5 rounded-md text-white text-[12px] bg-[#4FA2AE] absolute top-3 left-3">
             {discount}
@@ -58,7 +65,9 @@ const Product = ({
                 size="small"
               />
             </Stack>
-            <span className="text-gray-500 ml-2yy md:ml-4">({totalRatings})</span>
+            <span className="text-gray-500 ml-2yy md:ml-4">
+              ({totalRatings})
+            </span>
           </div>
         )}
       </div>

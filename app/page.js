@@ -13,6 +13,7 @@ import Navbar from "@/components/Navbar/Navbar";
 // import Section2 from "@/components/landing/Section2";
 import Image from "next/image";
 import db from '../lib/db'
+import Section6 from "@/components/Home/Section6";
 
 
 export default async function Home() {
@@ -35,6 +36,7 @@ export default async function Home() {
       <Section3 productList={products} />
       <Section4/>
       <Section5 productList={products}/>
+      <Section6 />
       <Footer2 />
     </main>
   );
