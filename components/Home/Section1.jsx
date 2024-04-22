@@ -170,6 +170,7 @@ const Section1 = ({ productList }) => {
         {productList?.map((product) => (
           <Product
             key={product.id}
+            Id={product.id}
             imageSrc={product.images[0].url}
             productName={product.name}
             currentPrice={product.currentPrice}

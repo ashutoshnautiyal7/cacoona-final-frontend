@@ -8,9 +8,11 @@ const Hero = () => {
   var settings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 5000,
     appendDots: (dots) => (
       <div
         style={{
@@ -25,14 +27,14 @@ const Hero = () => {
     ),
   };
   return (
-    <div className="relative">
+    <div className="relative overflow-hidden">
       <Slider {...settings}>
-        <div className="bg-gray-500 h-[26rem] w-[200px]">1</div>
-        <div className="bg-gray-300 h-[26rem] w-[200px]">2 </div>
-        <div className="bg-gray-300 h-[26rem] w-[200px]">3 </div>
+        <img src="" alt="#" className="h-[14rem] md:h-[26rem] bg-gray-400" />
+        <img src="" alt="##" className="h-[14rem] md:h-[26rem] bg-gray-400" />
+        <img src="" alt="###" className="h-[14rem] md:h-[26rem] bg-gray-400" />
       </Slider>
-      <div className="absolute top-[40%] ml-16 text-[48px] text-white font-semibold">
-        <h2>Up to 10% off Voucher</h2>
+      <div className="absolute top-[36%] ml-4 md:ml-16 text-[25px] md:text-[48px] text-white font-semibold">
+        <h2 className="">Up to 10% off Voucher</h2>
         <p className="text-[16px]">Shop Now</p>
       </div>
     </div>
