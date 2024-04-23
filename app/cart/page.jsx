@@ -1,27 +1,26 @@
-'use client'
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
+"use client";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import useCart from "@/hooks/use-cart";
 import axios from "axios";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
 import { useSearchParams } from "next/navigation";
 
-
 const CartComponent = () => {
-  const { items ,  clearCart, incrementQuantity, decrementQuantity} = useCart();
+  const { items, clearCart, incrementQuantity, decrementQuantity } = useCart();
 
-  const searchParams =  useSearchParams();
+  // const searchParams =  useSearchParams();
 
-  useEffect(() => {
-    if(searchParams.get("success")){
-      clearCart()
-      toast.success("Paymnet complete")
-    }
-    if(searchParams.get("canceled")){
-      toast.error("Payment cancelled")
-    }
-  },[searchParams, clearCart])
+  // useEffect(() => {
+  //   if(searchParams.get("success")){
+  //     clearCart()
+  //     toast.success("Paymnet complete")
+  //   }
+  //   if(searchParams.get("canceled")){
+  //     toast.error("Payment cancelled")
+  //   }
+  // },[searchParams, clearCart])
 
   // Helper function to calculate the subtotal
   const total = () => {
@@ -33,24 +32,24 @@ const CartComponent = () => {
   };
 
   const onCheckout = async () => {
-    try{
-
+    try {
       const productData = items.map((item) => ({
-      id: item.id,
-      quantity: item.quantity,
-    }));
-      
-      const res = await axios.post("http://localhost:3001/api/checkout", {
-        productData,
-    })
+        id: item.id,
+        quantity: item.quantity,
+      }));
 
-    window.location = res.data.url}
+      const res = await axios.post(
+        "https://cacoona-admin.vercel.app/api/checkout",
+        {
+          productData,
+        }
+      );
 
-    catch(error){
-        console.log("error" ,error)
+      window.location = res.data.url;
+    } catch (error) {
+      console.log("error", error);
     }
-  }
-
+  };
 
   return (
     <div className="container mx-auto py-12 px-4 md:px-6">
@@ -85,11 +84,19 @@ const CartComponent = () => {
                 <p className="font-medium">${item.currentPrice}</p>
               </div>
               <div className="flex items-center justify-end gap-2">
-                <Button onClick={() => decrementQuantity(item.id)} size="icon" variant="outline">
-                  <MinusIcon  className="h-4 w-4" />
+                <Button
+                  onClick={() => decrementQuantity(item.id)}
+                  size="icon"
+                  variant="outline"
+                >
+                  <MinusIcon className="h-4 w-4" />
                 </Button>
                 <span>{item.quantity}</span>
-                <Button onClick={() => incrementQuantity(item.id)} size="icon" variant="outline">
+                <Button
+                  onClick={() => incrementQuantity(item.id)}
+                  size="icon"
+                  variant="outline"
+                >
                   <PlusIcon className="h-4 w-4" />
                 </Button>
               </div>
@@ -101,8 +108,12 @@ const CartComponent = () => {
             <p>Total</p>
             <p className="font-medium text-primary">${total()}</p>
           </div>
-          <Button onClick={() => clearCart()} className="w-full">Empty cart</Button>
-          <Button className="w-full" onClick={() => onCheckout()}>Proceed to Checkout</Button>
+          <Button onClick={() => clearCart()} className="w-full">
+            Empty cart
+          </Button>
+          <Button className="w-full" onClick={() => onCheckout()}>
+            Proceed to Checkout
+          </Button>
           <Link
             className="inline-block text-center text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
             href="#"
@@ -112,8 +123,8 @@ const CartComponent = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 function MinusIcon(props) {
   return (
@@ -131,7 +142,7 @@ function MinusIcon(props) {
     >
       <path d="M5 12h14" />
     </svg>
-  )
+  );
 }
 
 function PlusIcon(props) {
@@ -151,7 +162,7 @@ function PlusIcon(props) {
       <path d="M5 12h14" />
       <path d="M12 5v14" />
     </svg>
-  )
+  );
 }
 
-export default CartComponent
+export default CartComponent;

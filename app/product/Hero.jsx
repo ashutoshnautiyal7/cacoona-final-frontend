@@ -29,22 +29,25 @@ const Hero = ({ data }) => {
   };
 
   const handleBuyNow = async () => {
-    try{
+    try {
+      const productData = [
+        {
+          id: data.id,
+          quantity: value,
+        },
+      ];
+      const res = await axios.post(
+        "https://cacoona-admin.vercel.app/api/checkout",
+        {
+          productData,
+        }
+      );
 
-       const productData = [{
-        id: data.id,
-        quantity: value
-      }];
-      const res = await axios.post("http://localhost:3001/api/checkout", {
-       productData
-      })
-
-    window.location = res.data.url}
-
-    catch(error){
-        console.log("error" ,error)
+      window.location = res.data.url;
+    } catch (error) {
+      console.log("error", error);
     }
-  }
+  };
 
   return (
     <section className="bg-[#30304C] pt-7 md:pt-10 px-[1.2rem] md:px-[2.5rem]">
@@ -158,7 +161,10 @@ const Hero = ({ data }) => {
                 +
               </button>
             </div>
-            <button onClick={() => handleBuyNow()} className="w-full bg-[#4FA2AE] text-white font-semibold text-[14px] md:text-[16px]">
+            <button
+              onClick={() => handleBuyNow()}
+              className="w-full bg-[#4FA2AE] text-white font-semibold text-[14px] md:text-[16px]"
+            >
               BUY NOW
             </button>
           </div>

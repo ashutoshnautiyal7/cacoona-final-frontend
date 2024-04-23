@@ -34,6 +34,8 @@ const Navbar = () => {
     setDropdown3Open(!dropdown3Open);
   };
 
+  const cart = useCart();
+
   return (
     <>
       <section className="bg-[#FFEECD] text-[11.5px] md:text-[14px] hidden md:flex gap-4 md:gap-10 items-center justify-center px-6 py-1.5 md:p-2.5 text-center leading-4">
