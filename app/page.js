@@ -24,7 +24,6 @@ export default async function Home() {
       }
     }
   );
-  console.log("the products are " , products);
   return (
     <main className="">
       {/* <Hero />

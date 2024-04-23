@@ -106,6 +106,7 @@ const Section1 = ({ productList }) => {
     }
   };
 
+  console.log("product list is", productList)
   return (
     <section className="px-[1.2rem] md:px-[2.5rem] py-14 bg-[#30304C]">
       <div className="flex items-center gap-4">
