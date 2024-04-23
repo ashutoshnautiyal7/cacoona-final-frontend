@@ -29,9 +29,21 @@ const Hero = () => {
   return (
     <div className="relative overflow-hidden">
       <Slider {...settings}>
-        <img src="" alt="#" className="h-[14rem] md:h-[26rem] bg-gray-400" />
-        <img src="" alt="##" className="h-[14rem] md:h-[26rem] bg-gray-400" />
-        <img src="" alt="###" className="h-[14rem] md:h-[26rem] bg-gray-400" />
+        <img
+          src="/Images/banner1.png"
+          alt="#"
+          className="h-[14rem] md:h-[26rem] bg-gray-400"
+        />
+        <img
+          src="/Images/banner1.png"
+          alt="#"
+          className="h-[14rem] md:h-[26rem] bg-gray-400"
+        />
+        <img
+          src="/Images/banner1.png"
+          alt="#"
+          className="h-[14rem] md:h-[26rem] bg-gray-400"
+        />
       </Slider>
       <div className="absolute top-[36%] ml-4 md:ml-16 text-[25px] md:text-[48px] text-white font-semibold">
         <h2 className="">Up to 10% off Voucher</h2>
