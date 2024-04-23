@@ -14,8 +14,8 @@ import { FiShoppingBag } from "react-icons/fi";
 import { TbLogout2 } from "react-icons/tb";
 import { MdOutlineCancel } from "react-icons/md";
 import Link from "next/link";
-import { useShoppingCart } from "use-shopping-cart";
 import useCart from "@/hooks/use-cart";
+import { Button } from "../ui/button";
 
 const Navbar = () => {
   const [dropdown1Open, setDropdown1Open] = useState(false);
@@ -34,11 +34,6 @@ const Navbar = () => {
     setDropdown3Open(!dropdown3Open);
   };
 
-  const cart = useCart();
-
-  console.log("cart is" ,cart)
-
-  const { handleCartClick } = useShoppingCart();
   return (
     <>
       <section className="bg-[#FFEECD] text-[11.5px] md:text-[14px] hidden md:flex gap-4 md:gap-10 items-center justify-center px-6 py-1.5 md:p-2.5 text-center leading-4">

@@ -56,6 +56,7 @@ const Product = ({
           discount,
           rating,
           totalRatings,
+          quantity: 1,
         };
         cart.addItem(productData);
       }}

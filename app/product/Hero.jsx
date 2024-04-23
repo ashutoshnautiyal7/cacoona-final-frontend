@@ -30,10 +30,14 @@ const Hero = ({ data }) => {
 
   const handleBuyNow = async () => {
     try{
-      const res = await axios.post("http://localhost:3001/api/checkout", {
-        productIds: [data.id.toString()],
+
+       const productData = [{
+        id: data.id,
         quantity: value
-    })
+      }];
+      const res = await axios.post("http://localhost:3001/api/checkout", {
+       productData
+      })
 
     window.location = res.data.url}
 

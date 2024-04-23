@@ -26,8 +26,34 @@ const useCart = create(
         clearCart: () => {
             set({ items: [] });
         },
-    }
-    ), {
+        incrementQuantity: (id) => {
+        const updatedItems = get().items.map((item) => {
+          if (item.id === id) {
+            return { ...item, quantity: item.quantity + 1 };
+          }
+          return item;
+        });
+
+        set({ items: updatedItems });
+      },
+      decrementQuantity: (id) => {
+        const updatedItems = get().items
+          .map((item) => {
+            if (item.id === id) {
+              if (item.quantity === 1) {
+                // Remove item from cart if quantity becomes 0
+                return null;
+              }
+              return { ...item, quantity: item.quantity - 1 };
+            }
+            return item;
+          })
+          .filter(Boolean); // Remove null values from the array
+
+        set({ items: updatedItems });
+      },
+    }),
+     {
         name: "cart-storage",
         storage: createJSONStorage(() => localStorage),
     })
