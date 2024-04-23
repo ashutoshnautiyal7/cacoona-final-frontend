@@ -4,6 +4,8 @@ import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
 import Link from "next/link";
 import AddToBag from "../ui/AddToBag";
+import { Button } from "../ui/button";
+import useCart from "@/hooks/use-cart";
 
 const Product = ({
   Id,
@@ -16,6 +18,8 @@ const Product = ({
   totalRatings,
 }) => {
   const [showButton, setShowButton] = useState(false);
+
+  const cart = useCart();
   
    
   return (
@@ -40,8 +44,25 @@ const Product = ({
         <span className="px-2 py-2 rounded-full text-white text-[12px] bg-[#4FA2AE] absolute top-3 right-3">
           <FaRegHeart className="h-4 w-4" />
         </span>
-        <AddToBag id={Id} imageSrc={imageSrc} productName={productName} currentPrice={currentPrice} originalPrice={originalPrice} discount={discount} rating={rating} totalRatings={totalRatings}
-        />
+        <Button
+      onClick={(event) => {
+        event.stopPropagation()
+        const productData = {
+          id: Id,
+          imageSrc,
+          productName,
+          currentPrice,
+          originalPrice,
+          discount,
+          rating,
+          totalRatings,
+        };
+        cart.addItem(productData);
+      }}
+      className={`bg-[#4FA2AE] w-full h-10 absolute bottom-0 text-white flex justify-center items-center transition-opacity duration-300 rounded-b-md opacity-0 hover:opacity-100`}
+    >
+      Add To Cart
+    </Button>
       </div>
 
       <div className="font-medium mt-4 text-[14px] md:text-[16px]">

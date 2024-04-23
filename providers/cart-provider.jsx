@@ -1,8 +1,7 @@
 "use client";
 
 import { CartProvider as USCProvider } from "use-shopping-cart";
-
-export default function CartProvider({children}) {
+const CartProvider = ({children}) => {
   return (
     <USCProvider
       mode="payment"
@@ -19,3 +18,4 @@ export default function CartProvider({children}) {
     </USCProvider>
   );
 }
+export default CartProvider;

@@ -15,6 +15,7 @@ import { TbLogout2 } from "react-icons/tb";
 import { MdOutlineCancel } from "react-icons/md";
 import Link from "next/link";
 import { useShoppingCart } from "use-shopping-cart";
+import useCart from "@/hooks/use-cart";
 
 const Navbar = () => {
   const [dropdown1Open, setDropdown1Open] = useState(false);
@@ -32,6 +33,10 @@ const Navbar = () => {
   const toggleDropdown3 = () => {
     setDropdown3Open(!dropdown3Open);
   };
+
+  const cart = useCart();
+
+  console.log("cart is" ,cart)
 
   const { handleCartClick } = useShoppingCart();
   return (
@@ -79,7 +84,7 @@ const Navbar = () => {
               <MdOutlineShoppingCart className="w-5 md:w-6 h-5 md:h-6 mb-1" />
               CART
               <div className="absolute text-[12px] md:text-[13px] -top-1 md:-top-1.5 -right-0 md:-right-0.5 bg-[#4FA2AE] text-white w-[14px] md:w-[18px] h-[14px] md:h-[18px] flex items-center justify-center rounded-full font-semibold">
-                2
+                {cart.items.length}
               </div>
             </span>
             <span
