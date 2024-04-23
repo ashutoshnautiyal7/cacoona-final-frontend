@@ -4,6 +4,7 @@ import React from "react";
 import Hero from "../Hero";
 import Description from "../Description";
 import AllProduct from "../AllProduct";
+import prisma from "@/lib/db";
 
 const page = async ({ params }) => {
   console.log("the id is ", params.id);
