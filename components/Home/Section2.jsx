@@ -82,7 +82,7 @@ const Section2 = () => {
         ref={scrollContainerRef}
       >
         {items.map((item, index) => (
-          <Link href={item.link}>
+          <Link key={index} href={item.link}>
             <div
               key={index}
               className="flex flex-col items-center justify-center border h-[8rem] md:h-[10rem] min-w-[8rem] md:min-w-[11rem] rounded-md text-white overflow-hidden transition-all duration-300 hover:bg-[#4FA2AE]"
