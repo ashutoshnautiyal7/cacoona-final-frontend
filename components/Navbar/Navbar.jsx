@@ -77,13 +77,16 @@ const Navbar = () => {
               <FaRegHeart className="w-5 md:w-6 h-5 md:h-6 mb-1" />
               WISHLIST
             </span>
-            <span className="flex flex-col items-center justify-center relative cursor-pointer">
+            <Link
+              href={"/cart"}
+              className="flex flex-col items-center justify-center relative cursor-pointer"
+            >
               <MdOutlineShoppingCart className="w-5 md:w-6 h-5 md:h-6 mb-1" />
               CART
               <div className="absolute text-[12px] md:text-[13px] -top-1 md:-top-1.5 -right-0 md:-right-0.5 bg-[#4FA2AE] text-white w-[14px] md:w-[18px] h-[14px] md:h-[18px] flex items-center justify-center rounded-full font-semibold">
                 {cart.items.length}
               </div>
-            </span>
+            </Link>
             <span
               className="flex flex-col items-center justify-center relative cursor-pointer"
               onMouseEnter={toggleDropdown3}

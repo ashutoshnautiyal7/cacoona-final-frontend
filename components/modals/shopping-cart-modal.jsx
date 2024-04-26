@@ -23,29 +23,33 @@ export default function ShoppingCartModal() {
     totalPrice,
   } = useShoppingCart();
 
-//   useEffect(() => {
-//     if(useSearchParams.get('success')){
-//         console.log("success"),   
-//     }
-//     else{
-//         console.log("failure")
-//     }
-//   }, [serachParams])
+  //   useEffect(() => {
+  //     if(useSearchParams.get('success')){
+  //         console.log("success"),
+  //     }
+  //     else{
+  //         console.log("failure")
+  //     }
+  //   }, [serachParams])
 
- 
   const onCheckout = async () => {
-    console.log("cartDetails", cartDetails)
-    try{const res = await axios.post("http://localhost:3001/api/checkout", {
-        productIds: Object.values(cartDetails ?? {}).map((entry) => entry.prodcutId),
-        quantity:1
-    })
+    console.log("cartDetails", cartDetails);
+    try {
+      const res = await axios.post(
+        "https://cacoona-admin.vercel.app/api/checkout",
+        {
+          productIds: Object.values(cartDetails ?? {}).map(
+            (entry) => entry.prodcutId
+          ),
+          quantity: 1,
+        }
+      );
 
-    window.location = res.data.url}
-
-    catch(error){
-        console.log("error" ,error)
+      window.location = res.data.url;
+    } catch (error) {
+      console.log("error", error);
     }
-  }
+  };
 
   return (
     <Sheet open={shouldDisplayCart} onOpenChange={() => handleCartClick()}>
