@@ -5,14 +5,19 @@ import {
   BsFillArrowLeftCircleFill,
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
+import Link from "next/link";
 
 const items = [
-  { imageSrc: "/Images/c1.png", text: "Charms" },
-  { imageSrc: "/Images/c2.png", text: "Pendants" },
-  { imageSrc: "/Images/c3.png", text: "Bracelets" },
-  { imageSrc: "/Images/c4.png", text: "Rings" },
-  { imageSrc: "/Images/c5.png", text: "Earrings" },
-  { imageSrc: "/Images/c6.png", text: "Gifts" },
+  { imageSrc: "/Images/c1.png", text: "Charms", link: "/category/charms" },
+  { imageSrc: "/Images/c2.png", text: "Pendants", link: "/category/pendants" },
+  {
+    imageSrc: "/Images/c3.png",
+    text: "Bracelets",
+    link: "/category/bracelets",
+  },
+  { imageSrc: "/Images/c4.png", text: "Rings", link: "/category/rings" },
+  { imageSrc: "/Images/c5.png", text: "Earrings", link: "/category/earrings" },
+  { imageSrc: "/Images/c6.png", text: "Gifts", link: "/category/gifts" },
 ];
 
 const Section2 = () => {
@@ -43,7 +48,10 @@ const Section2 = () => {
   };
 
   return (
-    <section className="px-[1.2rem] md:px-[2.5rem] lg:px-[8rem] py-6 md:py-10 bg-[#30304C]">
+    <section
+      id="category"
+      className="px-[1.2rem] md:px-[2.5rem] lg:px-[8rem] py-6 md:py-10 bg-[#30304C]"
+    >
       <div className="flex items-center gap-4">
         <div className="bg-[#4FA2AE] h-9 w-5 rounded-sm"></div>
         <h2 className="text-[#4FA2AE] text-[14px] md:text-[16px] font-semibold">
@@ -57,7 +65,7 @@ const Section2 = () => {
           </h3>
         </div>
 
-        <div className="flex mt-2 md:mt-0">
+        <div className="block lg:hidden flex mt-2 md:mt-0">
           <button className="md:px-2  " onClick={handleScrollLeft}>
             {" "}
             <BsFillArrowLeftCircleFill className="h-6 md:h-8 w-6 md:w-8" />
@@ -74,13 +82,15 @@ const Section2 = () => {
         ref={scrollContainerRef}
       >
         {items.map((item, index) => (
-          <div
-            key={index}
-            className="flex flex-col items-center justify-center border h-[8rem] md:h-[10rem] min-w-[8rem] md:min-w-[11rem] rounded-md text-white overflow-hidden transition-all duration-300 hover:bg-[#4FA2AE]"
-          >
-            <img src={item.imageSrc} alt={item.text} className="w-9 h-12" />
-            <span>{item.text}</span>
-          </div>
+          <Link href={item.link}>
+            <div
+              key={index}
+              className="flex flex-col items-center justify-center border h-[8rem] md:h-[10rem] min-w-[8rem] md:min-w-[11rem] rounded-md text-white overflow-hidden transition-all duration-300 hover:bg-[#4FA2AE]"
+            >
+              <img src={item.imageSrc} alt={item.text} className="w-9 h-12" />
+              <span>{item.text}</span>
+            </div>
+          </Link>
         ))}
       </div>
       <div className="flex justify-center mt-8 md:mt-12">
