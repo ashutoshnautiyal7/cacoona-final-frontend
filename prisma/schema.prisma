@@ -13,8 +13,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
-
 enum Category {
   BOOKS
   CHARMS
@@ -23,6 +21,14 @@ enum Category {
   EARRINGS
   PENDANTS
   GIFTS
+}
+
+model User{
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  email       String 
+  password String?
+  image       String? 
 }
 
 model Product {
@@ -66,9 +72,6 @@ model OrderItem {
   @@index([orderId])
   @@index([productId])
 }
-
-
-
 
 model Image {
   id    String  @id @default(auto()) @map("_id") @db.ObjectId
