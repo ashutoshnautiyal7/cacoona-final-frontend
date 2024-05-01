@@ -20,11 +20,17 @@ const Wishlist = ({ users }) => {
 
   const filterData = users.filter((user) => user.email === email);
 
-  const products = filterData[0].products;
+  const products = filterData[0].wishlist;
+
+  console.log("the products are ", products);
+
+  const formattedProds = products.map((prod) => prod.product);
+  console.log("format ", formattedProds);
 
   return (
     <>
-      <Category productList={products} />
+      <Category productList={formattedProds} />
+      <div>hello</div>
     </>
   );
 };
