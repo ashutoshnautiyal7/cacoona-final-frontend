@@ -22,31 +22,34 @@ enum Category {
   PENDANTS
   GIFTS
 }
-
-model User{
-  id          String  @id @default(auto()) @map("_id") @db.ObjectId
-  name        String
-  email       String 
-  password String?
-  image       String? 
+model User {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  email     String    @unique
+  password  String?
+  image     String?
+  products  Product[] @relation("UserProducts")  // wishlist products
 }
 
 model Product {
-  id          String  @id @default(auto()) @map("_id") @db.ObjectId
-  category    Category
-  name        String
-  isFeatured  Boolean   @default(false)
-  isArchived  Boolean   @default(false)
-  color        String?
-  size         String?
-  currentPrice Float
+  id            String     @id @default(auto()) @map("_id") @db.ObjectId
+  category      Category
+  name          String
+  isFeatured    Boolean    @default(false)
+  isArchived    Boolean    @default(false)
+  color         String?
+  size          String?
+  currentPrice  Float
   originalPrice Float
-  images      Image[]   // Relation to Image model
-  orderItems  OrderItem[]   // Relation to Order model
-  quantity    Int 
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
+  images        Image[]
+  orderItems    OrderItem[]
+  userEmail     String?   @unique
+  user          User?      @relation("UserProducts", fields: [userEmail], references: [email])
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
 }
+
+
 
 model Order {
   id    String  @id @default(auto()) @map("_id") @db.ObjectId

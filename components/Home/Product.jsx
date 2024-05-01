@@ -7,6 +7,8 @@ import AddToBag from "../ui/AddToBag";
 import { Button } from "../ui/button";
 import useCart from "@/hooks/use-cart";
 
+import { useSession, signIn, signOut } from "next-auth/react";
+
 const Product = ({
   Id,
   imageSrc,
@@ -20,8 +22,31 @@ const Product = ({
   const [showButton, setShowButton] = useState(false);
 
   const cart = useCart();
-  
-   
+
+  const { data: session, status } = useSession();
+
+  const email = session?.user.email;
+
+  console.log("the email in the product page is ", email);
+
+  const handleWishlistToggle = async (productId) => {
+    try {
+      const res = await fetch("/api/wishlist", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, productId }),
+      });
+
+      const data = await res.json();
+      console.log(data.message);
+      window.location.reload();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div className="min-w-[14rem] md:min-w-[17rem]">
       <div
@@ -41,29 +66,35 @@ const Product = ({
             {discount}
           </span>
         )}
-        <span className="px-2 py-2 rounded-full text-white text-[12px] bg-[#4FA2AE] absolute top-3 right-3">
+        <span
+          className="px-2 py-2 rounded-full text-white text-[12px] bg-[#4FA2AE] absolute top-3 right-3 cursor-pointer"
+          onClick={(e) => {
+            e.stopPropagation();
+            handleWishlistToggle(Id);
+          }}
+        >
           <FaRegHeart className="h-4 w-4" />
         </span>
         <Button
-      onClick={(event) => {
-        event.stopPropagation()
-        const productData = {
-          id: Id,
-          imageSrc,
-          productName,
-          currentPrice,
-          originalPrice,
-          discount,
-          rating,
-          totalRatings,
-          quantity: 1,
-        };
-        cart.addItem(productData);
-      }}
-      className={`bg-[#4FA2AE] w-full h-10 absolute bottom-0 text-white flex justify-center items-center transition-opacity duration-300 rounded-b-md opacity-0 hover:opacity-100`}
-    >
-      Add To Cart
-    </Button>
+          onClick={(event) => {
+            event.stopPropagation();
+            const productData = {
+              id: Id,
+              imageSrc,
+              productName,
+              currentPrice,
+              originalPrice,
+              discount,
+              rating,
+              totalRatings,
+              quantity: 1,
+            };
+            cart.addItem(productData);
+          }}
+          className={`bg-[#4FA2AE] w-full h-10 absolute bottom-0 text-white flex justify-center items-center transition-opacity duration-300 rounded-b-md opacity-0 hover:opacity-100`}
+        >
+          Add To Cart
+        </Button>
       </div>
 
       <div className="font-medium mt-4 text-[14px] md:text-[16px]">
