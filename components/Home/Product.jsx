@@ -42,6 +42,8 @@ const Product = ({
         body: JSON.stringify({ email, productId }),
       });
 
+      console.log("the response on wishlist click is ", res.json());
+
       router.refresh();
     } catch (error) {
       console.error(error);
