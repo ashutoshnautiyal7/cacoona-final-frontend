@@ -7,13 +7,17 @@ import Category from "../category/Category";
 const Wishlist = ({ users }) => {
   const { data: session, status } = useSession();
 
+  console.log("the session is ", session);
+
   if (status === "loading") {
     return <div>Loading...</div>;
   }
 
   if (!session) {
     // User is not logged in
-    return <div>Please sign in to view your wishlist.</div>;
+    return (
+      <div className=" text-white">Please sign in to view your wishlist.</div>
+    );
   }
 
   const email = session.user.email;
@@ -27,12 +31,7 @@ const Wishlist = ({ users }) => {
   const formattedProds = products.map((prod) => prod.product);
   console.log("format ", formattedProds);
 
-  return (
-    <>
-      <Category productList={formattedProds} />
-      <div>hello</div>
-    </>
-  );
+  return <Category productList={formattedProds} />;
 };
 
 export default Wishlist;

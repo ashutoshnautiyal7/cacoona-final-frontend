@@ -8,6 +8,7 @@ import { Button } from "../ui/button";
 import useCart from "@/hooks/use-cart";
 
 import { useSession, signIn, signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const Product = ({
   Id,
@@ -20,6 +21,8 @@ const Product = ({
   totalRatings,
 }) => {
   const [showButton, setShowButton] = useState(false);
+
+  const router = useRouter();
 
   const cart = useCart();
 
@@ -39,9 +42,7 @@ const Product = ({
         body: JSON.stringify({ email, productId }),
       });
 
-      const data = await res.json();
-      console.log(data.message);
-      window.location.reload();
+      router.refresh();
     } catch (error) {
       console.error(error);
     }

@@ -28,7 +28,9 @@ const page = async () => {
     <main>
       <Navbar />
 
-      <Wishlist users={users} />
+      <div className="bg-[#30304C] py-6 md:py-12 px-[1.2rem] md:px-[2.5rem] xl:px-[8rem]">
+        <Wishlist users={users} />
+      </div>
 
       <Footer2 />
     </main>

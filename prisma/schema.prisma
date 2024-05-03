@@ -61,7 +61,6 @@ model Wishlist {
   @@unique([userEmail, productId])
 }
 
-
 model Order {
   id    String  @id @default(auto()) @map("_id") @db.ObjectId
   storeId     String    // Foreign Key to Store
