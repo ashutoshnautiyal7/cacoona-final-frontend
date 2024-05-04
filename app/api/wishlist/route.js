@@ -6,9 +6,9 @@ export async function POST(request) {
     const { email, productId } = await request.json();
 
     if (!email) {
-      return new NextResponse('Unauthorized', { status: 401 });
+      return new NextResponse('SignIn to add items to wishlist', { status: 401 });
     }
-
+ 
     const existingWishlist = await db.wishlist.findUnique({
       where: {
         userEmail_productId: {
