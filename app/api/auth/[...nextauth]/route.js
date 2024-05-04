@@ -9,8 +9,8 @@ const handler = NextAuth({
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
-      secret: process.env.NEXT_AUTH_SECRET,
     }),
+    
     CredentialsProvider({
       name: "Credentials",
       credentials: {
@@ -45,6 +45,7 @@ const handler = NextAuth({
       }
     })
   ],
+  secret: process.env.NEXT_AUTH_SECRET,
   callbacks: {
     async session({ session }) {
       return session
