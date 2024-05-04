@@ -73,10 +73,12 @@ const Navbar = () => {
             <IoSearchOutline className="w-6 h-6 text-black absolute top-2 right-4 cursor-pointer" />
           </div>
           <div className="flex gap-4 md:gap-10 text-[10px] items-center">
-            <span className="flex flex-col items-center justify-center cursor-pointer">
-              <FaRegHeart className="w-5 md:w-6 h-5 md:h-6 mb-1" />
-              WISHLIST
-            </span>
+            <Link href={"/wishlist"}>
+              <span className="flex flex-col items-center justify-center cursor-pointer">
+                <FaRegHeart className="w-5 md:w-6 h-5 md:h-6 mb-1" />
+                WISHLIST
+              </span>
+            </Link>
             <Link
               href={"/cart"}
               className="flex flex-col items-center justify-center relative cursor-pointer"
@@ -145,13 +147,11 @@ const Navbar = () => {
               <>
                 <div className="absolute top-full left-0 h-1.5 w-52"></div>
                 <div className="absolute top-full left-0 bg-[#4FA2AE] text-white p-4 flex flex-col gap-2 text-[14px] lg:text-[16px] w-[15rem] justify-center font-normal mt-1.5 shadow-md rounded-sm z-50">
-                  <span>Celestial Necklaces</span>
-                  <span>Astrology Bracelets</span>
-                  <span>Elemental Earrings</span>
-                  <span>Cosmic Rings</span>
-                  <span>Astrology Keychains</span>
-                  <span>Pendants</span>
-                  <span>Astrology Gift Sets</span>
+                  <Link href={"/category/charms"}>Charms</Link>
+                  <Link href={"/category/earrings"}>Elemental Earrings</Link>
+                  <Link href={"/category/rings"}>Cosmic Rings</Link>
+                  <Link href={"/category/gifts"}>Astrology Keychains</Link>
+                  <Link href={"/category/pendants"}>Pendants</Link>
                 </div>
               </>
             )}

@@ -2,8 +2,13 @@
 
 import React from "react";
 import Product from "../Home/Product";
+import { useSession } from "next-auth/react";
 
 const Category = ({ productList }) => {
+  const { data: session, status } = useSession();
+
+  const email = session?.user.email;
+
   return (
     <div
       className="mt-8 md:mt-10 flex flex-wrap justify-center md:justify-start gap-6 md:gap-10"
@@ -11,6 +16,7 @@ const Category = ({ productList }) => {
     >
       {productList.map((product) => (
         <Product
+          email={email}
           key={product.id}
           Id={product.id}
           imageSrc={product.images[0].url}
