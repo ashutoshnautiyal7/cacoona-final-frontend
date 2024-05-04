@@ -28,7 +28,6 @@ model User {
   email     String    @unique
   password  String?
   image     String?
-  products  Product[] @relation("UserProducts")  // wishlist products
 }
 
 model Product {
@@ -43,8 +42,6 @@ model Product {
   originalPrice Float
   images        Image[]
   orderItems    OrderItem[]
-  userEmail     String?   @unique
-  user          User?      @relation("UserProducts", fields: [userEmail], references: [email])
   createdAt     DateTime   @default(now())
   updatedAt     DateTime   @updatedAt
 }
@@ -87,3 +84,10 @@ model Image {
   @@index([productId])
 }
 
+model Cart {
+  id       String  @id @default(auto()) @map("_id") @db.ObjectId
+  email    String  @unique
+  items     Json
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

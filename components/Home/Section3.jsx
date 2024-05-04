@@ -6,6 +6,8 @@ import {
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
 
+import { useSession } from "next-auth/react";
+
 const productList = [
   {
     id: 1,
@@ -80,6 +82,11 @@ const productList = [
 ];
 
 const Section3 = ({ productList }) => {
+
+  const { data: session, status } = useSession();
+
+  const email = session?.user?.email;
+
   const scrollContainerRef = useRef(null);
   const handleScrollRight = () => {
     if (scrollContainerRef.current) {
@@ -143,6 +150,7 @@ const Section3 = ({ productList }) => {
       >
         {productList.map((product) => (
           <Product
+             userEmail = {email}
             key={product.id}
             Id={product.id}
             imageSrc={product.images[0].url}

@@ -6,10 +6,12 @@ import Link from "next/link";
 import AddToBag from "../ui/AddToBag";
 import { Button } from "../ui/button";
 import useCart from "@/hooks/use-cart";
+import { useEffect } from "react";
 
 import { useSession, signIn, signOut } from "next-auth/react";
 
 const Product = ({
+  userEmail,
   Id,
   imageSrc,
   productName,
@@ -21,13 +23,11 @@ const Product = ({
 }) => {
   const [showButton, setShowButton] = useState(false);
 
+  
+
   const cart = useCart();
+ 
 
-  const { data: session, status } = useSession();
-
-  const email = session?.user.email;
-
-  console.log("the email in the product page is ", email);
 
   const handleWishlistToggle = async (productId) => {
     try {
@@ -89,7 +89,7 @@ const Product = ({
               totalRatings,
               quantity: 1,
             };
-            cart.addItem(productData);
+            cart.addItem(productData, userEmail);
           }}
           className={`bg-[#4FA2AE] w-full h-10 absolute bottom-0 text-white flex justify-center items-center transition-opacity duration-300 rounded-b-md opacity-0 hover:opacity-100`}
         >

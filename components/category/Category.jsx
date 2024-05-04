@@ -2,8 +2,15 @@
 
 import React from "react";
 import Product from "../Home/Product";
+import {useSession} from "next-auth/react";
 
 const Category = ({ productList }) => {
+
+  const {data: session} = useSession();
+
+  const email = session.user.email;
+
+  console.log("email from all category", email);
   return (
     
      
@@ -14,6 +21,7 @@ const Category = ({ productList }) => {
         >
           {productList.map((product) => (
             <Product
+              userEmail = {email}
               key={product.id}
               Id={product.id}
               imageSrc={product.images[0].url}

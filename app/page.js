@@ -32,10 +32,10 @@ export default async function Home() {
       <Navbar />
       <Hero />
       <Section1 productList={products}/>
-      <Section2/>
+      {/* <Section2/>
       <Section3 productList={products} />
       <Section4/>
-      <Section5 productList={products}/>
+      <Section5 productList={products}/> */}
       <Section6 />
       <Footer2 />
     </main>

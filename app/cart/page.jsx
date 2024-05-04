@@ -6,9 +6,27 @@ import axios from "axios";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
 import { useSearchParams } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 const CartComponent = () => {
-  const { items, clearCart, incrementQuantity, decrementQuantity } = useCart();
+  const { items, clearCart, incrementQuantity, decrementQuantity, loadCart } = useCart();
+
+  const {data: session} = useSession();
+
+  const email = session?.user?.email;
+
+
+  console.log("email from cart", email);
+
+
+
+  useEffect(() => {
+      if (session) {
+        const email = session.user.email;
+        loadCart(email);
+      }
+    }, [session, loadCart]);
+  console.log("items in cart", items);
 
   // const searchParams =  useSearchParams();
 
@@ -85,7 +103,7 @@ const CartComponent = () => {
               </div>
               <div className="flex items-center justify-end gap-2">
                 <Button
-                  onClick={() => decrementQuantity(item.id)}
+                  onClick={() => decrementQuantity(item.id, email)}
                   size="icon"
                   variant="outline"
                 >
@@ -93,7 +111,7 @@ const CartComponent = () => {
                 </Button>
                 <span>{item.quantity}</span>
                 <Button
-                  onClick={() => incrementQuantity(item.id)}
+                  onClick={() => incrementQuantity(item.id, email)}
                   size="icon"
                   variant="outline"
                 >
@@ -108,7 +126,7 @@ const CartComponent = () => {
             <p>Total</p>
             <p className="font-medium text-primary">${total()}</p>
           </div>
-          <Button onClick={() => clearCart()} className="w-full">
+          <Button onClick={() => clearCart(email)} className="w-full">
             Empty cart
           </Button>
           <Button className="w-full" onClick={() => onCheckout()}>
