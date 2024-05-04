@@ -22,6 +22,10 @@ const Wishlist = ({ users }) => {
 
   const email = session.user.email;
 
+  console.log("the complete uses data is ", users);
+
+  console.log("the email in the wishlist page is ", email);
+
   const filterData = users.filter((user) => user.email === email);
 
   const products = filterData[0].wishlist;

@@ -22,7 +22,6 @@ const page = async () => {
   });
 
   console.log("the users data is ", users);
-  // console.log("the wishlist data is ", users[0].wishlist);
 
   return (
     <main>
