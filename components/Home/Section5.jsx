@@ -9,6 +9,12 @@ import {
 import { useSession, signIn, signOut } from "next-auth/react";
 
 const Section5 = ({ productList }) => {
+  const {data: session, status} = useSession();
+
+  const email = session?.user?.email;
+
+  console.log("email from all product 12321", email);
+
   const scrollContainerRef = useRef(null);
   const handleScrollRight = () => {
     if (scrollContainerRef.current) {
@@ -35,9 +41,6 @@ const Section5 = ({ productList }) => {
     }
   };
 
-  const { data: session, status } = useSession();
-
-  const email = session?.user.email;
 
   return (
     <section className="px-[1.2rem] md:px-[2.5rem] py-8 md:py-14 bg-[#30304C]">

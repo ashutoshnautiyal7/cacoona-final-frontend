@@ -7,80 +7,20 @@ import {
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
 
-const productList = [
-  {
-    id: 1,
-    imageSrc: "/Images/p1.png",
-    productName: "Starry Night Keychain",
-    currentPrice: "$12.99",
-    originalPrice: "$19.49",
-    discount: "-40%",
-    rating: 4.5,
-    totalRatings: 88,
-  },
-  {
-    id: 1,
-    imageSrc: "/Images/p1.png",
-    productName: "Starry Night Keychain",
-    currentPrice: "$12.99",
-    originalPrice: "$19.49",
-    discount: "-40%",
-    rating: 4.5,
-    totalRatings: 88,
-  },
-  {
-    id: 1,
-    imageSrc: "/Images/p1.png",
-    productName: "Starry Night Keychain",
-    currentPrice: "$12.99",
-    originalPrice: "$19.49",
-    discount: "-40%",
-    rating: 4.5,
-    totalRatings: 88,
-  },
-  {
-    id: 1,
-    imageSrc: "/Images/p1.png",
-    productName: "Starry Night Keychain",
-    currentPrice: "$12.99",
-    originalPrice: "$19.49",
-    discount: "-40%",
-    rating: 4.5,
-    totalRatings: 88,
-  },
-  {
-    id: 1,
-    imageSrc: "/Images/p1.png",
-    productName: "Starry Night Keychain",
-    currentPrice: "$12.99",
-    originalPrice: "$19.49",
-    discount: "-40%",
-    rating: 4.5,
-    totalRatings: 88,
-  },
-  {
-    id: 1,
-    imageSrc: "/Images/p1.png",
-    productName: "Starry Night Keychain",
-    currentPrice: "$12.99",
-    originalPrice: "$19.49",
-    discount: "-40%",
-    rating: 4.5,
-    totalRatings: 88,
-  },
-  {
-    id: 1,
-    imageSrc: "/Images/p1.png",
-    productName: "Starry Night Keychain",
-    currentPrice: "$12.99",
-    originalPrice: "$19.49",
-    discount: "-40%",
-    rating: 4.5,
-    totalRatings: 88,
-  },
-];
+import { useSession } from "next-auth/react";
+
 
 const AllProduct = () => {
+
+  const session = useSession();
+
+  const email = session.user.email;
+
+  console.log("email from all product", session);
+  
+
+
+
   const scrollContainerRef = useRef(null);
   const handleScrollRight = () => {
     if (scrollContainerRef.current) {
@@ -144,6 +84,7 @@ const AllProduct = () => {
       >
         {productList.map((product) => (
           <Product
+            userEmail= {email}
             key={product.id}
             imageSrc={product.imageSrc}
             productName={product.productName}

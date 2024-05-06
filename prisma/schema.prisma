@@ -97,3 +97,10 @@ model Image {
   @@index([productId])
 }
 
+model Cart {
+  id       String  @id @default(auto()) @map("_id") @db.ObjectId
+  email    String  @unique
+  items     Json
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

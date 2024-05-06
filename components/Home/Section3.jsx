@@ -6,9 +6,85 @@ import {
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
 
-import { useSession, signIn, signOut } from "next-auth/react";
+const productList = [
+  {
+    id: 1,
+    imageSrc: "/Images/p1.png",
+    productName: "Starry Night Keychain",
+    currentPrice: "$12.99",
+    originalPrice: "$19.49",
+    discount: "-40%",
+    rating: 4.5,
+    totalRatings: 88,
+  },
+  {
+    id: 1,
+    imageSrc: "/Images/p1.png",
+    productName: "Starry Night Keychain",
+    currentPrice: "$12.99",
+    originalPrice: "$19.49",
+    discount: "-40%",
+    rating: 4.5,
+    totalRatings: 88,
+  },
+  {
+    id: 1,
+    imageSrc: "/Images/p1.png",
+    productName: "Starry Night Keychain",
+    currentPrice: "$12.99",
+    originalPrice: "$19.49",
+    discount: "-40%",
+    rating: 4.5,
+    totalRatings: 88,
+  },
+  {
+    id: 1,
+    imageSrc: "/Images/p1.png",
+    productName: "Starry Night Keychain",
+    currentPrice: "$12.99",
+    originalPrice: "$19.49",
+    discount: "-40%",
+    rating: 4.5,
+    totalRatings: 88,
+  },
+  {
+    id: 1,
+    imageSrc: "/Images/p1.png",
+    productName: "Starry Night Keychain",
+    currentPrice: "$12.99",
+    originalPrice: "$19.49",
+    discount: "-40%",
+    rating: 4.5,
+    totalRatings: 88,
+  },
+  {
+    id: 1,
+    imageSrc: "/Images/p1.png",
+    productName: "Starry Night Keychain",
+    currentPrice: "$12.99",
+    originalPrice: "$19.49",
+    discount: "-40%",
+    rating: 4.5,
+    totalRatings: 88,
+  },
+  {
+    id: 1,
+    imageSrc: "/Images/p1.png",
+    productName: "Starry Night Keychain",
+    currentPrice: "$12.99",
+    originalPrice: "$19.49",
+    discount: "-40%",
+    rating: 4.5,
+    totalRatings: 88,
+  },
+];
 
 const Section3 = ({ productList }) => {
+
+  const { data: session, status } = useSession();
+
+  const email = session?.user?.email;
+
   const scrollContainerRef = useRef(null);
   const handleScrollRight = () => {
     if (scrollContainerRef.current) {
@@ -35,9 +111,6 @@ const Section3 = ({ productList }) => {
     }
   };
 
-  const { data: session, status } = useSession();
-
-  const email = session?.user.email;
 
   return (
     <section className="px-[1.2rem] md:px-[2.5rem] py-14 bg-[#30304C]">

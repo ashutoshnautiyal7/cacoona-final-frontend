@@ -6,9 +6,16 @@ import {
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
 
+
 import { useSession, signIn, signOut } from "next-auth/react";
 
 const Section1 = ({ productList }) => {
+
+  const {data: session , status} = useSession();
+
+  const email = session?.user.email;
+
+  
   const scrollContainerRef = useRef(null);
   const handleScrollRight = () => {
     if (scrollContainerRef.current) {
@@ -35,11 +42,10 @@ const Section1 = ({ productList }) => {
     }
   };
 
-  const { data: session, status } = useSession();
 
-  const email = session?.user.email;
+  
 
-  return (
+    return (
     <section className="px-[1.2rem] md:px-[2.5rem] py-14 bg-[#30304C]">
       <div className="flex items-center gap-4">
         <div className="bg-[#4FA2AE] h-9 w-5 rounded-sm"></div>
@@ -122,6 +128,6 @@ const Section1 = ({ productList }) => {
       </div>
     </section>
   );
-};
+  }
 
 export default Section1;

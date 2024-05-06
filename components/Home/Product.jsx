@@ -6,6 +6,7 @@ import Link from "next/link";
 import AddToBag from "../ui/AddToBag";
 import { Button } from "../ui/button";
 import useCart from "@/hooks/use-cart";
+import { useEffect } from "react";
 
 import { useSession, signIn, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
@@ -96,7 +97,7 @@ const Product = ({
               totalRatings,
               quantity: 1,
             };
-            cart.addItem(productData);
+            cart.addItem(productData, email);
           }}
           className={`bg-[#4FA2AE] w-full h-10 absolute bottom-0 text-white flex justify-center items-center transition-opacity duration-300 rounded-b-md opacity-0 hover:opacity-100`}
         >
