@@ -93,7 +93,7 @@ const useCart = create((set, get) => ({
     const response = await axios.patch("/api/cart", { updatedItems, email });
     if (response.status === 200) {
       set({ items: updatedItems });
-      toast.success("Item added to cart");
+      toast.success("Item value decremented");
     } else {
       console.error(`Error in cart: ${response.status}`);
     }

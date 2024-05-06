@@ -6,15 +6,14 @@ import {
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
 
-import {useSession} from "next-auth/react";
-
 
 import { useSession, signIn, signOut } from "next-auth/react";
 
 const Section1 = ({ productList }) => {
 
-  console.log("the session i s" , useSession());
   const {data: session , status} = useSession();
+
+  const email = session?.user.email;
 
   
   const scrollContainerRef = useRef(null);
@@ -43,9 +42,8 @@ const Section1 = ({ productList }) => {
     }
   };
 
-  const { data: session, status } = useSession();
 
-  const email = session?.user.email;
+  
 
     return (
     <section className="px-[1.2rem] md:px-[2.5rem] py-14 bg-[#30304C]">
@@ -131,8 +129,5 @@ const Section1 = ({ productList }) => {
     </section>
   );
   }
-
-  
-};
 
 export default Section1;
