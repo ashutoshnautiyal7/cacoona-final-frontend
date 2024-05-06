@@ -1,27 +1,42 @@
-import Footer2 from "@/components/Footer/Footer2";
+"use client";
+import Wishlist from "@/components/wishlist/Wishlist";
+import { useState, useEffect } from "react";
+import { useSession, signIn, signOut } from "next-auth/react";
 import Navbar from "@/components/Navbar/Navbar";
-import React from "react";
-import db from "../../lib/db";
+import Footer2 from "@/components/Footer/Footer2";
 
-import Wishlist from "../../components/wishlist/Wishlist";
+export default function ClientWishlist() {
+  const [users, setUsers] = useState(null);
+  const { data: session, status } = useSession();
+  const email = session?.user.email;
 
-const page = async () => {
-  const users = await db.user.findMany({
-    select: {
-      email: true,
-      wishlist: {
-        select: {
-          product: {
-            include: {
-              images: true,
-            },
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const response = await fetch("/api/users", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
           },
-        },
-      },
-    },
-  });
+          body: JSON.stringify({ email }),
+        });
+        const data = await response.json();
+        setUsers(data);
+      } catch (error) {
+        console.error("Error fetching users:", error);
+      }
+    };
 
-  console.log("the users data is ", users);
+    if (email) {
+      fetchUsers();
+    }
+  }, [email, users]);
+
+  if (!users) {
+    return <div>Loading...</div>;
+  }
+
+  console.log("the final data is ", users);
 
   return (
     <main>
@@ -34,6 +49,4 @@ const page = async () => {
       <Footer2 />
     </main>
   );
-};
-
-export default page;
+}
