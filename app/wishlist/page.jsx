@@ -7,19 +7,29 @@ import Wishlist from "../../components/wishlist/Wishlist";
 
 const page = async () => {
   const users = await db.user.findMany({
-    include: {
-      products: {
-        include: {
-          images: true,
+    select: {
+      email: true,
+      wishlist: {
+        select: {
+          product: {
+            include: {
+              images: true,
+            },
+          },
         },
       },
     },
   });
+
+  console.log("the users data is ", users);
+
   return (
     <main>
       <Navbar />
 
-      <Wishlist users={users} />
+      <div className="bg-[#30304C] py-6 md:py-12 px-[1.2rem] md:px-[2.5rem] xl:px-[8rem]">
+        <Wishlist users={users} />
+      </div>
 
       <Footer2 />
     </main>

@@ -9,6 +9,8 @@ import {
 import {useSession} from "next-auth/react";
 
 
+import { useSession, signIn, signOut } from "next-auth/react";
+
 const Section1 = ({ productList }) => {
 
   console.log("the session i s" , useSession());
@@ -41,17 +43,9 @@ const Section1 = ({ productList }) => {
     }
   };
 
-  if(status === "loading") return <div>Loading...</div>
+  const { data: session, status } = useSession();
 
-   
-
-  console.log("the status is", status);
-
-  if(session ) {
-
-    const email = session.user.email;
-
-    console.log("email AFTER THE SESSION IS ", email);
+  const email = session?.user.email;
 
     return (
     <section className="px-[1.2rem] md:px-[2.5rem] py-14 bg-[#30304C]">
@@ -116,7 +110,7 @@ const Section1 = ({ productList }) => {
       >
         {productList?.map((product) => (
           <Product
-            userEmail = {email}
+            email={email}
             key={product.id}
             Id={product.id}
             imageSrc={product.images[0].url}

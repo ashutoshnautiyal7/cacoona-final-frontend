@@ -7,26 +7,35 @@ import Category from "../category/Category";
 const Wishlist = ({ users }) => {
   const { data: session, status } = useSession();
 
+  console.log("the session is ", session);
+
   if (status === "loading") {
     return <div>Loading...</div>;
   }
 
   if (!session) {
     // User is not logged in
-    return <div>Please sign in to view your wishlist.</div>;
+    return (
+      <div className=" text-white">Please sign in to view your wishlist.</div>
+    );
   }
 
   const email = session.user.email;
 
+  console.log("the complete uses data is ", users);
+
+  console.log("the email in the wishlist page is ", email);
+
   const filterData = users.filter((user) => user.email === email);
 
-  const products = filterData[0].products;
+  const products = filterData[0].wishlist;
 
-  return (
-    <>
-      <Category productList={products} />
-    </>
-  );
+  console.log("the products are ", products);
+
+  const formattedProds = products.map((prod) => prod.product);
+  console.log("format ", formattedProds);
+
+  return <Category productList={formattedProds} />;
 };
 
 export default Wishlist;

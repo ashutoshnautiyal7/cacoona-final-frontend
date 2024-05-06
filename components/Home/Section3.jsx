@@ -6,8 +6,6 @@ import {
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
 
-import { useSession } from "next-auth/react";
-
 const productList = [
   {
     id: 1,
@@ -113,6 +111,10 @@ const Section3 = ({ productList }) => {
     }
   };
 
+  const { data: session, status } = useSession();
+
+  const email = session?.user.email;
+
   return (
     <section className="px-[1.2rem] md:px-[2.5rem] py-14 bg-[#30304C]">
       <div className="flex items-center gap-4">
@@ -150,7 +152,7 @@ const Section3 = ({ productList }) => {
       >
         {productList.map((product) => (
           <Product
-             userEmail = {email}
+            email={email}
             key={product.id}
             Id={product.id}
             imageSrc={product.images[0].url}

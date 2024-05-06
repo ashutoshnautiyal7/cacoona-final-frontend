@@ -9,9 +9,11 @@ import useCart from "@/hooks/use-cart";
 import { useEffect } from "react";
 
 import { useSession, signIn, signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { toast } from "react-hot-toast";
 
 const Product = ({
-  userEmail,
+  email,
   Id,
   imageSrc,
   productName,
@@ -23,25 +25,31 @@ const Product = ({
 }) => {
   const [showButton, setShowButton] = useState(false);
 
-  
+  // const { data: session, status } = useSession();
+  const router = useRouter();
 
   const cart = useCart();
- 
 
+  // const email = session?.user.email;
+
+  // console.log("the email in the product page is ", email);
 
   const handleWishlistToggle = async (productId) => {
     try {
-      const res = await fetch("/api/wishlist", {
+      await fetch("/api/wishlist", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ email, productId }),
-      });
+      })
+        .then((response) => response.text())
+        .then((data) => {
+          toast.success(data);
+          console.log("Response body:", data);
+        });
 
-      const data = await res.json();
-      console.log(data.message);
-      window.location.reload();
+      router.refresh();
     } catch (error) {
       console.error(error);
     }

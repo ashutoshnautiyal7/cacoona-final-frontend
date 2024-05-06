@@ -22,12 +22,14 @@ enum Category {
   PENDANTS
   GIFTS
 }
+
 model User {
   id        String    @id @default(auto()) @map("_id") @db.ObjectId
   name      String
   email     String    @unique
   password  String?
   image     String?
+  wishlist  Wishlist[]
 }
 
 model Product {
@@ -42,11 +44,22 @@ model Product {
   originalPrice Float
   images        Image[]
   orderItems    OrderItem[]
+  wishlist      Wishlist[]
   createdAt     DateTime   @default(now())
   updatedAt     DateTime   @updatedAt
 }
 
+model Wishlist {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  user      User     @relation(fields: [userEmail], references: [email])
+  userEmail String
+  product   Product  @relation(fields: [productId], references: [id])
+  productId String   @db.ObjectId
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
+  @@unique([userEmail, productId])
+}
 
 model Order {
   id    String  @id @default(auto()) @map("_id") @db.ObjectId
