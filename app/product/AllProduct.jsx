@@ -1,6 +1,6 @@
 "use client";
 import Product from "@/components/Home/Product";
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 // import Product from "./Product";
 import {
   BsFillArrowLeftCircleFill,
@@ -9,18 +9,7 @@ import {
 
 import { useSession } from "next-auth/react";
 
-
 const AllProduct = () => {
-
-  const session = useSession();
-
-  const email = session.user.email;
-
-  console.log("email from all product", session);
-  
-
-
-
   const scrollContainerRef = useRef(null);
   const handleScrollRight = () => {
     if (scrollContainerRef.current) {
@@ -46,6 +35,33 @@ const AllProduct = () => {
       });
     }
   };
+
+  const [productList, setProductList] = useState(null);
+  const { data: session, status } = useSession();
+  const email = session?.user.email;
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const response = await fetch("/api/getallproducts", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        const data = await response.json();
+        setProductList(data);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    fetchUsers();
+  }, [productList]);
+
+  if (!productList) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <section className="px-[1.2rem] md:px-[2.5rem] py-9 md:py-14 bg-[#30304C]">
@@ -84,15 +100,16 @@ const AllProduct = () => {
       >
         {productList.map((product) => (
           <Product
-            userEmail= {email}
+            email={email}
             key={product.id}
-            imageSrc={product.imageSrc}
-            productName={product.productName}
+            Id={product.id}
+            imageSrc={product.images[0].url}
+            productName={product.name}
             currentPrice={product.currentPrice}
             originalPrice={product.originalPrice}
-            discount={product.discount}
-            rating={product.rating}
-            totalRatings={product.totalRatings}
+            discount={product.category}
+            rating={4.5}
+            totalRatings={5}
           />
         ))}
       </div>
