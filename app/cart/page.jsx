@@ -7,11 +7,15 @@ import { useEffect } from "react";
 import toast from "react-hot-toast";
 import { useSearchParams } from "next/navigation";
 import { useSession } from "next-auth/react";
+import { ThreeCircles } from "react-loader-spinner";
+import { useState } from "react";
 
 const CartComponent = () => {
   const { items, clearCart, incrementQuantity, decrementQuantity, loadCart } = useCart();
 
   const {data: session} = useSession();
+
+  const [isCheckoutLoading, setIsCheckoutLoading] = useState(false);
 
   const email = session?.user?.email;
 
@@ -51,6 +55,7 @@ const CartComponent = () => {
 
   const onCheckout = async () => {
     try {
+      setIsCheckoutLoading(true);
       const productData = items.map((item) => ({
         id: item.id,
         quantity: item.quantity,
@@ -129,9 +134,15 @@ const CartComponent = () => {
           <Button onClick={() => clearCart(email)} className="w-full">
             Empty cart
           </Button>
-          <Button className="w-full" onClick={() => onCheckout()}>
+          {
+            isCheckoutLoading ? <div className="flex items-center justify-center">
+              <ThreeCircles   height="30"
+                width="100" color="#000" />
+            </div> : <Button className="w-full" onClick={() => onCheckout()}>
             Proceed to Checkout
           </Button>
+          }
+          
           <Link
             className="inline-block text-center text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
             href="#"

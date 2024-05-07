@@ -25,7 +25,6 @@ const page = async ({ params }) => {
       <Navbar />
       <Hero data={data} />
       <Description />
-      <AllProduct />
       <Footer2 />
     </main>
   );

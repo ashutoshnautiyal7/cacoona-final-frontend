@@ -6,9 +6,10 @@ import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
 import { FaEye } from "react-icons/fa";
 import axios from "axios";
-
+import { ThreeCircles } from "react-loader-spinner";
 const Hero = ({ data }) => {
   const [mainImageIndex, setMainImageIndex] = useState(0);
+  const [isCheckoutLoading, setIsCheckoutLoading] = useState(false);
   const handleClickPrev = () => {
     setMainImageIndex((prevIndex) =>
       prevIndex === 0 ? data.images.length - 1 : prevIndex - 1
@@ -30,6 +31,7 @@ const Hero = ({ data }) => {
 
   const handleBuyNow = async () => {
     try {
+      setIsCheckoutLoading(true);
       const productData = [
         {
           id: data.id,
@@ -161,12 +163,18 @@ const Hero = ({ data }) => {
                 +
               </button>
             </div>
-            <button
+             {
+            isCheckoutLoading ? <div className="flex items-center justify-center">
+              <ThreeCircles   height="100"
+                width="100" color="#000" />
+            </div> : <button
               onClick={() => handleBuyNow()}
               className="w-full bg-[#4FA2AE] text-white font-semibold text-[14px] md:text-[16px]"
             >
               BUY NOW
             </button>
+          }
+            
           </div>
         </div>
       </div>

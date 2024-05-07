@@ -10,11 +10,13 @@ import {
 import { useSession } from "next-auth/react";
 
 
-const AllProduct = () => {
+const AllProduct = (
+  {productList}
+) => {
 
   const session = useSession();
 
-  const email = session.user.email;
+  const email = session?.user?.email;
 
   console.log("email from all product", session);
   
