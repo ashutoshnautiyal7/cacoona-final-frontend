@@ -24,7 +24,8 @@ const page = async ({ params }) => {
     <main>
       <Navbar />
       <Hero data={data} />
-      <Description />
+      <Description des={data.description} />
+      <AllProduct />
       <Footer2 />
     </main>
   );

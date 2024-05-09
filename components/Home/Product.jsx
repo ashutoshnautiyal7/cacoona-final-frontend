@@ -31,10 +31,6 @@ const Product = ({
 
   const cart = useCart();
 
-  // const email = session?.user.email;
-
-  // console.log("the email in the product page is ", email);
-
   const handleWishlistToggle = async (productId) => {
     try {
       await fetch("/api/wishlist", {

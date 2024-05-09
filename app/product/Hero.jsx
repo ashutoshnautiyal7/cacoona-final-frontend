@@ -6,8 +6,18 @@ import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
 import { FaEye } from "react-icons/fa";
 import axios from "axios";
-import { ThreeCircles } from "react-loader-spinner";
+import { useSession, signIn, signOut } from "next-auth/react";
+
 const Hero = ({ data }) => {
+  const [material, setMaterial] = useState("hardcover");
+  console.log("the data in the hero is ", data);
+
+  const { data: session, status } = useSession();
+
+  const email = session?.user.email;
+
+  console.log("the email in the hero is ", email);
+
   const [mainImageIndex, setMainImageIndex] = useState(0);
   const [isCheckoutLoading, setIsCheckoutLoading] = useState(false);
   const handleClickPrev = () => {
@@ -42,6 +52,28 @@ const Hero = ({ data }) => {
         "https://cacoona-admin.vercel.app/api/checkout",
         {
           productData,
+        }
+      );
+
+      window.location = res.data.url;
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
+  const handleBuyNowBook = async () => {
+    try {
+      const productData = [
+        {
+          id: data.id,
+          quantity: value,
+          material: material,
+        },
+      ];
+      const res = await axios.post(
+        "https://cacoona-admin.vercel.app/api/checkout",
+        {
+          productData,
+          email,
         }
       );
 
@@ -118,36 +150,43 @@ const Hero = ({ data }) => {
               32 reviews
             </span>
           </div>
-          <div className="flex flex-col gap-2 md:gap-3 mt-5 md:mt-8">
-            <span>Founder: Annastacia Robinnson</span>
-            <span>More From - Cacoona</span>
-            <div className="flex gap-3">
-              <p>Material</p>
-              <p>:</p>
-              <button className="px-4 py-2 md:py-2.5 md:w-[8rem] border hover:bg-white hover:text-black text-[14px] md:text-[16px]">
-                Hardcore
-              </button>
-              <button className="px-4 py-2 md:py-2.5 md:w-[8rem] border hover:bg-white hover:text-black text-[14px] md:text-[16px]">
-                Online
-              </button>
+
+          {data.category === "BOOKS" ? (
+            <div className="flex flex-col gap-2 md:gap-3 mt-5 md:mt-8">
+              <span>Founder: {data.author || "unknown"}</span>
+              <span>More From - Cacoona</span>
+              <div className="flex gap-3">
+                <p>Material</p>
+                <p>:</p>
+                <button
+                  onClick={() => setMaterial("hardcover")}
+                  className="px-4 py-2 md:py-2.5 md:w-[8rem] border hover:bg-white hover:text-black text-[14px] md:text-[16px]"
+                >
+                  Hardcore
+                </button>
+                <button
+                  onClick={() => setMaterial("online")}
+                  className="px-4 py-2 md:py-2.5 md:w-[8rem] border hover:bg-white hover:text-black text-[14px] md:text-[16px]"
+                >
+                  Online
+                </button>
+              </div>
             </div>
-          </div>
+          ) : (
+            <></>
+          )}
           <div className="mt-5 md:mt-6 leading-[28.8px]">
             <p>
-              Experience the tactile pleasure of penning down your thoughts and
-              dreams in our beautifully crafted hardcover journal. Made with
-              premium materials and featuring thoughtful prompts and
-              inspirational quotes, the Chesper Hardcover Journal is your
-              trusted companion on the path to self-discovery.
+              {data.description.substr(0, 300) || "Here comes the description "}
             </p>
           </div>
-          <div className="flex flex-col gap-3 md:gap-5 mt-6 md:mt-8">
+          {/* <div className="flex flex-col gap-3 md:gap-5 mt-6 md:mt-8">
             <span className="flex items-center gap-3">
               <FaEye />
               People are viewing this right now
             </span>
             <span className="font-semibold">Let us know abour your query!</span>
-          </div>
+          </div> */}
           <div className="mt-8 md:mt-10 flex gap-8">
             <div className="number-input border w-[140px] py-2 px-4 flex ">
               <button onClick={decrement} className="text-[20px]">
@@ -163,18 +202,21 @@ const Hero = ({ data }) => {
                 +
               </button>
             </div>
-             {
-            isCheckoutLoading ? <div className="flex items-center justify-center">
-              <ThreeCircles   height="100"
-                width="100" color="#000" />
-            </div> : <button
-              onClick={() => handleBuyNow()}
-              className="w-full bg-[#4FA2AE] text-white font-semibold text-[14px] md:text-[16px]"
-            >
-              BUY NOW
-            </button>
-          }
-            
+            {data.category === "BOOKS" ? (
+              <button
+                onClick={() => handleBuyNowBook()}
+                className="w-full bg-[#4FA2AE] text-white font-semibold text-[14px] md:text-[16px]"
+              >
+                BUY NOW
+              </button>
+            ) : (
+              <button
+                onClick={() => handleBuyNow()}
+                className="w-full bg-[#4FA2AE] text-white font-semibold text-[14px] md:text-[16px]"
+              >
+                BUY NOW
+              </button>
+            )}
           </div>
         </div>
       </div>
