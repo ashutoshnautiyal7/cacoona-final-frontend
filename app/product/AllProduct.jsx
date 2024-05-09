@@ -57,7 +57,7 @@ const AllProduct = () => {
     };
 
     fetchUsers();
-  }, [productList]);
+  }, []);
 
   if (!productList) {
     return <div>Loading...</div>;

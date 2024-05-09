@@ -40,6 +40,8 @@ model Product {
   isArchived    Boolean    @default(false)
   color         String?
   size          String?
+  description String @default("")
+  author String? 
   currentPrice  Float
   originalPrice Float
   images        Image[]
