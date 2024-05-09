@@ -22,6 +22,7 @@ const Product = ({
   discount,
   rating,
   totalRatings,
+  category,
 }) => {
   const [showButton, setShowButton] = useState(false);
 
@@ -85,6 +86,10 @@ const Product = ({
         </span>
         <Button
           onClick={(event) => {
+            if(!email){
+              toast.error("Please login to add to cart");
+              return;
+            }
             event.stopPropagation();
             const productData = {
               id: Id,
@@ -96,6 +101,9 @@ const Product = ({
               rating,
               totalRatings,
               quantity: 1,
+              category,
+
+              
             };
             cart.addItem(productData, email);
           }}

@@ -30,15 +30,18 @@ model User {
   password  String?
   image     String?
   wishlist  Wishlist[]
+  orders    Order[]
 }
 
 model Product {
   id            String     @id @default(auto()) @map("_id") @db.ObjectId
   category      Category
   name          String
+  description String @default("")
   isFeatured    Boolean    @default(false)
   isArchived    Boolean    @default(false)
   color         String?
+  author      String?
   size          String?
   currentPrice  Float
   originalPrice Float
@@ -63,7 +66,8 @@ model Wishlist {
 
 model Order {
   id    String  @id @default(auto()) @map("_id") @db.ObjectId
-  storeId     String    // Foreign Key to Store
+  userEmail  String
+  user  User    @relation(fields: [userEmail], references: [email])
   orderItems OrderItem[] // Relation to OrderItem model
   isPaid     Boolean   @default(false)
   phone      String    @default("")
@@ -71,7 +75,6 @@ model Order {
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
 
-  @@index([storeId])
 }
 
 // Intermediary for a many-to-many relationship

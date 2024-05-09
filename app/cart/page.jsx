@@ -9,6 +9,7 @@ import { useSearchParams } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { ThreeCircles } from "react-loader-spinner";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const CartComponent = () => {
   const { items, clearCart, incrementQuantity, decrementQuantity, loadCart } = useCart();
@@ -18,6 +19,8 @@ const CartComponent = () => {
   const [isCheckoutLoading, setIsCheckoutLoading] = useState(false);
 
   const email = session?.user?.email;
+
+  const router = useRouter();
 
 
   console.log("email from cart", email);
@@ -32,19 +35,23 @@ const CartComponent = () => {
     }, [session, loadCart]);
   console.log("items in cart", items);
 
-  // const searchParams =  useSearchParams();
+  const searchParams =  useSearchParams();
 
-  // useEffect(() => {
-  //   if(searchParams.get("success")){
-  //     clearCart()
-  //     toast.success("Paymnet complete")
-  //   }
-  //   if(searchParams.get("canceled")){
-  //     toast.error("Payment cancelled")
-  //   }
-  // },[searchParams, clearCart])
+  useEffect(() => {
+    if(searchParams.get("isBook")){
+      clearCart(email)
+      router.push("/")
+      toast.success("download book")
+    }
+    if(searchParams.get("success")){
+      clearCart(email)
+      toast.success("Paymnet complete")
+    }
+    if(searchParams.get("cancelled")){
+      toast.error("Payment cancelled")
+    }
+  },[searchParams, clearCart, email])
 
-  // Helper function to calculate the subtotal
   const total = () => {
     let subtotal = 0;
     items.forEach((item) => {
@@ -61,10 +68,12 @@ const CartComponent = () => {
         quantity: item.quantity,
       }));
 
+
       const res = await axios.post(
         "https://cacoona-admin.vercel.app/api/checkout",
         {
           productData,
+          email
         }
       );
 

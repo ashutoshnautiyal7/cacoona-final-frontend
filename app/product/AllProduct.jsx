@@ -95,6 +95,7 @@ const AllProduct = (
             discount={product.discount}
             rating={product.rating}
             totalRatings={product.totalRatings}
+            category={product.category}
           />
         ))}
       </div>

@@ -24,8 +24,10 @@ const Category = ({ productList }) => {
           currentPrice={product.currentPrice}
           originalPrice={product.originalPrice}
           discount={product.category}
+          category={product.category}
           rating={4.5}
           totalRatings={5}
+          
         />
       ))}
     </div>

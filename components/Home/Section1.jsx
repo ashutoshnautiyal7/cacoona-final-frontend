@@ -118,6 +118,8 @@ const Section1 = ({ productList }) => {
             discount={product.category}
             rating={4.5}
             totalRatings={5}
+            category={product.category}
+
           />
         ))}
       </div>
