@@ -1,19 +1,19 @@
-import { getSession } from "next-auth/react";
 import BookDownloadPage from "../../../components/ui/book-pdf";
 
-const Page = async({params}) => {
+const Page = ({params}) => {
 
-    const session = await getSession();
-    const email = session?.user?.email;
+    // const {data: session, status } =  useSession();
+    // console.log("session", session)
+    // const email = session?.user?.email;
 
-    if(!session) {
-        return <div>Not authenticated</div>
-    }
+    // if(status === "loading") {
+    //     return <div>Not authenticated</div>
+    // }
     
 
     return ( <div>
         
-       <BookDownloadPage orderId={params.orderId} email={email}/>
+       <BookDownloadPage orderId={params.orderId} />
     </div> );
 }
  

@@ -1,14 +1,20 @@
 
 import prisma from "@/lib/db"
+import { Category } from "@prisma/client"
 
-const BookDownloadPage = async({email, orderId}) => {
-    console.log("email", email)
+const BookDownloadPage = async({orderId}) => {
 
     const isValidOrder = await prisma.order.findFirst({
         where: {
-            userEmail: email,
             id: orderId,
-            isPaid: true
+            isPaid: true,
+            orderItems: {
+                some: {
+                    product: {
+                        category: Category.BOOKS
+                    }
+                }
+            }
         }
     })
 
