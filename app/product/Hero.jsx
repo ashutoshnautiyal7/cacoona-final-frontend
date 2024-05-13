@@ -50,6 +50,7 @@ const Hero = ({ data }) => {
         "https://cacoona-admin.vercel.app/api/checkout",
         {
           productData,
+          email,
         }
       );
 
@@ -156,6 +157,7 @@ const Hero = ({ data }) => {
               <div className="flex gap-3">
                 <p>Material</p>
                 <p>:</p>
+
                 <button
                   onClick={() => setMaterial("hardcover")}
                   className="px-4 py-2 md:py-2.5 md:w-[8rem] border hover:bg-white hover:text-black text-[14px] md:text-[16px]"
