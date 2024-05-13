@@ -1,20 +1,19 @@
-import prisma from "@/lib/db";
-import { useSession } from "next-auth/react";
+import { getSession } from "next-auth/react";
+import BookDownloadPage from "../../../components/ui/book-pdf";
 
 const Page = async({params}) => {
 
-    const isValidOrder = await prisma.order.findUnique({
-        where: {
-            id: params.orderId,
-        }
-    })
+    const session = await getSession();
+    const email = session?.user?.email;
 
-    if(!isValidOrder) {
-        return <div>Invalid Order</div>
+    if(!session) {
+        return <div>Not authenticated</div>
     }
+    
 
     return ( <div>
-        {params.orderId}
+        
+       <BookDownloadPage orderId={params.orderId} email={email}/>
     </div> );
 }
  
