@@ -17,7 +17,7 @@ import Link from "next/link";
 import useCart from "@/hooks/use-cart";
 import { Button } from "../ui/button";
 import { useSession } from "next-auth/react";
-
+import SearchBar from "../ui/search-bar";
 const Navbar = () => {
 
   const {loadCart, items} = useCart();
@@ -77,14 +77,8 @@ const Navbar = () => {
           </Link>
 
           {/* input for large device */}
-          <div className="w-[45rem] text-[12px] md:text-[14px] hidden md:flex relative mx-10">
-            <input
-              type="text"
-              placeholder="What are you looking for?"
-              className="w-full py-2.5 px-4 pr-12 rounded-lg outline-none text-black"
-            />
-            <IoSearchOutline className="w-6 h-6 text-black absolute top-2 right-4 cursor-pointer" />
-          </div>
+          <SearchBar/>
+          
           <div className="flex gap-4 md:gap-10 text-[10px] items-center">
             <Link href={"/wishlist"}>
               <span className="flex flex-col items-center justify-center cursor-pointer">
