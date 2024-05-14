@@ -206,10 +206,9 @@ const Hero = ({ data }) => {
                 +
               </button>
             </div>
-            { isCheckoutLoading ?  <ThreeCircles   height="30"
-                width="100" color="#000" /> :
-            
-            data.category === "BOOKS" ? (
+            {isCheckoutLoading ? (
+              <ThreeCircles height="30" width="100" color="#000" />
+            ) : data.category === "BOOKS" ? (
               <button
                 onClick={() => handleBuyNowBook()}
                 className="w-full bg-[#4FA2AE] text-white font-semibold text-[14px] md:text-[16px]"

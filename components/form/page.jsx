@@ -7,7 +7,7 @@ import Link from "next/link";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { useRouter } from "next/navigation";
 
-const page = () => {
+const BookForm = () => {
   const router = useRouter();
 
   const [formData, setFormData] = useState({
@@ -169,4 +169,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default BookForm;
