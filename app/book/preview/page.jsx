@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Footer2 from "@/components/Footer/Footer2";
 import Preview from "./Preview";
 import { GoDotFill } from "react-icons/go";
@@ -48,6 +48,33 @@ const Page = (props) => {
     };
 
     html2pdf().from(element).set(opt).save();
+  };
+  const DownloadPDF = async () => {
+    try {
+      const element = document.getElementById("pdf-content");
+      const opt = {
+        margin: 0,
+        filename: "myfile.pdf",
+        image: { type: "jpeg", quality: 0.98 },
+        html2canvas: { scale: 1 },
+        jsPDF: { unit: "in", format: "letter", orientation: "landscape" },
+      };
+
+      html2pdf().from(element).set(opt).save();
+
+      const response = await fetch(
+        "https://res.cloudinary.com/dtfz1aqwq/image/upload/v1715709946/DATABASE-MANAGEMENT-SYSTEM-Question-Paper-21-22_flakus.pdf"
+      );
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "database-management-system-question-paper.pdf";
+      link.click();
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error("Error downloading PDF:", error);
+    }
   };
 
   return (
@@ -120,7 +147,7 @@ const Page = (props) => {
             </div>
           </div>
           <button
-            onClick={handlePrint}
+            onClick={DownloadPDF}
             className="bg-[#4FA2AE] text-[14px] md:text-[16px] w-[10rem] p-2 md:p-3 rounded-xl mt-10 md:mt-12"
           >
             Pay Now

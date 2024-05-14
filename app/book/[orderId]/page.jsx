@@ -16,9 +16,10 @@ const Page = ({ params }) => {
       <BookDownloadPage orderId={params.orderId} />
       <Link
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        href={
-          "https://res.cloudinary.com/dtfz1aqwq/image/upload/v1715709946/DATABASE-MANAGEMENT-SYSTEM-Question-Paper-21-22_flakus.pdf"
-        }
+        href={`https://res.cloudinary.com/dtfz1aqwq/image/upload/v1715709946/DATABASE-MANAGEMENT-SYSTEM-Question-Paper-21-22_flakus.pdf`}
+        target="_blank"
+        rel="noopener noreferrer"
+        download
       >
         Download PDF
       </Link>
