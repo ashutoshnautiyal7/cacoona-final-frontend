@@ -1,27 +1,23 @@
-import prisma from "@/lib/db";
-import { useSession } from "next-auth/react";
-import { MdKeyboardArrowDown } from "react-icons/md";
-import Image from "next/image";
-import Link from "next/link";
-import BookForm from "@/components/form/page";
+import BookDownloadPage from "../../../components/ui/book-pdf";
 
-const Page = async ({ params }) => {
-  const isValidOrder = await prisma.order.findUnique({
-    where: {
-      id: params.orderId,
-    },
-  });
+const Page = ({params}) => {
 
-  if (!isValidOrder) {
-    return <div>Invalid Order</div>;
-  }
+const Page = async({params}) => {
 
-  return (
-    <div>
-      {params.orderId}
-      <BookForm />
-    </div>
-  );
-};
+    const isValidOrder = await prisma.order.findUnique({
+        where: {
+            id: params.orderId,
+        }
+    })
 
+    if(!isValidOrder) {
+        return <div>Invalid Order</div>
+    }
+
+    return ( <div>
+        
+       <BookDownloadPage orderId={params.orderId} />
+    </div> );
+}
+ 
 export default Page;
