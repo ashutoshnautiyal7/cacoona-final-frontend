@@ -131,16 +131,7 @@ const Navbar = () => {
           </div>
         </div>
         {/* input for small device */}
-        <div>
-          <div className="mt-4 text-[13.5px] md:text-[14px] flex md:hidden relative">
-            <input
-              type="text"
-              placeholder="What are you looking for?"
-              className="w-full p-1.5 md:py-2.5 px-4 pr-12 rounded-lg outline-none text-black"
-            />
-            <IoSearchOutline className="w-4 md:w-6 h-4 md:h-6 text-black absolute top-2 right-4 cursor-pointer" />
-          </div>
-        </div>
+        
         <div className="hidden md:flex gap-5 lg:gap-10 xl:gap-16 mt-4 text-[14px] lg:text-[16px] font-light justify-center items-center w-full">
           <span
             className="flex items-center relative"
