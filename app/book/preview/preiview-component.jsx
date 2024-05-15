@@ -37,69 +37,69 @@ const PreviewPage = () => {
     setSelectedImage(imageUrl);
   };
 
-//   const [doStuff, setDoStuff] = useState(false);
 
 
-//   useEffect(() => {
-//  const exportFileAsPDF = async () => {
-//         const {default: html2pdf} = await import('html2pdf.js');
-
-//         if (typeof window === "undefined") return
-//         if (typeof document === "undefined") return
-
-//         if (content && html2pdf) {
-//            // use library
-//            HTML_CONTENT = document.getElementById("pdf-content");
-//            pdfOptions = {}
-//            html2pdf().from(HTML_CONTENT).set(pdfOptions).save();
-//            setDoStuff(false)
-//           }
-//       }
-
-//     if (doStuff){
-//         exportFileAsPDF()
-//     }
-// }, [doStuff])
-
-  const handlePrint = () => {
-    const element = document.getElementById("pdf-content");
-    const opt = {
-      margin: 0,
-      filename: "myfile.pdf",
-      image: { type: "jpeg", quality: 0.98 },
-      html2canvas: { scale: 1 },
-      jsPDF: { unit: "in", format: "letter", orientation: "landscape" },
-    };
-
-    html2pdf().from(element).set(opt).save();
-  };
-  const DownloadPDF = async () => {
+    const exportFileAsPDF = async () => {
     try {
-      const element = document.getElementById("pdf-content");
-      const opt = {
+        const Html2pdf = await import('html2pdf.js');
+
+        const html2pdf = Html2pdf.default;
+
+        if (typeof window === "undefined" || typeof document === "undefined") return;
+
+        const HTML_CONTENT = document.getElementById("pdf-content");
+              const opt = {
         margin: 0,
         filename: "myfile.pdf",
         image: { type: "jpeg", quality: 0.98 },
         html2canvas: { scale: 1 },
         jsPDF: { unit: "in", format: "letter", orientation: "landscape" },
       };
-
-      html2pdf().from(element).set(opt).save();
-
-      const response = await fetch(
-        "https://res.cloudinary.com/dtfz1aqwq/image/upload/v1715709946/DATABASE-MANAGEMENT-SYSTEM-Question-Paper-21-22_flakus.pdf"
-      );
-      const blob = await response.blob();
-      const url = window.URL.createObjectURL(blob);
-      const link = document.createElement("a");
-      link.href = url;
-      link.download = "database-management-system-question-paper.pdf";
-      link.click();
-      window.URL.revokeObjectURL(url);
+        html2pdf().from(HTML_CONTENT).set(opt).save();
     } catch (error) {
-      console.error("Error downloading PDF:", error);
+        console.error("Error downloading PDF:", error);
     }
-  };
+    };
+
+//   const handlePrint = () => {
+//     const element = document.getElementById("pdf-content");
+//     const opt = {
+//       margin: 0,
+//       filename: "myfile.pdf",
+//       image: { type: "jpeg", quality: 0.98 },
+//       html2canvas: { scale: 1 },
+//       jsPDF: { unit: "in", format: "letter", orientation: "landscape" },
+//     };
+
+//     html2pdf().from(element).set(opt).save();
+//   };
+//   const DownloadPDF = async () => {
+//     try {
+//       const element = document.getElementById("pdf-content");
+    //   const opt = {
+    //     margin: 0,
+    //     filename: "myfile.pdf",
+    //     image: { type: "jpeg", quality: 0.98 },
+    //     html2canvas: { scale: 1 },
+    //     jsPDF: { unit: "in", format: "letter", orientation: "landscape" },
+    //   };
+
+//       html2pdf().from(element).set(opt).save();
+
+//       const response = await fetch(
+//         "https://res.cloudinary.com/dtfz1aqwq/image/upload/v1715709946/DATABASE-MANAGEMENT-SYSTEM-Question-Paper-21-22_flakus.pdf"
+//       );
+//       const blob = await response.blob();
+//       const url = window.URL.createObjectURL(blob);
+//       const link = document.createElement("a");
+//       link.href = url;
+//       link.download = "database-management-system-question-paper.pdf";
+//       link.click();
+//       window.URL.revokeObjectURL(url);
+//     } catch (error) {
+//       console.error("Error downloading PDF:", error);
+//     }
+//   };
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
@@ -171,7 +171,7 @@ const PreviewPage = () => {
               </div>
             </div>
             <button
-              onClick={DownloadPDF}
+              onClick={exportFileAsPDF}
               className="bg-[#4FA2AE] text-[14px] md:text-[16px] w-[10rem] p-2 md:p-3 rounded-xl mt-10 md:mt-12"
             >
               Pay Now
