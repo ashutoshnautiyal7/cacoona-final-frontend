@@ -19,13 +19,11 @@ import { Button } from "../ui/button";
 import { useSession } from "next-auth/react";
 import SearchBar from "../ui/search-bar";
 const Navbar = () => {
+  const { loadCart, items } = useCart();
 
-  const {loadCart, items} = useCart();
+  const { data: session, status } = useSession();
 
-
-  const {data: session, status} = useSession();
-
-   const [dropdown1Open, setDropdown1Open] = useState(false);
+  const [dropdown1Open, setDropdown1Open] = useState(false);
   const [dropdown2Open, setDropdown2Open] = useState(false);
   const [dropdown3Open, setDropdown3Open] = useState(false);
 
@@ -42,12 +40,11 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-      if (session) {
-        const email = session.user.email;
-        loadCart(email);
-      }
-    }, [session, loadCart]);
-    
+    if (session) {
+      const email = session.user.email;
+      loadCart(email);
+    }
+  }, [session, loadCart]);
 
   return (
     <>
@@ -77,8 +74,8 @@ const Navbar = () => {
           </Link>
 
           {/* input for large device */}
-          <SearchBar/>
-          
+          <SearchBar />
+
           <div className="flex gap-4 md:gap-10 text-[10px] items-center">
             <Link href={"/wishlist"}>
               <span className="flex flex-col items-center justify-center cursor-pointer">
@@ -163,36 +160,16 @@ const Navbar = () => {
               </>
             )}
           </span>
-          <span>New Arrivals</span>
-          <span
-            className="flex items-center relative"
-            onMouseEnter={toggleDropdown2}
-            onMouseLeave={toggleDropdown2}
-          >
-            Latest Collections
-            {dropdown2Open ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}
-            {/* Dropdown */}
-            {dropdown2Open && (
-              <>
-                <div className="absolute top-full left-0 h-1.5 w-52"></div>
-                <div className="absolute top-full left-0 bg-[#4FA2AE] text-white p-4 flex flex-col gap-2 text-[14px] lg:text-[16px] w-[15rem] justify-center font-normal mt-1.5 shadow-md rounded-sm z-50">
-                  <span>Item 1</span>
-                  <span>Item 2</span>
-                  <span>Item 3</span>
-                </div>
-              </>
-            )}
-          </span>
-          <span>Best Selling Products</span>
+          <Link href={"/home"}>Home</Link>
+          <Link href={"/farm"} className="flex items-center relative">
+            Cacoona Farm
+          </Link>
+          <Link href={"/about"}> About Us</Link>
           <span>More At Cacoona</span>
         </div>
       </section>
     </>
   );
-}
+};
 
 export default Navbar;
-
-  
-
-  

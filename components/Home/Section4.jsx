@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const Section4 = () => {
@@ -28,9 +29,12 @@ const Section4 = () => {
             </span>
           </div>
           <div className="flex mt-6 md:mt-8">
-            <button className="text-white bg-[#4FA2AE] text-[14px] md:text-[16px] flex justify-center items-center py-2 md:py-2.5 px-5 md:px-6 rounded-sm whitespace-nowrap">
+            <Link
+              href={"/product/663b45a1c30b2773d0ca499a"}
+              className="text-white bg-[#4FA2AE] text-[14px] md:text-[16px] flex justify-center items-center py-2 md:py-2.5 px-5 md:px-6 rounded-sm whitespace-nowrap"
+            >
               Buy Now!
-            </button>
+            </Link>
           </div>
         </div>
         <div className="relative hidden md:flex">

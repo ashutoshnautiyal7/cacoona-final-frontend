@@ -37,69 +37,70 @@ const PreviewPage = () => {
     setSelectedImage(imageUrl);
   };
 
-
-
-    const exportFileAsPDF = async () => {
+  const exportFileAsPDF = async () => {
     try {
-        const Html2pdf = await import('html2pdf.js');
+      const Html2pdf = await import("html2pdf.js");
 
-        const html2pdf = Html2pdf.default;
+      const html2pdf = Html2pdf.default;
 
-        if (typeof window === "undefined" || typeof document === "undefined") return;
+      if (typeof window === "undefined" || typeof document === "undefined")
+        return;
 
-        const HTML_CONTENT = document.getElementById("pdf-content");
-              const opt = {
+      const HTML_CONTENT = document.getElementById("pdf-content");
+      const opt = {
         margin: 0,
         filename: "myfile.pdf",
         image: { type: "jpeg", quality: 0.98 },
         html2canvas: { scale: 1 },
         jsPDF: { unit: "in", format: "letter", orientation: "landscape" },
       };
-        html2pdf().from(HTML_CONTENT).set(opt).save();
+      html2pdf().from(HTML_CONTENT).set(opt).save();
+
+      const response = await fetch(
+        "https://res.cloudinary.com/dtfz1aqwq/image/upload/v1715709946/DATABASE-MANAGEMENT-SYSTEM-Question-Paper-21-22_flakus.pdf"
+      );
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "database-management-system-question-paper.pdf";
+      link.click();
+      window.URL.revokeObjectURL(url);
     } catch (error) {
-        console.error("Error downloading PDF:", error);
+      console.error("Error downloading PDF:", error);
     }
-    };
+  };
 
-//   const handlePrint = () => {
-//     const element = document.getElementById("pdf-content");
-//     const opt = {
-//       margin: 0,
-//       filename: "myfile.pdf",
-//       image: { type: "jpeg", quality: 0.98 },
-//       html2canvas: { scale: 1 },
-//       jsPDF: { unit: "in", format: "letter", orientation: "landscape" },
-//     };
+  //   const handlePrint = () => {
+  //     const element = document.getElementById("pdf-content");
+  //     const opt = {
+  //       margin: 0,
+  //       filename: "myfile.pdf",
+  //       image: { type: "jpeg", quality: 0.98 },
+  //       html2canvas: { scale: 1 },
+  //       jsPDF: { unit: "in", format: "letter", orientation: "landscape" },
+  //     };
 
-//     html2pdf().from(element).set(opt).save();
-//   };
-//   const DownloadPDF = async () => {
-//     try {
-//       const element = document.getElementById("pdf-content");
-    //   const opt = {
-    //     margin: 0,
-    //     filename: "myfile.pdf",
-    //     image: { type: "jpeg", quality: 0.98 },
-    //     html2canvas: { scale: 1 },
-    //     jsPDF: { unit: "in", format: "letter", orientation: "landscape" },
-    //   };
+  //     html2pdf().from(element).set(opt).save();
+  //   };
+  //   const DownloadPDF = async () => {
+  //     try {
+  //       const element = document.getElementById("pdf-content");
+  //   const opt = {
+  //     margin: 0,
+  //     filename: "myfile.pdf",
+  //     image: { type: "jpeg", quality: 0.98 },
+  //     html2canvas: { scale: 1 },
+  //     jsPDF: { unit: "in", format: "letter", orientation: "landscape" },
+  //   };
 
-//       html2pdf().from(element).set(opt).save();
+  //       html2pdf().from(element).set(opt).save();
 
-//       const response = await fetch(
-//         "https://res.cloudinary.com/dtfz1aqwq/image/upload/v1715709946/DATABASE-MANAGEMENT-SYSTEM-Question-Paper-21-22_flakus.pdf"
-//       );
-//       const blob = await response.blob();
-//       const url = window.URL.createObjectURL(blob);
-//       const link = document.createElement("a");
-//       link.href = url;
-//       link.download = "database-management-system-question-paper.pdf";
-//       link.click();
-//       window.URL.revokeObjectURL(url);
-//     } catch (error) {
-//       console.error("Error downloading PDF:", error);
-//     }
-//   };
+  //
+  //     } catch (error) {
+  //       console.error("Error downloading PDF:", error);
+  //     }
+  //   };
 
   return (
     <Suspense fallback={<div>Loading...</div>}>

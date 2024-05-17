@@ -6,81 +6,9 @@ import {
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
 
-const productList = [
-  {
-    id: 1,
-    imageSrc: "/Images/p1.png",
-    productName: "Starry Night Keychain",
-    currentPrice: "$12.99",
-    originalPrice: "$19.49",
-    discount: "-40%",
-    rating: 4.5,
-    totalRatings: 88,
-  },
-  {
-    id: 1,
-    imageSrc: "/Images/p1.png",
-    productName: "Starry Night Keychain",
-    currentPrice: "$12.99",
-    originalPrice: "$19.49",
-    discount: "-40%",
-    rating: 4.5,
-    totalRatings: 88,
-  },
-  {
-    id: 1,
-    imageSrc: "/Images/p1.png",
-    productName: "Starry Night Keychain",
-    currentPrice: "$12.99",
-    originalPrice: "$19.49",
-    discount: "-40%",
-    rating: 4.5,
-    totalRatings: 88,
-  },
-  {
-    id: 1,
-    imageSrc: "/Images/p1.png",
-    productName: "Starry Night Keychain",
-    currentPrice: "$12.99",
-    originalPrice: "$19.49",
-    discount: "-40%",
-    rating: 4.5,
-    totalRatings: 88,
-  },
-  {
-    id: 1,
-    imageSrc: "/Images/p1.png",
-    productName: "Starry Night Keychain",
-    currentPrice: "$12.99",
-    originalPrice: "$19.49",
-    discount: "-40%",
-    rating: 4.5,
-    totalRatings: 88,
-  },
-  {
-    id: 1,
-    imageSrc: "/Images/p1.png",
-    productName: "Starry Night Keychain",
-    currentPrice: "$12.99",
-    originalPrice: "$19.49",
-    discount: "-40%",
-    rating: 4.5,
-    totalRatings: 88,
-  },
-  {
-    id: 1,
-    imageSrc: "/Images/p1.png",
-    productName: "Starry Night Keychain",
-    currentPrice: "$12.99",
-    originalPrice: "$19.49",
-    discount: "-40%",
-    rating: 4.5,
-    totalRatings: 88,
-  },
-];
+import { useSession, signIn, signOut } from "next-auth/react";
 
 const Section3 = ({ productList }) => {
-
   const { data: session, status } = useSession();
 
   const email = session?.user?.email;
@@ -111,7 +39,6 @@ const Section3 = ({ productList }) => {
     }
   };
 
-
   return (
     <section className="px-[1.2rem] md:px-[2.5rem] py-14 bg-[#30304C]">
       <div className="flex items-center gap-4">
@@ -131,7 +58,7 @@ const Section3 = ({ productList }) => {
             View All
           </button>
         </div>
-        {/* <div className="flex mt-2 md:mt-0">
+        <div className="flex mt-2 md:mt-0">
           <button className="md:px-2  " onClick={handleScrollLeft}>
             {" "}
             <BsFillArrowLeftCircleFill className="h-6 md:h-8 w-6 md:w-8" />
@@ -140,7 +67,7 @@ const Section3 = ({ productList }) => {
             {" "}
             <BsFillArrowRightCircleFill className="h-6 md:h-8 w-6 md:w-8" />
           </button>
-        </div> */}
+        </div>
       </div>
       <div
         className="mt-6 md:mt-10 flex overflow-x-scroll no-scrollbar gap-10"
@@ -160,7 +87,6 @@ const Section3 = ({ productList }) => {
             rating={4.5}
             totalRatings={5}
             category={product.category}
-
           />
         ))}
       </div>
