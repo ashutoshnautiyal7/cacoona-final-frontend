@@ -94,9 +94,12 @@ const Section2 = () => {
         ))}
       </div>
       <div className="flex justify-center mt-8 md:mt-12">
-        <button className="text-white bg-[#4FA2AE] text-[14px] md:text-[16px] flex justify-center items-center py-2 md:py-2.5 px-6 md:px-10 rounded-sm">
+        <Link
+          href={"/product"}
+          className="text-white bg-[#4FA2AE] text-[14px] md:text-[16px] flex justify-center items-center py-2 md:py-2.5 px-6 md:px-10 rounded-sm"
+        >
           View All Products
-        </button>
+        </Link>
       </div>
     </section>
   );

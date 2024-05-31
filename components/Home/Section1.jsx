@@ -6,16 +6,14 @@ import {
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
 
-
 import { useSession, signIn, signOut } from "next-auth/react";
+import Link from "next/link";
 
 const Section1 = ({ productList }) => {
-
-  const {data: session , status} = useSession();
+  const { data: session, status } = useSession();
 
   const email = session?.user.email;
 
-  
   const scrollContainerRef = useRef(null);
   const handleScrollRight = () => {
     if (scrollContainerRef.current) {
@@ -42,10 +40,7 @@ const Section1 = ({ productList }) => {
     }
   };
 
-
-  
-
-    return (
+  return (
     <section className="px-[1.2rem] md:px-[2.5rem] py-14 bg-[#30304C]">
       <div className="flex items-center gap-4">
         <div className="bg-[#4FA2AE] h-9 w-5 rounded-sm"></div>
@@ -119,17 +114,19 @@ const Section1 = ({ productList }) => {
             rating={4.5}
             totalRatings={5}
             category={product.category}
-
           />
         ))}
       </div>
       <div className="flex justify-center mt-8 md:mt-12">
-        <button className="text-white bg-[#4FA2AE] text-[14px] md:text-[16px] flex justify-center items-center py-2 md:py-2.5 px-6 md:px-10 rounded-sm">
+        <Link
+          href={"/product"}
+          className="text-white bg-[#4FA2AE] text-[14px] md:text-[16px] flex justify-center items-center py-2 md:py-2.5 px-6 md:px-10 rounded-sm"
+        >
           View All Products
-        </button>
+        </Link>
       </div>
     </section>
   );
-  }
+};
 
 export default Section1;

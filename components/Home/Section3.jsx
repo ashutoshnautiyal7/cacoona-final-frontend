@@ -7,6 +7,7 @@ import {
 } from "react-icons/bs";
 
 import { useSession, signIn, signOut } from "next-auth/react";
+import Link from "next/link";
 
 const Section3 = ({ productList }) => {
   const { data: session, status } = useSession();
@@ -54,9 +55,12 @@ const Section3 = ({ productList }) => {
           </h3>
         </div>
         <div className="flex justify-center">
-          <button className="text-white bg-[#4FA2AE] text-[14px] md:text-[16px] flex justify-center items-center py-2 md:py-2.5 px-5 md:px-6 rounded-sm whitespace-nowrap">
+          <Link
+            href={"/product"}
+            className="text-white bg-[#4FA2AE] text-[14px] md:text-[16px] flex justify-center items-center py-2 md:py-2.5 px-5 md:px-6 rounded-sm whitespace-nowrap"
+          >
             View All
-          </button>
+          </Link>
         </div>
         {/* <div className="flex mt-2 md:mt-0">
           <button className="md:px-2  " onClick={handleScrollLeft}>
