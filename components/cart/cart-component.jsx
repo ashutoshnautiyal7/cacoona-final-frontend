@@ -11,15 +11,17 @@ import { ThreeCircles } from "react-loader-spinner";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Suspense } from "react";
+import Image from "next/image";
+import { MdOutlineKeyboardArrowUp, MdOutlineKeyboardArrowDown } from "react-icons/md";
 
 const CartComponent = () => {
 
   const router = useRouter();
 
-  const searchParams =  useSearchParams();
+  const searchParams = useSearchParams();
   const { items, clearCart, incrementQuantity, decrementQuantity, loadCart } = useCart();
 
-  const {data: session} = useSession();
+  const { data: session } = useSession();
 
   const [isCheckoutLoading, setIsCheckoutLoading] = useState(false);
 
@@ -27,32 +29,32 @@ const CartComponent = () => {
 
 
   useEffect(() => {
-    if(searchParams.get("isBook")){
+    if (searchParams.get("isBook")) {
       clearCart(email)
       router.push("/")
       toast.success("download book")
     }
-    if(searchParams.get("success")){
+    if (searchParams.get("success")) {
       clearCart(email)
       toast.success("Paymnet complete")
     }
-    if(searchParams.get("cancelled")){
+    if (searchParams.get("cancelled")) {
       toast.error("Payment cancelled")
     }
-  },[searchParams, clearCart, email])
+  }, [searchParams, clearCart, email])
 
 
 
 
   useEffect(() => {
-      if (session) {
-        const email = session.user.email;
-        loadCart(email);
-      }
-    }, [session, loadCart]);
+    if (session) {
+      const email = session.user.email;
+      loadCart(email);
+    }
+  }, [session, loadCart]);
   console.log("items in cart", items);
 
-  
+
   const total = () => {
     let subtotal = 0;
     items.forEach((item) => {
@@ -85,11 +87,60 @@ const CartComponent = () => {
   };
 
   return (
-    
-    <div className="container mx-auto py-12 px-4 md:px-6">
-      <h1 className="text-3xl font-bold mb-8">Your Cart</h1>
-      <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-8">
-        <div className="space-y-6">
+
+    <div className="bg-[#30304C] py-6 md:py-12 px-[1.2rem] md:px-[2.5rem] xl:px-[8rem] min-h-screen text-white">
+      <div className="flex gap-2 text-[15px] md:text-[16px]">
+        <Link href="/" className="text-gray-400">
+          Home
+        </Link>
+        <span className="text-white">/</span>
+        <Link href="/cart" className="text-white">
+          Cart
+        </Link>
+      </div>
+      <div className="my-12 bg-white flex flex-col gap-8">
+        <div className="grid grid-cols-4 bg-[#4FA2AE] py-5 px-14">
+          <span>Product</span>
+          <span>Price</span>
+          <span>Quantity</span>
+          <span>Subtotal</span>
+        </div>
+        <div className="flex flex-col gap-8">
+          {items.map((item) => (
+            <div className="grid grid-cols-4 bg-[#4FA2AE] py-3 px-14 items-center"
+              key={item.id}>
+              <span className="flex gap-2 items-center">
+                <Image src="/Images/cart-img.png" alt="#" width={45} height={45} />
+                <h3>{item.productName}</h3>
+              </span>
+              <span>${item.currentPrice}</span>
+              <span>
+                <span className="border border-black rounded-md w-fit py-1.5 px-4 flex items-center gap-4">
+                  {item.quantity}
+                  <span className="flex flex-col">
+                    <MdOutlineKeyboardArrowUp onClick={() => incrementQuantity(item.id, email)} className="cursor-pointer" />
+                    <MdOutlineKeyboardArrowDown onClick={() => decrementQuantity(item.id, email)} className="cursor-pointer" />
+                  </span>
+                </span>
+              </span>
+              <span>${total()}</span>
+            </div>
+          ))}
+        </div>
+        <div className="my-8 md:my-12 flex justify-center">
+          {
+            isCheckoutLoading ? <div className="flex items-center justify-center">
+              <ThreeCircles height="30"
+                width="100" color="#000" />
+            </div> : <Button className="text-white bg-[#4FA2AE] text-[14px] md:text-[16px] flex justify-center items-center py-2 md:py-6 px-6 md:px-10 rounded-sm" onClick={() => onCheckout()}>
+              Proceed to Checkout
+            </Button>
+          }
+
+        </div>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-12">
+        {/* <div className="space-y-6">
           {items.map((item) => (
             <div
               key={item.id}
@@ -123,7 +174,7 @@ const CartComponent = () => {
                   size="icon"
                   variant="outline"
                 >
-                  <MinusIcon className="h-4 w-4" />
+                  <MinusIcon className="h-4 w-4 text-black" />
                 </Button>
                 <span>{item.quantity}</span>
                 <Button
@@ -131,13 +182,13 @@ const CartComponent = () => {
                   size="icon"
                   variant="outline"
                 >
-                  <PlusIcon className="h-4 w-4" />
+                  <PlusIcon className="h-4 w-4 text-black" />
                 </Button>
               </div>
             </div>
           ))}
-        </div>
-        <div className="bg-gray-100 dark:bg-gray-800 rounded-lg p-6 space-y-4">
+        </div> */}
+        {/* <div className="bg-gray-100 dark:bg-gray-800 rounded-lg p-6 space-y-4">
           <div className="flex items-center justify-between">
             <p>Total</p>
             <p className="font-medium text-primary">${total()}</p>
@@ -147,20 +198,20 @@ const CartComponent = () => {
           </Button>
           {
             isCheckoutLoading ? <div className="flex items-center justify-center">
-              <ThreeCircles   height="30"
+              <ThreeCircles height="30"
                 width="100" color="#000" />
             </div> : <Button className="w-full" onClick={() => onCheckout()}>
-            Proceed to Checkout
-          </Button>
+              Proceed to Checkout
+            </Button>
           }
-          
+
           <Link
             className="inline-block text-center text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
             href="#"
           >
             Continue Shopping
           </Link>
-        </div>
+        </div> */}
       </div>
     </div>
   );

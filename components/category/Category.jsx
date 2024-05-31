@@ -25,8 +25,8 @@ const Category = ({ productList }) => {
           originalPrice={product.originalPrice}
           discount={product.category}
           category={product.category}
-          rating={4.5}
-          totalRatings={5}
+          // rating={4.5}
+          // totalRatings={5}
           
         />
       ))}

@@ -42,13 +42,13 @@ const Section2 = () => {
   return (
     <section className="px-[1.2rem] md:px-[4rem] pt-14 pb-16 md:pb-20 flex items-center flex-col bg-[#30304C] text-white relative">
       <h2 className="text-[42px] md:text-[52px] xl:text-[64px] flex items-center">
-        <span>Key </span>
-        <span className="border-b-[3px] border-orange-600 leading-[110%] ml-2 md:ml-4">
+        <span className="">Key </span>
+        <span className="border-b-[3px] border-orange-600 leading-[110%] ml-2 md:ml-4 py-1 md:py-3 md:w-[18rem] xl:w-[24rem]">
           {" "}
           Features
         </span>
       </h2>
-      <p className="text-[18px] md:text-[24px] mt-3 md:mt-4">
+      <p className="text-[18px] md:text-[24px] mt-5 md:mt-10">
         Explore the Transformative Elements of Chesper
       </p>
       <div className="flex flex-wrap justify-center gap-8 md:gap-16 xl:gap-20 mt-10 md:mt-16">

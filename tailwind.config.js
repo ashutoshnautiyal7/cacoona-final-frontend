@@ -51,6 +51,9 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        fontFamily: {
+          zapf: ['Zapf Chancery', 'roman'],
+        },
       },
       borderRadius: {
         lg: "var(--radius)",

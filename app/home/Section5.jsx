@@ -19,7 +19,7 @@ const Section5 = () => {
             clarity in times of uncertainty, let Chesper be your trusted guide
             on the path to self-discovery
           </p>
-          <button className="bg-[#4fa2ae] text-[14px] md:text-[18px] px-7 py-2 rounded-lg mt-6 md:mt-10 font-bold">
+          <button className="bg-[#4fa2ae] text-[14px] md:text-[18px] px-7 py-2 rounded-lg mt-6 md:mt-10 font-medium">
             Buy Now
           </button>
         </div>

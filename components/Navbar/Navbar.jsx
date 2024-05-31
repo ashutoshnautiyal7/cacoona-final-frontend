@@ -54,27 +54,23 @@ const Navbar = () => {
           <b className="ml-2 md:ml-5">Shop Now</b>
         </p>
       </section>
-      <section className="px-[1.5rem] md:px-[2.5rem] xl:px-[7.5rem] py-6 flex flex-col justify-between bg-[#30304C] text-white">
+      <section className="px-[1.5rem] md:px-[2.5rem] xl:px-[7.5rem] pt-3 md:pt-0 pb-6 flex flex-col justify-between bg-[#30304C] text-white">
         <div className="flex justify-between items-center">
           <Link href="/">
-            <Image
-              src="/Images/logo.png"
+            <img
+              src="/Images/logo2.png"
               alt="#"
-              width={120}
-              height={80}
-              className="object-fit hidden md:flex"
-            />
-            <Image
-              src="/Images/logo.png"
-              alt="#"
-              width={100}
-              height={70}
-              className="object-fit flex md:hidden"
+              // width={120}
+              // height={80}
+              className="w-[4rem] md:w-[7rem]"
             />
           </Link>
 
-          {/* input for large device */}
-          <SearchBar />
+          {/* for large device  */}
+          <div className="flex-1 hidden md:flex mx-10 xl:mx-32 ">
+            <SearchBar />
+          </div>
+
 
           <div className="flex gap-4 md:gap-10 text-[10px] items-center">
             <Link href={"/wishlist"}>
@@ -127,9 +123,13 @@ const Navbar = () => {
             </span>
           </div>
         </div>
-        {/* input for small device */}
         
-        <div className="hidden md:flex gap-5 lg:gap-10 xl:gap-16 mt-4 text-[14px] lg:text-[16px] font-light justify-center items-center w-full">
+        {/* for small device */}
+        <div className="flex md:hidden mt-2 flex-1">
+          <SearchBar />
+        </div>
+
+        <div className="hidden md:flex gap-5 lg:gap-10 xl:gap-16 -mt-2 text-[14px] lg:text-[16px] font-light justify-center items-center w-full">
           <span
             className="flex items-center relative"
             onMouseEnter={toggleDropdown1}
