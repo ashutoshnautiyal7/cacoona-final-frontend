@@ -58,7 +58,7 @@ const Section3 = ({ productList }) => {
             View All
           </button>
         </div>
-        <div className="flex mt-2 md:mt-0">
+        {/* <div className="flex mt-2 md:mt-0">
           <button className="md:px-2  " onClick={handleScrollLeft}>
             {" "}
             <BsFillArrowLeftCircleFill className="h-6 md:h-8 w-6 md:w-8" />
@@ -67,7 +67,7 @@ const Section3 = ({ productList }) => {
             {" "}
             <BsFillArrowRightCircleFill className="h-6 md:h-8 w-6 md:w-8" />
           </button>
-        </div>
+        </div> */}
       </div>
       <div
         className="mt-6 md:mt-10 flex overflow-x-scroll no-scrollbar gap-10"

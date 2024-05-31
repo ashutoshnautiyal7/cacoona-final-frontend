@@ -139,7 +139,7 @@ const Hero = ({ data }) => {
               ${data.originalPrice}
             </span>
           </div>
-          <div className="mt-1.5 md:mt-3.5 flex">
+          {/* <div className="mt-1.5 md:mt-3.5 flex">
             <Stack spacing={1}>
               <Rating
                 name="half-rating-read"
@@ -152,7 +152,7 @@ const Hero = ({ data }) => {
             <span className="text-white ml-2yy md:ml-4 underline">
               32 reviews
             </span>
-          </div>
+          </div> */}
 
           {data.category === "BOOKS" ? (
             <div className="flex flex-col gap-2 md:gap-3 mt-5 md:mt-8">
@@ -211,14 +211,14 @@ const Hero = ({ data }) => {
             ) : data.category === "BOOKS" ? (
               <button
                 onClick={() => handleBuyNowBook()}
-                className="w-full bg-[#4FA2AE] text-white font-semibold text-[14px] md:text-[16px]"
+                className="w-full bg-[#4FA2AE] text-white px-6 font-semibold text-[14px] md:text-[16px]"
               >
                 BUY NOW
               </button>
             ) : (
               <button
                 onClick={() => handleBuyNow()}
-                className="w-full bg-[#4FA2AE] text-white font-semibold text-[14px] md:text-[16px]"
+                className="w-full bg-[#4FA2AE] text-white px-6 font-semibold text-[14px] md:text-[16px]"
               >
                 BUY NOW
               </button>

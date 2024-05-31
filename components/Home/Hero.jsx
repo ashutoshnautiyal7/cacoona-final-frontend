@@ -3,6 +3,7 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { FiArrowRight } from "react-icons/fi";
 
 const Hero = () => {
   var settings = {
@@ -45,9 +46,13 @@ const Hero = () => {
           className="h-[14rem] md:h-[26rem] bg-gray-400"
         />
       </Slider>
-      <div className="absolute top-[36%] ml-4 md:ml-16 text-[25px] md:text-[48px]  font-semibold ">
-        <h2 className="">Up to 10% off Voucher</h2>
-        <p className="text-[20px]">Shop Now</p>
+      <div className="absolute top-[26%] ml-4 md:ml-16 text-[25px] md:text-[48px]  font-semibold ">
+        <h2 className="leading-[125%]">Up to 10% off <br /> Voucher</h2>
+        <span className=" flex items-center mt-4 md:mt-6 gap-2 ml-1">
+          <p className="text-[20px] border-b border-black">Shop Now</p>
+          <FiArrowRight className="h-5 md:h-6 w-5 md:w-6" />
+        </span>
+
       </div>
     </div>
   );
