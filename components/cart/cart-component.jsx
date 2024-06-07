@@ -44,8 +44,6 @@ const CartComponent = () => {
   }, [searchParams, clearCart, email])
 
 
-
-
   useEffect(() => {
     if (session) {
       const email = session.user.email;

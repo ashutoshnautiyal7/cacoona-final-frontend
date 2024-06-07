@@ -2,8 +2,7 @@ import NextAuth from "next-auth"
 import GoogleProvider from "next-auth/providers/google"
 import CredentialsProvider from "next-auth/providers/credentials"
 // import bcrypt from "bcrypt"
-import db from '../../../../lib/db'
-
+import prisma from "@/lib/db"
 const handler = NextAuth({
   providers: [
     GoogleProvider({
@@ -59,10 +58,10 @@ const handler = NextAuth({
       }
   
       try {
-        const userExist = await db.user.findFirst({ where: { email: profile.email } })
+        const userExist = await prisma.user.findFirst({ where: { email: profile.email } })
 
         if (!userExist) {
-          const user = await db.user.create({
+          const user = await prisma.user.create({
             data: {
               name: profile.name,
               email: profile.email,
