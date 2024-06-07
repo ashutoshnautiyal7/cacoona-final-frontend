@@ -20,7 +20,7 @@ const Section5 = () => {
             on the path to self-discovery
           </p>
           <button className="bg-[#4fa2ae] text-[14px] md:text-[18px] px-7 py-2 rounded-lg mt-6 md:mt-10 font-medium">
-            Buy Now
+            Buy Now123
           </button>
         </div>
       </div>

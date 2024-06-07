@@ -8,10 +8,13 @@ import { FaEye } from "react-icons/fa";
 import axios from "axios";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { ThreeCircles } from "react-loader-spinner";
+import { useRouter } from "next/navigation";
 
 const Hero = ({ data }) => {
   const [material, setMaterial] = useState("hardcover");
   console.log("the data in the hero is ", data);
+
+  const router = useRouter();
 
   const { data: session, status } = useSession();
 
@@ -210,14 +213,20 @@ const Hero = ({ data }) => {
               <ThreeCircles height="30" width="100" color="#000" />
             ) : data.category === "BOOKS" ? (
               <button
-                onClick={() => handleBuyNowBook()}
+                onClick={() => {
+                  session ? handleBuyNowBook() : router.push("/login");
+                  
+                }}
                 className="w-full bg-[#4FA2AE] text-white px-6 font-semibold text-[14px] md:text-[16px]"
               >
                 BUY NOW
               </button>
             ) : (
               <button
-                onClick={() => handleBuyNow()}
+                onClick={() => {
+                  session ? handleBuyNow() :  router.push("/login");
+                  
+                }}
                 className="w-full bg-[#4FA2AE] text-white px-6 font-semibold text-[14px] md:text-[16px]"
               >
                 BUY NOW
