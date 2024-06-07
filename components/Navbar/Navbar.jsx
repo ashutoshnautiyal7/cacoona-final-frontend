@@ -71,7 +71,6 @@ const Navbar = () => {
             <SearchBar />
           </div>
 
-
           <div className="flex gap-4 md:gap-10 text-[10px] items-center">
             <Link href={"/wishlist"}>
               <span className="flex flex-col items-center justify-center cursor-pointer">
@@ -113,17 +112,25 @@ const Navbar = () => {
                       <MdOutlineCancel className="w-5 md:w-5 h-5 md:h-5 " />
                       My Cancellations
                     </Link>
-                    <Link href="/" className="flex items-center gap-2">
-                      <TbLogout2 className="w-5 md:w-5 h-5 md:h-5 " />
-                      Logout
-                    </Link>
+
+                    {session ? (
+                      <Link href="/login" className="flex items-center gap-2">
+                        <TbLogout2 className="w-5 md:w-5 h-5 md:h-5 " />
+                        Logout
+                      </Link>
+                    ) : (
+                      <Link href="/login" className="flex items-center gap-2">
+                        <TbLogout2 className="w-5 md:w-5 h-5 md:h-5 " />
+                        LogIn
+                      </Link>
+                    )}
                   </div>
                 </>
               )}
             </span>
           </div>
         </div>
-        
+
         {/* for small device */}
         <div className="flex md:hidden mt-2 flex-1">
           <SearchBar />

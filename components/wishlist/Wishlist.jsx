@@ -5,7 +5,7 @@ import { useSession } from "next-auth/react";
 import Category from "../category/Category";
 
 const Wishlist = ({ users }) => {
-  const products = users[0].wishlist;
+  const products = users.wishlist;
 
   console.log("the products are ", products);
 
