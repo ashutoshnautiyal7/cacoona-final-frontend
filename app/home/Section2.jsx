@@ -51,11 +51,11 @@ const Section2 = () => {
       <p className="text-[18px] md:text-[24px] mt-5 md:mt-10">
         Explore the Transformative Elements of Chesper
       </p>
-      <div className="flex flex-wrap justify-center gap-8 md:gap-16 xl:gap-20 mt-10 md:mt-16">
+      <div className="flex flex-wrap justify-center gap-8 md:gap-16 xl:gap-20 mt-10 md:mt-16 ">
         {features.map((feature) => (
           <div
             key={feature.id}
-            className="text-black md:max-w-[360px] flex flex-col items-center bg-[#4fa2ae] px-4 py-6 "
+            className="text-black md:max-w-[360px] flex flex-col items-center bg-[#4fa2ae] px-6 py-6 rounded-xl"
           >
             <img
               src={feature.imageUrl}
