@@ -16,6 +16,8 @@ import db from '../lib/db'
 import Section6 from "@/components/Home/Section6";
 
 
+export const dynamic = "force-dynamic"; 
+
 export default async function Home() {
   const products = await db.product.findMany(
     {

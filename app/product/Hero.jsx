@@ -183,7 +183,7 @@ const Hero = ({ data }) => {
             <></>
           )}
           <div className="mt-5 md:mt-6 leading-[28.8px]">
-            <p>
+            <p className="whitespace-pre-wrap">
               {data.description.substr(0, 300) || "Here comes the description "}
             </p>
           </div>
@@ -215,7 +215,6 @@ const Hero = ({ data }) => {
               <button
                 onClick={() => {
                   session ? handleBuyNowBook() : router.push("/login");
-                  
                 }}
                 className="w-full bg-[#4FA2AE] text-white px-6 font-semibold text-[14px] md:text-[16px]"
               >
@@ -224,8 +223,7 @@ const Hero = ({ data }) => {
             ) : (
               <button
                 onClick={() => {
-                  session ? handleBuyNow() :  router.push("/login");
-                  
+                  session ? handleBuyNow() : router.push("/login");
                 }}
                 className="w-full bg-[#4FA2AE] text-white px-6 font-semibold text-[14px] md:text-[16px]"
               >

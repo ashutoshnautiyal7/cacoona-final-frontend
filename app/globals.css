@@ -1,5 +1,6 @@
 @tailwind base;
 @tailwind components;
+
 @tailwind utilities;
 
 @layer base {
@@ -76,6 +77,10 @@
   }
 }
 
+.whitespace-pre-wrap {
+  white-space: pre-wrap;
+}
+
 .testimonial-content {
   transition: max-height 0.5s ease-in-out;
   max-height: 0;
@@ -91,8 +96,8 @@
 }
 
 @font-face {
-  font-family: 'Zapf Chancery';
-  src:url('../fonts/ZapfChanceryStd-Roman.woff') format('woff');
+  font-family: "Zapf Chancery";
+  src: url("../fonts/ZapfChanceryStd-Roman.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
