@@ -82,7 +82,7 @@ const Product = ({
         </span>
         <Button
           onClick={(event) => {
-            if(!email){
+            if (!email) {
               toast.error("Please login to add to cart");
               return;
             }
@@ -99,7 +99,7 @@ const Product = ({
               quantity: 1,
               category,
 
-              
+
             };
             cart.addItem(productData, email);
           }}
@@ -109,13 +109,13 @@ const Product = ({
         </Button>
       </div>
 
-      <div className="font-medium mt-4 text-[14px] md:text-[16px]">
-        <h3 className="text-white">{productName}</h3>
+      <div className="font-medium mt-4 text-[14px] md:text-[16px] max-w-[14rem] md:max-w-[17rem]">
+        <h3 className="text-white leading-[140%]">{productName}</h3>
         <div className="mt-0.5 md:mt-1">
-          <span className="text-[#4FA2AE]">{currentPrice}</span>
+          <span className="text-[#4FA2AE]">$ {currentPrice}</span>
           {originalPrice && (
             <span className="text-gray-500 line-through ml-4">
-              {originalPrice}
+              $ {originalPrice}
             </span>
           )}
         </div>

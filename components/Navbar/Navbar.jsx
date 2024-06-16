@@ -18,7 +18,30 @@ import useCart from "@/hooks/use-cart";
 import { Button } from "../ui/button";
 import { useSession } from "next-auth/react";
 import SearchBar from "../ui/search-bar";
+import { Fade as Hamburger } from "hamburger-react";
+
+// Add styles directly in the same file
+const styles = `
+  .no-scroll {
+    overflow: hidden;
+  }
+`;
+
+// Append styles to the head of the document
+if (typeof document !== 'undefined') {
+  const styleSheet = document.createElement("style");
+  styleSheet.type = "text/css";
+  styleSheet.innerText = styles;
+  document.head.appendChild(styleSheet);
+}
+
 const Navbar = () => {
+  const [isOpen, setOpen] = useState(false);
+
+  const closeSidebar = () => {
+    setOpen(false);
+  };
+
   const { loadCart, items } = useCart();
 
   const { data: session, status } = useSession();
@@ -46,6 +69,17 @@ const Navbar = () => {
     }
   }, [session, loadCart]);
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+    return () => {
+      document.body.classList.remove("no-scroll");
+    };
+  }, [isOpen]);
+
   return (
     <>
       <section className="bg-[#FFEECD] text-[11.5px] md:text-[14px] hidden md:flex gap-4 md:gap-10 items-center justify-center px-6 py-1.5 md:p-2.5 text-center leading-4">
@@ -60,8 +94,6 @@ const Navbar = () => {
             <img
               src="/Images/logo2.png"
               alt="#"
-              // width={120}
-              // height={80}
               className="w-[4rem] md:w-[7rem]"
             />
           </Link>
@@ -71,7 +103,7 @@ const Navbar = () => {
             <SearchBar />
           </div>
 
-          <div className="flex gap-4 md:gap-10 text-[10px] items-center">
+          <div className="flex gap-3 md:gap-10 text-[10px] items-center">
             <Link href={"/wishlist"}>
               <span className="flex flex-col items-center justify-center cursor-pointer">
                 <FaRegHeart className="w-5 md:w-6 h-5 md:h-6 mb-1" />
@@ -128,6 +160,10 @@ const Navbar = () => {
                 </>
               )}
             </span>
+            <span className="flex md:hidden -ml-3 -mr-3">
+              <Hamburger toggled={isOpen} toggle={setOpen} size={18} />
+            </span>
+
           </div>
         </div>
 
@@ -165,6 +201,41 @@ const Navbar = () => {
           <Link href={"/about"}> About Us</Link>
           <span>More At Cacoona</span>
         </div>
+      </section>
+      <section>
+        {/* Sidebar */}
+        <div
+          className={`sidebar ${isOpen ? "translate-x-0" : "-translate-x-full"
+            } fixed bg-[#30304C] h-screen w-[50vw] shadow-xl text-white text-[14px] transition-transform duration-500 ease-in-out z-50 -mt-[1px]`}
+        >
+          <div className="flex flex-col gap-8 px-[1.5rem] pt-[2rem]">
+            <span>Shop by Category</span>
+            <ul className="flex flex-col gap-7 list-disc pl-6 -mt-1">
+              <Link href={"/category/charms"}>
+                <li>Charms</li>
+              </Link>
+              <Link href={"/category/earrings"}>
+                <li>Elemental Earrings</li>
+              </Link>
+              <Link href={"/category/rings"}>
+                <li>Cosmic Rings</li>
+              </Link>
+              <Link href={"/category/gifts"}>
+                <li>Astrology Keychains</li>
+              </Link>
+              <Link href={"/category/pendants"}>
+                <li>Pendants</li>
+              </Link>
+            </ul>
+            <Link href={"/home"}>Home</Link>
+            <Link href={"/farm"} className="flex items-center relative">
+              Cacoona Farm
+            </Link>
+            <Link href={"/about"}> About Us</Link>
+            <span>More At Cacoona</span>
+          </div>
+        </div>
+
       </section>
     </>
   );

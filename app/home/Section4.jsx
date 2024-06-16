@@ -108,7 +108,7 @@ const Section4 = () => {
         <Slider {...settings} ref={sliderRef} className="">
           {testimonials.map((testimonial) => (
             <div key={testimonial.id} className="md:px-3">
-              <div className="bg-[#FFF1DB] p-6">
+              <div className="bg-[#FFF1DB] p-6 rounded-lg">
                 <span className="flex gap-1">
                   <img
                     src="/Images/tilt-bar2.png"

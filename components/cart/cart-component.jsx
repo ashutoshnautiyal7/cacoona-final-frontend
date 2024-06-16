@@ -15,34 +15,27 @@ import Image from "next/image";
 import { MdOutlineKeyboardArrowUp, MdOutlineKeyboardArrowDown } from "react-icons/md";
 
 const CartComponent = () => {
-
   const router = useRouter();
-
   const searchParams = useSearchParams();
   const { items, clearCart, incrementQuantity, decrementQuantity, loadCart } = useCart();
-
   const { data: session } = useSession();
-
   const [isCheckoutLoading, setIsCheckoutLoading] = useState(false);
-
   const email = session?.user?.email;
-
 
   useEffect(() => {
     if (searchParams.get("isBook")) {
-      clearCart(email)
-      router.push("/")
-      toast.success("download book")
+      clearCart(email);
+      router.push("/");
+      toast.success("Download book");
     }
     if (searchParams.get("success")) {
-      clearCart(email)
-      toast.success("Paymnet complete")
+      clearCart(email);
+      toast.success("Payment complete");
     }
     if (searchParams.get("cancelled")) {
-      toast.error("Payment cancelled")
+      toast.error("Payment cancelled");
     }
-  }, [searchParams, clearCart, email])
-
+  }, [searchParams, clearCart, email]);
 
   useEffect(() => {
     if (session) {
@@ -50,8 +43,6 @@ const CartComponent = () => {
       loadCart(email);
     }
   }, [session, loadCart]);
-  console.log("items in cart", items);
-
 
   const total = () => {
     let subtotal = 0;
@@ -69,7 +60,6 @@ const CartComponent = () => {
         quantity: item.quantity,
       }));
 
-
       const res = await axios.post(
         "https://cacoona-admin.vercel.app/api/checkout",
         {
@@ -85,7 +75,6 @@ const CartComponent = () => {
   };
 
   return (
-
     <div className="bg-[#30304C] py-6 md:py-12 px-[1.2rem] md:px-[2.5rem] xl:px-[8rem] min-h-screen text-white">
       <div className="flex gap-2 text-[15px] md:text-[16px]">
         <Link href="/" className="text-gray-400">
@@ -97,21 +86,30 @@ const CartComponent = () => {
         </Link>
       </div>
       <div className="my-12 bg-white flex flex-col gap-8">
-        <div className="grid grid-cols-4 bg-[#4FA2AE] py-5 px-14">
+        <div className="grid grid-cols-3 md:grid-cols-4 bg-[#4FA2AE] py-5 px-4 md:px-14 gap-4 md:gap-8">
           <span>Product</span>
-          <span>Price</span>
+          {/* <span>Price</span> */}
           <span>Quantity</span>
-          <span>Subtotal</span>
+          <span>Sub Total</span>
         </div>
         <div className="flex flex-col gap-8">
           {items.map((item) => (
-            <div className="grid grid-cols-4 bg-[#4FA2AE] py-3 px-14 items-center"
-              key={item.id}>
-              <span className="flex gap-2 items-center">
-                <Image src="/Images/cart-img.png" alt="#" width={45} height={45} />
-                <h3>{item.productName}</h3>
+            <div className="grid grid-cols-3 md:grid-cols-4 bg-[#4FA2AE] py-3 px-4 md:px-14 gap-4 md:gap-8 items-center" key={item.id}>
+              <span className="flex flex-col md:flex-row gap-2 items-center">
+                <img
+                  alt="Product Image"
+                  className="rounded-sm"
+                  height={40}
+                  src={item.imageSrc || "/placeholder.svg"}
+                  style={{
+                    aspectRatio: "80/80",
+                    objectFit: "cover",
+                  }}
+                  width={40}
+                />
+                <h3 className="leading-[130%] md:ml-3">{item.productName}</h3>
               </span>
-              <span>${item.currentPrice}</span>
+              <span className="hidden md:flex">${item.currentPrice.toFixed(2)}</span>
               <span>
                 <span className="border border-black rounded-md w-fit py-1.5 px-4 flex items-center gap-4">
                   {item.quantity}
@@ -121,95 +119,30 @@ const CartComponent = () => {
                   </span>
                 </span>
               </span>
-              <span>${total()}</span>
+              <span >${(item.currentPrice * item.quantity).toFixed(2)}</span>
             </div>
           ))}
+        </div>
+        <div className="grid grid-cols-3 md:grid-cols-4 bg-[#4FA2AE] py-5 px-14 gap-8">
+          <span></span>
+          <span className="hidden md:flex"></span>
+          <span>Grand Total</span>
+          <span>${total()}</span>
         </div>
         <div className="my-8 md:my-12 flex justify-center">
-          {
-            isCheckoutLoading ? <div className="flex items-center justify-center">
-              <ThreeCircles height="30"
-                width="100" color="#000" />
-            </div> : <Button className="text-white bg-[#4FA2AE] text-[14px] md:text-[16px] flex justify-center items-center py-2 md:py-6 px-6 md:px-10 rounded-sm" onClick={() => onCheckout()}>
-              Proceed to Checkout
-            </Button>
-          }
-
-        </div>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-12">
-        {/* <div className="space-y-6">
-          {items.map((item) => (
-            <div
-              key={item.id}
-              className="grid grid-cols-[80px_1fr_1fr_1fr] items-center gap-4 border-b pb-4"
-            >
-              <div>
-                <img
-                  alt="Product Image"
-                  className="rounded-md"
-                  height={80}
-                  src={item.imageSrc || "/placeholder.svg"}
-                  style={{
-                    aspectRatio: "80/80",
-                    objectFit: "cover",
-                  }}
-                  width={80}
-                />
-              </div>
-              <div>
-                <h3 className="font-medium">{item.productName}</h3>
-                <p className="text-gray-500 dark:text-gray-400">
-                  {item.description}
-                </p>
-              </div>
-              <div className="text-right">
-                <p className="font-medium">${item.currentPrice}</p>
-              </div>
-              <div className="flex items-center justify-end gap-2">
-                <Button
-                  onClick={() => decrementQuantity(item.id, email)}
-                  size="icon"
-                  variant="outline"
-                >
-                  <MinusIcon className="h-4 w-4 text-black" />
-                </Button>
-                <span>{item.quantity}</span>
-                <Button
-                  onClick={() => incrementQuantity(item.id, email)}
-                  size="icon"
-                  variant="outline"
-                >
-                  <PlusIcon className="h-4 w-4 text-black" />
-                </Button>
-              </div>
+          {isCheckoutLoading ? (
+            <div className="flex items-center justify-center">
+              <ThreeCircles height="30" width="100" color="#000" />
             </div>
-          ))}
-        </div> */}
-        {/* <div className="bg-gray-100 dark:bg-gray-800 rounded-lg p-6 space-y-4">
-          <div className="flex items-center justify-between">
-            <p>Total</p>
-            <p className="font-medium text-primary">${total()}</p>
-          </div>
-          <Button onClick={() => clearCart(email)} className="w-full">
-            Empty cart
-          </Button>
-          {
-            isCheckoutLoading ? <div className="flex items-center justify-center">
-              <ThreeCircles height="30"
-                width="100" color="#000" />
-            </div> : <Button className="w-full" onClick={() => onCheckout()}>
+          ) : (
+            <Button
+              className="text-white bg-[#4FA2AE] text-[14px] md:text-[16px] flex justify-center items-center py-2 md:py-6 px-6 md:px-10 rounded-sm"
+              onClick={() => onCheckout()}
+            >
               Proceed to Checkout
             </Button>
-          }
-
-          <Link
-            className="inline-block text-center text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-            href="#"
-          >
-            Continue Shopping
-          </Link>
-        </div> */}
+          )}
+        </div>
       </div>
     </div>
   );
