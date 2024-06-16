@@ -28,7 +28,7 @@ const styles = `
 `;
 
 // Append styles to the head of the document
-if (typeof document !== 'undefined') {
+if (typeof document !== "undefined") {
   const styleSheet = document.createElement("style");
   styleSheet.type = "text/css";
   styleSheet.innerText = styles;
@@ -163,7 +163,6 @@ const Navbar = () => {
             <span className="flex md:hidden -ml-3 -mr-3">
               <Hamburger toggled={isOpen} toggle={setOpen} size={18} />
             </span>
-
           </div>
         </div>
 
@@ -188,8 +187,9 @@ const Navbar = () => {
                   <Link href={"/category/charms"}>Charms</Link>
                   <Link href={"/category/earrings"}>Elemental Earrings</Link>
                   <Link href={"/category/rings"}>Cosmic Rings</Link>
-                  <Link href={"/category/gifts"}>Astrology Keychains</Link>
+                  <Link href={"/category/gifts"}>Gifts</Link>
                   <Link href={"/category/pendants"}>Pendants</Link>
+                  <Link href={"/category/bracelets"}>Bracelets</Link>
                 </div>
               </>
             )}
@@ -205,8 +205,9 @@ const Navbar = () => {
       <section>
         {/* Sidebar */}
         <div
-          className={`sidebar ${isOpen ? "translate-x-0" : "-translate-x-full"
-            } fixed bg-[#30304C] h-screen w-[50vw] shadow-xl text-white text-[14px] transition-transform duration-500 ease-in-out z-50 -mt-[1px]`}
+          className={`sidebar ${
+            isOpen ? "translate-x-0" : "-translate-x-full"
+          } fixed bg-[#30304C] h-screen w-[50vw] shadow-xl text-white text-[14px] transition-transform duration-500 ease-in-out z-50 -mt-[1px]`}
         >
           <div className="flex flex-col gap-8 px-[1.5rem] pt-[2rem]">
             <span>Shop by Category</span>
@@ -235,7 +236,6 @@ const Navbar = () => {
             <span>More At Cacoona</span>
           </div>
         </div>
-
       </section>
     </>
   );

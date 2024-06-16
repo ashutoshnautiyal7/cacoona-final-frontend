@@ -184,7 +184,7 @@ const Hero = ({ data }) => {
           )}
           <div className="mt-5 md:mt-6 leading-[28.8px]">
             <p className="whitespace-pre-wrap">
-              {data.description.substr(0, 300) || "Here comes the description "}
+              {data.description.substr(0, 300) || "Here comes the description "} 
             </p>
           </div>
           {/* <div className="flex flex-col gap-3 md:gap-5 mt-6 md:mt-8">

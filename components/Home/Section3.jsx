@@ -9,10 +9,10 @@ import {
 import { useSession, signIn, signOut } from "next-auth/react";
 import Link from "next/link";
 
-const Section3 = ({ productList }) => {
+const Section1 = ({ productList }) => {
   const { data: session, status } = useSession();
 
-  const email = session?.user?.email;
+  const email = session?.user.email;
 
   const scrollContainerRef = useRef(null);
   const handleScrollRight = () => {
@@ -50,19 +50,12 @@ const Section3 = ({ productList }) => {
       </div>
       <div className="mt-4 text-white flex md:gap-20 items-start md:items-end justify-between">
         <div className="flex flex-col lg:flex-row lg:items-end gap-2 lg:gap-20">
-          <h3 className="font-semibold text-[30px] md:text-[36px] leading-[120%]">
+          <h3 className="font-semibold text-[30px] md:text-[36px]">
             Best Selling Products
           </h3>
         </div>
-        <div className="flex justify-center">
-          <Link
-            href={"/product"}
-            className="text-white bg-[#4FA2AE] text-[14px] md:text-[16px] flex justify-center items-center py-2 md:py-2.5 px-5 md:px-6 rounded-sm whitespace-nowrap"
-          >
-            View All
-          </Link>
-        </div>
-        {/* <div className="flex mt-2 md:mt-0">
+
+        <div className="flex mt-2 md:mt-0">
           <button className="md:px-2  " onClick={handleScrollLeft}>
             {" "}
             <BsFillArrowLeftCircleFill className="h-6 md:h-8 w-6 md:w-8" />
@@ -71,14 +64,15 @@ const Section3 = ({ productList }) => {
             {" "}
             <BsFillArrowRightCircleFill className="h-6 md:h-8 w-6 md:w-8" />
           </button>
-        </div> */}
+        </div>
       </div>
+
       <div
         className="mt-6 md:mt-10 flex overflow-x-scroll no-scrollbar gap-10"
         style={{ scrollbarWidth: "none" }}
         ref={scrollContainerRef}
       >
-        {productList.map((product) => (
+        {productList?.map((product) => (
           <Product
             email={email}
             key={product.id}
@@ -94,8 +88,16 @@ const Section3 = ({ productList }) => {
           />
         ))}
       </div>
+      <div className="flex justify-center mt-8 md:mt-12">
+        <Link
+          href={"/product"}
+          className="text-white bg-[#4FA2AE] text-[14px] md:text-[16px] flex justify-center items-center py-2 md:py-2.5 px-6 md:px-10 rounded-sm"
+        >
+          View All Products
+        </Link>
+      </div>
     </section>
   );
 };
 
-export default Section3;
+export default Section1;
