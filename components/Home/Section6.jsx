@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const Section6 = () => {
   const scrollToTop = () => {
@@ -47,7 +48,7 @@ const Section6 = () => {
             height={110}
             className="mx-auto flex sm:hidden"
           />
-          <span className="">
+          <Link href={"/category/pendants"} className="">
             <h3 className="font-semibold text-[20px] md:text-[24px] leading-[24px]">
               Cosmic Bliss Necklace
             </h3>
@@ -57,7 +58,7 @@ const Section6 = () => {
             <p className="text-[14.5px] md:text-[16px underline mt-2 md:mt-4">
               Shop Now
             </p>
-          </span>
+          </Link>
         </div>
         <div className="lg:w-2/3 flex flex-col gap-3 md:gap-5 text-white">
           <div className="lg:h-1/2 bg-black flex flex-row-reverse pl-5 md:px-5 py-5 md:py-2 items-center lg:items-end">
@@ -75,7 +76,7 @@ const Section6 = () => {
               height={160}
               className="mx-auto flex sm:hidden"
             />
-            <span className="lg:mb-5">
+            <Link href={"/category/gifts"} className="lg:mb-5">
               <h3 className="font-semibold text-[20px] md:text-[24px] leading-[24px]">
                 Astro Keyring Set
               </h3>
@@ -85,7 +86,7 @@ const Section6 = () => {
               <p className="text-[14.5px] md:text-[16px underline mt-2 md:mt-4">
                 Shop Now
               </p>
-            </span>
+            </Link>
           </div>
           <div className="h-1/2 flex gap-3 md:gap-5 sm:flex-row">
             <div className="w-1/2 bg-black p-5 justify-around flex flex-col">
@@ -96,7 +97,7 @@ const Section6 = () => {
                 height={200}
                 className="mx-auto"
               />
-              <span className=" m">
+              <Link href={"/category/gifts"} className=" m">
                 <h3 className="font-semibold text-[20px] md:text-[24px] leading-[24px]">
                   Starlight Anklet
                 </h3>
@@ -106,7 +107,7 @@ const Section6 = () => {
                 <p className="text-[14.5px] md:text-[16px] underline mt-2 md:mt-4">
                   Shop Now
                 </p>
-              </span>
+              </Link>
             </div>
             <div className="w-1/2 bg-black p-5 justify-around  flex flex-col">
               <span>
@@ -126,7 +127,7 @@ const Section6 = () => {
                 />
               </span>
 
-              <span className=" mt-2">
+              <Link href={"/category/gifts"} className=" mt-2">
                 <h3 className="font-semibold text-[20px] md:text-[24px] leading-[24px]">
                   Galaxy Keychain
                 </h3>
@@ -136,7 +137,7 @@ const Section6 = () => {
                 <p className="text-[14.5px] md:text-[16px underline mt-2 md:mt-4">
                   Shop Now
                 </p>
-              </span>
+              </Link>
             </div>
           </div>
         </div>
