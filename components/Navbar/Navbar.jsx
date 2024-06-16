@@ -211,7 +211,7 @@ const Navbar = () => {
         >
           <div className="flex flex-col gap-8 px-[1.5rem] pt-[2rem]">
             <span>Shop by Category</span>
-            <ul className="flex flex-col gap-7 list-disc pl-6 -mt-1">
+            <ul className="flex flex-col gap-4 list-disc pl-6 -mt-1">
               <Link href={"/category/charms"}>
                 <li>Charms</li>
               </Link>
@@ -222,10 +222,13 @@ const Navbar = () => {
                 <li>Cosmic Rings</li>
               </Link>
               <Link href={"/category/gifts"}>
-                <li>Astrology Keychains</li>
+                <li>Gifts</li>
               </Link>
               <Link href={"/category/pendants"}>
                 <li>Pendants</li>
+              </Link>
+              <Link href={"/category/bracelets"}>
+                <li>Bracelets</li>
               </Link>
             </ul>
             <Link href={"/home"}>Home</Link>
