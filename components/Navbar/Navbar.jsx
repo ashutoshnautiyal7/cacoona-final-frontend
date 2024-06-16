@@ -136,14 +136,14 @@ const Navbar = () => {
                       <FiUser className="w-5 md:w-5 h-5 md:h-5 " />
                       Manage My Account
                     </Link>
-                    <Link href="/" className="flex items-center gap-2">
+                    <Link href="/orders" className="flex items-center gap-2">
                       <FiShoppingBag className="w-5 md:w-5 h-5 md:h-5 " />
                       My Order
                     </Link>
-                    <Link href="/" className="flex items-center gap-2">
+                    {/* <Link href="/" className="flex items-center gap-2">
                       <MdOutlineCancel className="w-5 md:w-5 h-5 md:h-5 " />
                       My Cancellations
-                    </Link>
+                    </Link> */}
 
                     {session ? (
                       <Link href="/login" className="flex items-center gap-2">
