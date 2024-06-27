@@ -36,7 +36,7 @@ export default function ShoppingCartModal() {
     console.log("cartDetails", cartDetails);
     try {
       const res = await axios.post(
-        "https://cacoona-admin.vercel.app/api/checkout",
+        "https://admin.cacoona.com/api/checkout",
         {
           productIds: Object.values(cartDetails ?? {}).map(
             (entry) => entry.prodcutId
