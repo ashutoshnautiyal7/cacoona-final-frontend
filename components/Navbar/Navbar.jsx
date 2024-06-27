@@ -82,19 +82,13 @@ const Navbar = () => {
 
   return (
     <>
-      <section className="bg-[#FFEECD] text-[11.5px] md:text-[14px] hidden md:flex gap-4 md:gap-10 items-center justify-center px-6 py-1.5 md:p-2.5 text-center leading-4">
-        <p className="font-semibold ">
-          Summer Sale For All Accessories And Express Delivery - OFF 10%!{" "}
-          <b className="ml-2 md:ml-5">Shop Now</b>
-        </p>
-      </section>
       <section className="px-[1.5rem] md:px-[2.5rem] xl:px-[7.5rem] pt-3 md:pt-0 pb-6 flex flex-col justify-between bg-[#30304C] text-white">
         <div className="flex justify-between items-center">
           <Link href="/">
             <img
-              src="/Images/logo2.png"
+              src="/Images/newlogo2.png"
               alt="#"
-              className="w-[4rem] md:w-[7rem]"
+              className="w-[4rem] mt-2  md:w-[7rem]"
             />
           </Link>
 
