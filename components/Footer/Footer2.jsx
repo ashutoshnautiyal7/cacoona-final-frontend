@@ -7,29 +7,12 @@ const Footer2 = () => {
     <>
       <section className="px-[2rem] sm:px-[1.2rem] md:px-[3rem] flex flex-col gap-4 lg:flex-row text-[#FAFAFA] lg:gap-8 justify-around lg:justify-between xl:justify-around items-center bg-black py-[3rem] w-full">
         <div className="flex flex-col sm:flex-row w-full gap-7 justify-around">
-          <div className="flex flex-col gap-2 md:gap-3">
-            <h2 className="text-[20px] md:text-[24px] font-bold mb-1 md:mb-2">
-              Cacoona
-            </h2>
-            <p className="text-[16px] md:text-[20px]">Subscribe</p>
-            <p className="text-[14px] md:text-[16px]">
-              Get 10% off your first order
+          <div className="flex items-center lg:items-start flex-col">
+            <Image src="/Images/logo.png" alt="#" width={130} height={90} />
+            <p className="max-w-[35rem] lg:max-w-[22rem] leading-[28px] md:leading-[28px] mt-[1rem] text-center lg:text-start">
+              Unleash Your Creativity and Rediscover Yourself with Our
+              Thoughtfully Crafted Journals
             </p>
-            <div className="relative w-fit">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                required
-                className="text-[#B5B5B5] p-2 border border-white outline-none bg-transparent text-[14px] md:text-[16px]"
-              />
-              <Image
-                src="/Images/right-arrow.png"
-                alt="#"
-                width={20}
-                height={20}
-                className="object-fit absolute right-2 top-2.5"
-              />
-            </div>
           </div>
           <div className="flex flex-col gap-2 md:gap-3">
             <h2 className="text-[16px] md:text-[20px] font-bold mb-1 md:mb-2">
@@ -51,20 +34,18 @@ const Footer2 = () => {
             <h2 className="text-[16px] md:text-[20px] font-bold mb-1 md:mb-2">
               Account
             </h2>
-            <Link href="/">My Account</Link>
-            <Link href="/">Login / Register</Link>
-            <Link href="/">Cart</Link>
-            <Link href="/">Wishlist</Link>
+            <Link href="/login">Login / Register</Link>
+            <Link href="/cart">Cart</Link>
+            <Link href="/wishlist">Wishlist</Link>
             <Link href="/">Shop</Link>
           </div>
           <div className="flex flex-col gap-2 md:gap-3">
             <h2 className="text-[16px] md:text-[20px] font-bold mb-1 md:mb-2">
               Quick Links
             </h2>
-            <Link href="/">Privacy Policy</Link>
-            <Link href="/">Terms Of Use</Link>
-            <Link href="/">FAQ</Link>
-            <Link href="/">Contact</Link>
+            <Link href="/privacy">Privacy Policy</Link>
+            <Link href="/terms">Terms Of Use</Link>
+            <Link href="/about">About</Link>
           </div>
           <div className="flex flex-col gap-2 md:gap-3">
             <h2 className="text-[16px] md:text-[20px] font-bold mb-1 md:mb-2">
@@ -82,20 +63,20 @@ const Footer2 = () => {
               <h2 className="text-[16px] md:text-[20px] font-bold mb-1 md:mb-2">
                 Account
               </h2>
-              <Link href="/">My Account</Link>
-              <Link href="/">Login / Register</Link>
-              <Link href="/">Cart</Link>
-              <Link href="/">Wishlist</Link>
+              {/* <Link href="/">My Account</Link> */}
+              <Link href="/login">Login / Register</Link>
+              <Link href="/cart">Cart</Link>
+              <Link href="/wishlist">Wishlist</Link>
               <Link href="/">Shop</Link>
             </div>
             <div className="flex flex-col gap-2 md:gap-3">
               <h2 className="text-[16px] md:text-[20px] font-bold mb-1 md:mb-2">
                 Quick Links
               </h2>
-              <Link href="/">Privacy Policy</Link>
-              <Link href="/">Terms Of Use</Link>
-              <Link href="/">FAQ</Link>
-              <Link href="/">Contact</Link>
+              <Link href="/privacy">Privacy Policy</Link>
+              <Link href="/terms">Terms Of Use</Link>
+              {/* <Link href="/">FAQ</Link> */}
+              <Link href="/about">About</Link>
             </div>
           </div>
           <div className="flex flex-col gap-2 md:gap-3 mt-6 lg:mt-0">

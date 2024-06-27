@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 function Section3() {
@@ -21,7 +22,7 @@ function Section3() {
             empowerment
           </p>
           <button className="bg-[#4fa2ae] text-[14px] md:text-[18px] px-7 py-2 rounded-lg mt-6 md:mt-10 font-medium">
-            Explore Now
+            <Link href={"/category/books"}>Explore Now</Link>
           </button>
         </div>
       </div>

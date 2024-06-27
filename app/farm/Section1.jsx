@@ -18,7 +18,13 @@ const Section1 = () => {
             enchantment of the stars and planets through our unique designs
           </p>
         </div>
-        <Image src="/Images/moon.png" alt="#" width={400} height={400} className="hidden lg:inline" />
+        <Image
+          src="/Images/moon.png"
+          alt="#"
+          width={400}
+          height={400}
+          className="hidden lg:inline"
+        />
       </div>
       <div className="flex flex-col md:flex-row gap-8 justify-between mt-12 md:mt-[7rem]">
         <div className="bg-gradient-to-t from-[rgba(79,162,174,0.25)] to-[rgba(255,241,219,0.25)] md:max-w-[310px] px-5 md:px-6 py-6 md:py-8 rounded-xl">
@@ -27,7 +33,9 @@ const Section1 = () => {
             Exclusive Previews
           </h3>
           <p className="mt-1.5 md:mt-2 text-[15px] md:text-[16px]">
-            Be among the first to explore our latest creations with exclusive previews. Immerse yourself in the celestial splendor defining Cacoona
+            Be among the first to explore our latest creations with exclusive
+            previews. Immerse yourself in the celestial splendor defining
+            Cacoona
           </p>
         </div>
         <div className="bg-gradient-to-t from-[rgba(79,162,174,0.25)] to-[rgba(255,241,219,0.25)] md:max-w-[310px] px-5 md:px-6 py-6 md:py-8 rounded-xl">
@@ -36,19 +44,22 @@ const Section1 = () => {
             Community Engagement
           </h3>
           <p className="mt-1.5 md:mt-2 text-[15px] md:text-[16px]">
-            Join our vibrant community, connect with fellow enthusiasts, and share your thoughts. Let's explore the wonders of the universe together
+            Join our vibrant community, connect with fellow enthusiasts, and
+            share your thoughts. Let's explore the wonders of the universe
+            together
           </p>
-        </div><div className="bg-gradient-to-t from-[rgba(79,162,174,0.25)] to-[rgba(255,241,219,0.25)] md:max-w-[310px] px-5 md:px-6 py-6 md:py-8 rounded-xl">
+        </div>
+        <div className="bg-gradient-to-t from-[rgba(79,162,174,0.25)] to-[rgba(255,241,219,0.25)] md:max-w-[310px] px-5 md:px-6 py-6 md:py-8 rounded-xl">
           <FaStar className="w-4 md:w-5 h-4 md:h-5" />
           <h3 className="font-bold mt-3 md:mt-4 text-[18px] md:text-[20px]">
             Testimonials
           </h3>
           <p className="mt-1.5 md:mt-2 text-[15px] md:text-[16px]">
-            Discover why Cacoona has captured hearts worldwide. Hear from satisfied customers and influencers who've experienced our celestial-inspired designs firsthand
+            Discover why Cacoona has captured hearts worldwide. Hear from
+            satisfied customers and influencers who've experienced our
+            celestial-inspired designs firsthand
           </p>
         </div>
-
-
       </div>
     </section>
   );

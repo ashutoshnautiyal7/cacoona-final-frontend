@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { GoArrowUpRight } from "react-icons/go";
 
@@ -20,7 +21,7 @@ const Hero = () => {
             the Forefront of the Cacoona Experience
           </p>
           <button className="bg-[#FFEECD] px-5 py-2 rounded-lg text-black text-[15px] md:text-[18px] mt-6 md:mt-16 flex items-center gap-1">
-            Get Started
+            <Link href={"/"}>Get Started</Link>
             <GoArrowUpRight className="h-4 md:h-5 w-4 md:w-5" />
           </button>
         </div>

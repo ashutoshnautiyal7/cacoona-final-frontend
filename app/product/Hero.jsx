@@ -12,6 +12,7 @@ import { useRouter } from "next/navigation";
 
 const Hero = ({ data }) => {
   const [material, setMaterial] = useState("hardcover");
+  const [selectedMaterial, setSelectedMaterial] = useState("hardcover");
   console.log("the data in the hero is ", data);
 
   const router = useRouter();
@@ -166,14 +167,28 @@ const Hero = ({ data }) => {
                 <p>:</p>
 
                 <button
-                  onClick={() => setMaterial("hardcover")}
-                  className="px-4 py-2 md:py-2.5 md:w-[8rem] border hover:bg-white hover:text-black text-[14px] md:text-[16px]"
+                  onClick={() => {
+                    setMaterial("hardcover");
+                    setSelectedMaterial("hardcover");
+                  }}
+                  className={`px-4 py-2 md:py-2.5 md:w-[8rem] border text-[14px] md:text-[16px] transition-colors duration-200 ${
+                    selectedMaterial === "hardcover"
+                      ? "bg-white text-black"
+                      : "hover:bg-white hover:text-black"
+                  }`}
                 >
-                  Hardcore
+                  Hardcover
                 </button>
                 <button
-                  onClick={() => setMaterial("online")}
-                  className="px-4 py-2 md:py-2.5 md:w-[8rem] border hover:bg-white hover:text-black text-[14px] md:text-[16px]"
+                  onClick={() => {
+                    setMaterial("online");
+                    setSelectedMaterial("online");
+                  }}
+                  className={`px-4 py-2 md:py-2.5 md:w-[8rem] border text-[14px] md:text-[16px] transition-colors duration-200 ${
+                    selectedMaterial === "online"
+                      ? "bg-white text-black"
+                      : "hover:bg-white hover:text-black"
+                  }`}
                 >
                   Online
                 </button>
@@ -184,7 +199,7 @@ const Hero = ({ data }) => {
           )}
           <div className="mt-5 md:mt-6 leading-[28.8px]">
             <p className="whitespace-pre-wrap">
-              {data.description.substr(0, 300) || "Here comes the description "} 
+              {data.description.substr(0, 300) || "Here comes the description "}
             </p>
           </div>
           {/* <div className="flex flex-col gap-3 md:gap-5 mt-6 md:mt-8">

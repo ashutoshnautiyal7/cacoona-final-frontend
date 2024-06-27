@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const Section1 = () => {
@@ -19,7 +20,7 @@ const Section1 = () => {
             youth.
           </p>
           <button className="bg-[#4fa2ae] text-[14px] md:text-[18px] px-7 py-2 rounded-lg mt-6 md:mt-10 font-medium">
-            Explore Now
+            <Link href="/">Explore Now</Link>
           </button>
         </div>
       </div>
