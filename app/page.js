@@ -14,6 +14,7 @@ import Navbar from "@/components/Navbar/Navbar";
 import Image from "next/image";
 import db from '../lib/db'
 import Section6 from "@/components/Home/Section6";
+import Section7 from "@/components/Home/Section7";
 
 
 export const dynamic = "force-dynamic"; 
@@ -39,6 +40,7 @@ export default async function Home() {
       <Section4/>
       {/* <Section5 productList={products}/>  */}
       <Section6 />
+      <Section7/>
       <Footer2 />
     </main>
   );

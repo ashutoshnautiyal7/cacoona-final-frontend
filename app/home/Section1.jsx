@@ -9,12 +9,15 @@ const Section1 = () => {
       </div>
       <div className="flex justify-between flex-1 gap-5 items-start ">
         <div className="max-w-[100%] lg:max-w-[35rem] xl:max-w-[45rem]">
-          <div className="flex flex-col lg:items-end">
+          <div className="flex flex-col lg:items-end mb-5 md:mb-10 lg:mb-0">
             <h2 className="font-bold text-[28px] md:text-[36px] leading-[140%] md:leading-[120.7%] mt-6">
               Your Companion on the Path to Self-Discovery
             </h2>
           </div>
-          <p className="text-[16px] md:text-[20px]  leading-[180%]  mt-6 md:mt-10">
+          <div className="inline lg:hidden">
+            <img src="/Images/human2.png" alt="#" className="w-[28rem]" />
+          </div>
+          <p className="text-[16px] md:text-[20px] leading-[180%] md:leading-[200%] mt-6 md:mt-10">
             A Chesper is your paper chest. It's where you can be free to imagine
             and record your story, outline your journey and display your inner
             youth.

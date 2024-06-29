@@ -12,9 +12,17 @@ const Hero = () => {
             <span className="w-[4.6rem] md:w-[6rem] h-[2px] bg-[#FFEECD]"></span>
             <p>Farm by Cacoona</p>
           </span>
-          <h1 className="font-black text-[42px] md:text-[52px] xl:text-[64px] leading-[140%] md:leading-[120.7%] mt-6">
+          <h1 className="font-black text-[42px] md:text-[52px] xl:text-[64px] leading-[140%] md:leading-[120.7%] mt-6 mb-10 lg:mb-0">
             Embark on a Journey with Cacoona Farm
           </h1>
+          <div className="inline lg:hidden">
+            <Image
+              src="/Images/farm-banner.png"
+              alt="#"
+              width={400}
+              height={400}
+            />
+          </div>
           <p className="text-[16px] md:text-[22px] leading-[240%] md:leading-[45px]  mt-6 text-[#D9D9D9]">
             Be the First to Witness Our Evolution: Gain Insider Access to Our
             Creative Process and Product Development, Ensuring You're Always at

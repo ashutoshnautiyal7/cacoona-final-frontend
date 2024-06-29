@@ -26,7 +26,7 @@ const Section1 = () => {
           className="hidden lg:inline"
         />
       </div>
-      <div className="flex flex-col md:flex-row gap-8 justify-between mt-12 md:mt-[7rem]">
+      <div className="flex flex-col md:flex-row gap-8 justify-around mt-12 md:mt-[7rem]">
         <div className="bg-gradient-to-t from-[rgba(79,162,174,0.25)] to-[rgba(255,241,219,0.25)] md:max-w-[310px] px-5 md:px-6 py-6 md:py-8 rounded-xl">
           <FaStar className="w-4 md:w-5 h-4 md:h-5" />
           <h3 className="font-bold mt-3 md:mt-4 text-[18px] md:text-[20px]">
