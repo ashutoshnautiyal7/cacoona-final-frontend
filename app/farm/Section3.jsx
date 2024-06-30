@@ -94,8 +94,8 @@ const Section3 = () => {
   return (
     <section className="px-[1.2rem] md:px-[4rem] pb-8 pt-8 md:pt-20 md:pb-20 bg-[#30304C] text-white">
       <div className="flex flex-col items-center justify-center">
-        <h2 className="text-[48px] font-bold ">Hear From Our Customers</h2>
-        <p className="text-[30px] max-w-[586px] mt-3 leading-[160%] md:text-center">
+        <h2 className="text-[36px] md:text-[48px] font-bold ">Hear From Our Customers</h2>
+        <p className="text-[24px] md:text-[30px] max-w-[586px] mt-3 leading-[160%] md:text-center">
           Discover the Impact of Chesper: Stories of Transformation and
           Empowerment
         </p>

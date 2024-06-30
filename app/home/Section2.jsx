@@ -55,7 +55,7 @@ const Section2 = () => {
         {features.map((feature) => (
           <div
             key={feature.id}
-            className="text-black md:max-w-[360px] flex flex-col items-center bg-[#4fa2ae] px-6 py-6 rounded-xl"
+            className="text-black md:max-w-[360px] flex flex-col items-center bg-[#4fa2ae] px-7 py-7 rounded-xl"
           >
             <img
               src={feature.imageUrl}
@@ -65,7 +65,7 @@ const Section2 = () => {
             <h3 className="text-[18px] md:text-[24px] font-medium mt-3 md:mt-6">
               {feature.title}
             </h3>
-            <p className="text-[13px] md:text-[15px] mt-3">
+            <p className="text-[13px] md:text-[15px] mt-3 leading-[180%] md:leading-[200%]">
               {feature.description}
             </p>
           </div>

@@ -82,7 +82,7 @@ const Navbar = () => {
 
   return (
     <>
-      <section className="px-[1.5rem] md:px-[2.5rem] xl:px-[7.5rem] pt-3 md:pt-0 pb-6 flex flex-col justify-between bg-[#30304C] text-white">
+      <section className="px-[1.5rem] md:px-[2.5rem] xl:px-[7.5rem] pt-3 pb-5 flex flex-col justify-between bg-[#30304C] text-white">
         <div className="flex justify-between items-center">
           <Link href="/">
             <img
@@ -165,7 +165,7 @@ const Navbar = () => {
           <SearchBar />
         </div>
 
-        <div className="hidden md:flex gap-5 lg:gap-10 xl:gap-16 -mt-2 text-[14px] lg:text-[16px] font-light justify-center items-center w-full">
+        <div className="hidden md:flex gap-5 lg:gap-10 xl:gap-16 text-[14px] lg:text-[16px] font-light justify-center items-center w-full cursor-pointer">
           <span
             className="flex items-center relative"
             onMouseEnter={toggleDropdown1}
@@ -201,11 +201,11 @@ const Navbar = () => {
         <div
           className={`sidebar ${
             isOpen ? "translate-x-0" : "-translate-x-full"
-          } fixed bg-[#30304C] h-screen w-[50vw] shadow-xl text-white text-[14px] transition-transform duration-500 ease-in-out z-50 -mt-[1px]`}
+          } fixed bg-[#1F1F3A] h-screen w-[50vw] shadow-2xl text-white text-[14px] transition-transform duration-500 ease-in-out z-50 -mt-[1px]`}
         >
-          <div className="flex flex-col gap-8 px-[1.5rem] pt-[2rem]">
+          <div className="flex flex-col gap-6 px-[1.5rem] pt-[2rem]">
             <span>Shop by Category</span>
-            <ul className="flex flex-col gap-4 list-disc pl-6 -mt-1">
+            <ul className="flex flex-col gap-3.5 list-disc pl-6 -mt-1">
               <Link href={"/category/charms"}>
                 <li>Charms</li>
               </Link>

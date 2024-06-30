@@ -11,7 +11,7 @@ const Section6 = () => {
     });
   };
   return (
-    <section className="px-[1.2rem] md:px-[2.5rem] lg:px-[6rem] pb-6 pt-8 md:pt-14 md:pb-8 bg-[#30304C]">
+    <section className="px-[1.2rem] md:px-[2.5rem] lg:px-[6rem] pb-6 pt-8 md:pt-14 md:pb-4 bg-[#30304C]">
       <div className="flex items-center gap-4">
         <div className="bg-[#4FA2AE] h-9 w-5 rounded-sm"></div>
         <h2 className="text-[#4FA2AE] text-[14px] md:text-[16px] font-semibold ">
@@ -167,7 +167,7 @@ const Section6 = () => {
             </span>
           </div>
         </div>
-        <div className="text-white flex md:flex-col items-center justify-center gap-4 md:gap-0">
+        <div className="text-white flex md:flex-col items-center justify-center gap-4 md:gap-0 -ml-4">
           <Image
             src="/Images/sl2.png"
             alt="#"
@@ -191,7 +191,7 @@ const Section6 = () => {
             </span>
           </div>
         </div>
-        <div className="text-white flex md:flex-col items-center justify-center gap-4 md:gap-0">
+        <div className="text-white flex md:flex-col items-center justify-center gap-4 md:gap-0 -ml-1.5">
           <Image
             src="/Images/sl3.png"
             alt="#"
@@ -216,7 +216,7 @@ const Section6 = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-end mt-8 md:mt-16">
+      {/* <div className="flex justify-end mt-8 md:mt-16">
         <Image
           src="/Images/up-arrow.png"
           alt="#"
@@ -225,7 +225,7 @@ const Section6 = () => {
           className="cursor-pointer"
           onClick={scrollToTop}
         />
-      </div>
+      </div> */}
     </section>
   );
 };
