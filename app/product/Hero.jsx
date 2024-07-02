@@ -229,7 +229,7 @@ const Hero = ({ data }) => {
                 >
                   BUY NOW
                 </button>
-                <Button
+                <button
                   onClick={(event) => {
                     if (!email) {
                       toast.error("Please login to add to cart");
@@ -242,15 +242,15 @@ const Hero = ({ data }) => {
                       productName: data.name,
                       currentPrice: data.currentPrice,
                       originalPrice: data.originalPrice,
-                      quantity: 1,
+                      quantity: value,
                       category: data.category,
                     };
                     cart.addItem(productData, email);
                   }}
-                  className={`w-full bg-[#4FA2AE] text-white px-6 font-semibold text-[14px] md:text-[16px]`}
+                  className={`w-full  bg-[#4FA2AE] text-white px-6 font-semibold text-[14px] md:text-[16px]`}
                 >
                   Add To Cart
-                </Button>
+                </button>
               </>
             )}
           </div>
