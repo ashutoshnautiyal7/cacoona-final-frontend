@@ -6,9 +6,11 @@ import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
 import { FaEye } from "react-icons/fa";
 import axios from "axios";
+import { Button } from "../../components/ui/button";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { ThreeCircles } from "react-loader-spinner";
 import { useRouter } from "next/navigation";
+import useCart from "@/hooks/use-cart";
 
 const Hero = ({ data }) => {
   const [material, setMaterial] = useState("hardcover");
@@ -16,6 +18,8 @@ const Hero = ({ data }) => {
   console.log("the data in the hero is ", data);
 
   const router = useRouter();
+
+  const cart = useCart();
 
   const { data: session, status } = useSession();
 
@@ -53,13 +57,10 @@ const Hero = ({ data }) => {
           quantity: value,
         },
       ];
-      const res = await axios.post(
-        "https://admin.cacoona.com/api/checkout",
-        {
-          productData,
-          email,
-        }
-      );
+      const res = await axios.post("https://admin.cacoona.com/api/checkout", {
+        productData,
+        email,
+      });
 
       window.location = res.data.url;
     } catch (error) {
@@ -76,13 +77,10 @@ const Hero = ({ data }) => {
           material: material,
         },
       ];
-      const res = await axios.post(
-        "https://admin.cacoona.com/api/checkout",
-        {
-          productData,
-          email,
-        }
-      );
+      const res = await axios.post("https://admin.cacoona.com/api/checkout", {
+        productData,
+        email,
+      });
 
       window.location = res.data.url;
     } catch (error) {
@@ -143,20 +141,6 @@ const Hero = ({ data }) => {
               ${data.originalPrice}
             </span>
           </div>
-          {/* <div className="mt-1.5 md:mt-3.5 flex">
-            <Stack spacing={1}>
-              <Rating
-                name="half-rating-read"
-                value={4}
-                precision={0.5}
-                readOnly
-                // size="small"
-              />
-            </Stack>
-            <span className="text-white ml-2yy md:ml-4 underline">
-              32 reviews
-            </span>
-          </div> */}
 
           {data.category === "BOOKS" ? (
             <div className="flex flex-col gap-2 md:gap-3 mt-5 md:mt-8">
@@ -236,14 +220,38 @@ const Hero = ({ data }) => {
                 BUY NOW
               </button>
             ) : (
-              <button
-                onClick={() => {
-                  session ? handleBuyNow() : router.push("/login");
-                }}
-                className="w-full bg-[#4FA2AE] text-white px-6 font-semibold text-[14px] md:text-[16px]"
-              >
-                BUY NOW
-              </button>
+              <>
+                <button
+                  onClick={() => {
+                    session ? handleBuyNow() : router.push("/login");
+                  }}
+                  className="w-full bg-[#4FA2AE] text-white px-6 font-semibold text-[14px] md:text-[16px]"
+                >
+                  BUY NOW
+                </button>
+                <Button
+                  onClick={(event) => {
+                    if (!email) {
+                      toast.error("Please login to add to cart");
+                      return;
+                    }
+                    event.stopPropagation();
+                    const productData = {
+                      id: data.id,
+                      imageSrc: data.images[0].url,
+                      productName: data.name,
+                      currentPrice: data.currentPrice,
+                      originalPrice: data.originalPrice,
+                      quantity: 1,
+                      category: data.category,
+                    };
+                    cart.addItem(productData, email);
+                  }}
+                  className={`w-full bg-[#4FA2AE] text-white px-6 font-semibold text-[14px] md:text-[16px]`}
+                >
+                  Add To Cart
+                </Button>
+              </>
             )}
           </div>
         </div>
