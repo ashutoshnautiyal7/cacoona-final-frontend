@@ -10,8 +10,11 @@ import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuIte
 import { Button } from "@/components/ui/button"
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "@/components/ui/table"
 import { Badge } from "@/components/ui/badge"
+import { useRouter } from "next/navigation"
 
 export default function MyOrders({orders}) {
+
+  const router = useRouter();
   
   const [sortColumn, setSortColumn] = useState("date")
   const [sortDirection, setSortDirection] = useState("desc")
@@ -25,7 +28,7 @@ export default function MyOrders({orders}) {
   }, [orders, sortColumn, sortDirection])
   const filteredOrders = useMemo(() => {
     if (filterStatus === "all") return sortedOrders
-    return sortedOrders.filter((order) => order.status === filterStatus)
+    return sortedOrders.filter((order) => order.isPaid === true)
   }, [sortedOrders, filterStatus])
   const handleSort = (column) => {
     if (sortColumn === column) {
@@ -55,9 +58,7 @@ export default function MyOrders({orders}) {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
               <DropdownMenuItem onClick={() => handleFilterStatus("all")}>All</DropdownMenuItem>
-              <DropdownMenuItem onClick={() => handleFilterStatus("delivered")}>Delivered</DropdownMenuItem>
-              <DropdownMenuItem onClick={() => handleFilterStatus("shipped")}>Shipped</DropdownMenuItem>
-              <DropdownMenuItem onClick={() => handleFilterStatus("cancelled")}>Cancelled</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => handleFilterStatus("paid")}>Paid</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
@@ -77,27 +78,14 @@ export default function MyOrders({orders}) {
                 {sortColumn === "date" && <span className="ml-2">{sortDirection === "asc" ? "\u2191" : "\u2193"}</span>}
               </TableHead>
               <TableHead>Items</TableHead>
-              <TableHead>Quantity</TableHead>
-              <TableHead className="cursor-pointer text-right" onClick={() => handleSort("total")}>
-                Total
-                {sortColumn === "total" && (
-                  <span className="ml-2">{sortDirection === "asc" ? "\u2191" : "\u2193"}</span>
-                )}
-              </TableHead>
-              <TableHead className="cursor-pointer" onClick={() => handleSort("status")}>
-                Status
-                {sortColumn === "status" && (
-                  <span className="ml-2">{sortDirection === "asc" ? "\u2191" : "\u2193"}</span>
-                )}
-              </TableHead>
-              <TableHead className="text-right">Actions</TableHead>
+              <TableHead>Payment Status</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {filteredOrders.map((order) => (
               <TableRow key={order.id}>
                 <TableCell className="font-medium">{order.id}</TableCell>
-                <TableCell>{order.createdAt.toString()}</TableCell>
+                <TableCell>{order.createdAt.toLocaleDateString("en-US")}</TableCell>
                 <TableCell>
                   {order.orderItems.map((item) => (
                     <div key={item.product.name}>{item.product.name}</div>
@@ -106,12 +94,11 @@ export default function MyOrders({orders}) {
                 {/* <TableCell>{order.orderItems.reduce((total, item) => total + item.quantity, 0)}</TableCell>
                 <TableCell className="text-right">${order.total.toFixed(2)}</TableCell> */}
                 <TableCell>
-                 {order.isPaid}
+                 {order.isPaid.toString()}
                 </TableCell>
                 <TableCell className="text-right">
-                  <Button variant="outline" size="icon">
+                  <Button onClick={() => router.push(`/orders/${order.id}`)} variant="outline" size="icon">
                     <EyeIcon className="h-4 w-4" />
-                    <span className="sr-only">View order</span>
                   </Button>
                 </TableCell>
               </TableRow>

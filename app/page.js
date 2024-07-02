@@ -27,6 +27,9 @@ export default async function Home() {
       }
     }
   );
+
+  const timer = await db.saleTimer.findMany();
+
   return (
     <main className="">
       {/* <Hero />
@@ -34,10 +37,10 @@ export default async function Home() {
       <Section2 /> */}
       <Navbar />
       <Hero />
-      <Section1 productList={products}/>
+      <Section1 productList={products} timer={timer}/>
       <Section2 />
       <Section3 productList={products} />
-      <Section4/>
+      <Section4 timer = {timer}/>
       {/* <Section5 productList={products}/>  */}
       <Section6 />
       <Section7/>
