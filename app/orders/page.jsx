@@ -2,14 +2,16 @@ import prisma from "@/lib/db";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import MyOrders from "@/components/ui/MyOrderPage";
+import { redirect } from "next/navigation";
 
 
 const Page = async() => {
     const session = await getServerSession(authOptions);
     const email = session?.user?.email;
+    console.log("email", email )
     const myOrders = await prisma.order.findMany({
         where: {
-            email,
+            userEmail: email,
         },
         include: {
             orderItems: {
@@ -20,7 +22,6 @@ const Page = async() => {
         },
     });
     
-      console.log("my orders", myOrders);
     return ( 
         <div>
             <MyOrders orders={myOrders} />
