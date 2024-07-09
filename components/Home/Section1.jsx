@@ -110,8 +110,9 @@ const Section1 = ({ productList, timer }) => {
           Todays&apos;s
         </h2>
       </div>
-      <div className="mt-4 text-white flex md:gap-20 items-start md:items-end justify-between">
-        <div className="flex flex-col lg:flex-row lg:items-end gap-2 lg:gap-20">
+      {/* below div have mt-4 if flash sale is present */}
+      <div className=" text-white flex md:gap-20 justify-end">
+        {/* <div className="flex flex-col lg:flex-row lg:items-end gap-2 lg:gap-20">
           <h3 className="font-semibold text-[30px] md:text-[36px]">
             Flash Sales
           </h3>
@@ -144,7 +145,7 @@ const Section1 = ({ productList, timer }) => {
               <span>{remainingTime.seconds.toString().padStart(2, '0')}</span>
             </div>
           </div>
-        </div>
+        </div> */}
 
         <div className="flex mt-2 md:mt-0">
           <button className="md:px-2" onClick={handleScrollLeft}>

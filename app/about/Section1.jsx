@@ -47,7 +47,7 @@ const Section1 = () => {
               expanded1 ? "expand" : "collapse"
             }`}
           >
-            <img src="/Images/lady.jpeg" className="w-[30rem] bg-white" />
+            <img src="/Images/human3.jpg" className="w-[30rem] bg-white" />
             <p>
               I am Annastacia Robinson, creator of Cacoona and Chesper by
               Cacoona, embarked on a journey of self-discovery and healing from
@@ -78,7 +78,7 @@ const Section1 = () => {
               expanded2 ? "expand" : "collapse"
             }`}
           >
-            <img src="/Images/lady.jpeg" className="w-[30rem] bg-white" />
+            <img src="/Images/human3.jpg" className="w-[30rem] bg-white" />
             <p>
               I am Annastacia Robinson, creator of Cacoona and Chesper by
               Cacoona, embarked on a journey of self-discovery and healing from
@@ -109,7 +109,7 @@ const Section1 = () => {
               expanded3 ? "expand" : "collapse"
             }`}
           >
-            <img src="/Images/lady.jpeg" className="w-[30rem] bg-white" />
+            <img src="/Images/human3.jpg" className="w-[30rem] bg-white" />
             <p>
               I am Annastacia Robinson, creator of Cacoona and Chesper by
               Cacoona, embarked on a journey of self-discovery and healing from

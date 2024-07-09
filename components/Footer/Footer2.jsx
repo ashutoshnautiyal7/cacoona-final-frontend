@@ -1,15 +1,17 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { FaXTwitter,FaFacebook,FaInstagram  } from "react-icons/fa6";
+import { FaXTwitter, FaFacebook, FaInstagram } from "react-icons/fa6";
 const Footer2 = () => {
   return (
     <>
       <section className="px-[2rem] sm:px-[1.2rem] md:px-[3rem] flex flex-col gap-4 lg:flex-row text-[#FAFAFA] lg:gap-8 justify-around lg:justify-between xl:justify-around items-center bg-black py-[3rem] w-full">
         <div className="flex flex-col sm:flex-row w-full gap-7 justify-around">
           <div className="flex items-center lg:items-start flex-col">
-            <Image src="/Images/logo.png" alt="#" width={130} height={90} />
-            <p className="max-w-[35rem] lg:max-w-[22rem] leading-[28px] md:leading-[28px] mt-[1rem] text-center lg:text-start">
+            <Link href="/">
+              <Image src="/Images/logo4.png" alt="#" width={180} height={90} />
+            </Link>
+            <p className="max-w-[35rem] lg:max-w-[22rem] leading-[28px] md:leading-[28px] mt-2 text-center lg:text-start">
               Unleash Your Creativity and Rediscover Yourself with Our
               Thoughtfully Crafted Journals
             </p>
@@ -51,9 +53,15 @@ const Footer2 = () => {
             <h2 className="text-[16px] md:text-[20px] font-bold mb-1 md:mb-2">
               Social Media
             </h2>
-            <Link href="/"><FaFacebook className="w-5 h-5"/></Link>
-            <Link href="/"><FaInstagram className="w-5 h-5"/></Link>
-            <Link href="/"><FaXTwitter className="w-5 h-5"/></Link>
+            <Link href="/">
+              <FaFacebook className="w-5 h-5" />
+            </Link>
+            <Link href="/">
+              <FaInstagram className="w-5 h-5" />
+            </Link>
+            <Link href="/">
+              <FaXTwitter className="w-5 h-5" />
+            </Link>
           </div>
         </div>
         {/* for small device */}
@@ -83,9 +91,15 @@ const Footer2 = () => {
             <h2 className="text-[16px] md:text-[20px] font-bold mb-1 md:mb-2">
               Social Media
             </h2>
-            <Link href="/"><FaFacebook className="w-4 h-4"/></Link>
-            <Link href="/"><FaInstagram className="w-4 h-4"/></Link>
-            <Link href="/"><FaXTwitter className="w-4 h-4"/></Link>
+            <Link href="/">
+              <FaFacebook className="w-4 h-4" />
+            </Link>
+            <Link href="/">
+              <FaInstagram className="w-4 h-4" />
+            </Link>
+            <Link href="/">
+              <FaXTwitter className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </section>
