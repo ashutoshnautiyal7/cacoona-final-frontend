@@ -5,6 +5,7 @@ import React from "react";
 import prisma from "@/lib/db";
 import Link from "next/link";
 import Category from "@/components/category/Category";
+export const dynamic = "force-dynamic";
 
 const page = async () => {
   const productList = await prisma.product.findMany({
