@@ -99,9 +99,12 @@ const Page = () => {
 
   if (!session) {
     return (
-      <div className="flex justify-center items-center h-screen">
-        Please sign in to view this page.
-      </div>
+      <>
+        <Navbar />
+        <div className="flex justify-center items-center h-screen">
+          Please sign in to view this page.
+        </div>
+      </>
     );
   }
 
