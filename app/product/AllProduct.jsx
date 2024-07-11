@@ -10,6 +10,8 @@ import {
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 
+export const dynamic = "force-dynamic";
+
 const AllProduct = () => {
   const scrollContainerRef = useRef(null);
   const handleScrollRight = () => {
