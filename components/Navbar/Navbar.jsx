@@ -126,7 +126,7 @@ const Navbar = () => {
                 <>
                   <div className="absolute top-full right-0 h-1.5 w-52"></div>
                   <div className="absolute top-full right-0 bg-[#4FA2AE] text-white p-4 flex flex-col gap-2 text-[14px] w-[15rem] justify-center font-normal mt-1.5 shadow-md rounded-sm z-50">
-                    <Link href="/" className="flex items-center gap-2">
+                    <Link href="/profile" className="flex items-center gap-2">
                       <FiUser className="w-5 md:w-5 h-5 md:h-5 " />
                       Manage My Account
                     </Link>

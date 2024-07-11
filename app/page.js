@@ -6,12 +6,8 @@ import Section1 from "@/components/Home/Section1";
 import Section2 from "@/components/Home/Section2";
 import Section3 from "@/components/Home/Section3";
 import Section4 from "@/components/Home/Section4";
-import Section5 from "@/components/Home/Section5";
 import Navbar from "@/components/Navbar/Navbar";
-// import Hero from "@/components/landing/Hero";
-// import Section1 from "@/components/landing/Section1";
-// import Section2 from "@/components/landing/Section2";
-import Image from "next/image";
+
 import db from '../lib/db'
 import Section6 from "@/components/Home/Section6";
 import Section7 from "@/components/Home/Section7";

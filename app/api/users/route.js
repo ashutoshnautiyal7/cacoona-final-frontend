@@ -8,6 +8,7 @@ export async function POST(request) {
     const users = await db.user.findMany({
       where: { email },
       select: {
+        name:true,
         email: true,
         wishlist: {
           select: {
@@ -18,6 +19,7 @@ export async function POST(request) {
             },
           },
         },
+        notes: true,
       },
     });
 
