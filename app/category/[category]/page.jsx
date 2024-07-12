@@ -8,7 +8,9 @@ import Category from "@/components/category/Category";
 
 const page = async ({ params }) => {
   console.log("the category is ", params.category);
-  const cat = params.category.toUpperCase();
+  const cat =
+    params.category.substring(0, 1).toUpperCase() +
+    params.category.substring(1);
 
   const productList = await prisma.product.findMany({
     where: {

@@ -184,10 +184,10 @@ const Navbar = () => {
                   <Link href={"/category/gifts"}>Gifts</Link>
                   <Link href={"/category/pendants"}>Pendants</Link>
                   <Link href={"/category/bracelets"}>Bracelets</Link> */}
-                  <Link href={"/category/chesper-accessories"}>
+                  <Link href={"/category/accessories"}>
                     Chesper Accessories
                   </Link>
-                  <Link href={"/category/celestial-collection"}>
+                  <Link href={"/category/collection"}>
                     Celestial Collection
                   </Link>
                 </div>

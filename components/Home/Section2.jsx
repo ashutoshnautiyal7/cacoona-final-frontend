@@ -8,16 +8,16 @@ import {
 import Link from "next/link";
 
 const items = [
-  { imageSrc: "/Images/c1.png", text: "Charms", link: "/category/charms" },
-  { imageSrc: "/Images/c2.png", text: "Pendants", link: "/category/pendants" },
   {
-    imageSrc: "/Images/c3.png",
-    text: "Bracelets",
-    link: "/category/bracelets",
+    imageSrc: "/Images/c1.png",
+    text: "Accessories",
+    link: "/category/accessories",
   },
-  { imageSrc: "/Images/c4.png", text: "Rings", link: "/category/rings" },
-  { imageSrc: "/Images/c5.png", text: "Earrings", link: "/category/earrings" },
-  { imageSrc: "/Images/c6.png", text: "Gifts", link: "/category/gifts" },
+  {
+    imageSrc: "/Images/c2.png",
+    text: "Collections",
+    link: "/category/collection",
+  },
 ];
 
 const Section2 = () => {
