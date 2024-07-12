@@ -15,12 +15,8 @@ datasource db {
 
 enum Category {
   BOOKS
-  CHARMS
-  RINGS
-  BRACELETS
-  EARRINGS
-  PENDANTS
-  GIFTS
+  Accessories
+  Collection
 }
 
 model User {

@@ -11,9 +11,9 @@ const page = () => {
     <main>
       <Navbar />
       <Hero />
-      <Section1 />
+      {/* <Section1 />
       <Section6 />
-      <Section3 />
+      <Section3 /> */}
       <Footer2 />
     </main>
   );
