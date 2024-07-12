@@ -196,7 +196,7 @@ const Navbar = () => {
           </span>
           <Link href={"/home"}>Home</Link>
           <Link href={"/farm"} className="flex items-center relative">
-            Cacoona Farm
+            Cacoona Connect
           </Link>
           <Link href={"/about"}> About Us</Link>
           <span>More At Cacoona</span>
@@ -239,7 +239,7 @@ const Navbar = () => {
             </ul>
             <Link href={"/home"}>Home</Link>
             <Link href={"/farm"} className="flex items-center relative">
-              Cacoona Farm
+              Cacoona Connect
             </Link>
             <Link href={"/about"}> About Us</Link>
             <span>More At Cacoona</span>
