@@ -14,8 +14,7 @@ datasource db {
 }
 
 enum Category {
-  Accessories
-  Collection
+
   BOOKS
   Accessories
   Collection
