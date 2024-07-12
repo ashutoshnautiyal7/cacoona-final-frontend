@@ -37,14 +37,19 @@ const Section1 = ({ productList, timer }) => {
   const email = session?.user?.email;
 
   const scrollContainerRef = useRef(null);
-  const [remainingTime, setRemainingTime] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const [remainingTime, setRemainingTime] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
 
   useEffect(() => {
     if (!timer || timer.length === 0 || timer[0].isRunning === false) {
       return;
     }
 
-    const calculateAndSetRemainingTime = async() => {
+    const calculateAndSetRemainingTime = async () => {
       const newRemainingTime = calculateRemainingTime(timer[0].updatedAt, {
         days: timer[0].days,
         hours: timer[0].hours,
@@ -57,16 +62,14 @@ const Section1 = ({ productList, timer }) => {
         newRemainingTime.days === 0 &&
         newRemainingTime.hours === 0 &&
         newRemainingTime.minutes === 0 &&
-        newRemainingTime.seconds === 0 && 
+        newRemainingTime.seconds === 0 &&
         timer[0].isRunning
       ) {
-        try{
+        try {
           await axios.patch(`/api/timer/${timer[0].id}`);
-        }
-        catch(error){
+        } catch (error) {
           console.log(error);
         }
-        
       }
     };
 
@@ -107,11 +110,12 @@ const Section1 = ({ productList, timer }) => {
       <div className="flex items-center gap-4">
         <div className="bg-[#4FA2AE] h-9 w-5 rounded-sm"></div>
         <h2 className="text-[#4FA2AE] text-[14px] md:text-[16px] font-semibold">
-          Todays&apos;s
+          Products
         </h2>
       </div>
-      <div className="mt-4 text-white flex md:gap-20 items-start md:items-end justify-between">
-        <div className="flex flex-col lg:flex-row lg:items-end gap-2 lg:gap-20">
+      {/* below div have mt-4 if flash sale is present */}
+      <div className=" text-white flex md:gap-20 justify-end">
+        {/* <div className="flex flex-col lg:flex-row lg:items-end gap-2 lg:gap-20">
           <h3 className="font-semibold text-[30px] md:text-[36px]">
             Flash Sales
           </h3>
@@ -144,7 +148,7 @@ const Section1 = ({ productList, timer }) => {
               <span>{remainingTime.seconds.toString().padStart(2, '0')}</span>
             </div>
           </div>
-        </div>
+        </div> */}
 
         <div className="flex mt-2 md:mt-0">
           <button className="md:px-2" onClick={handleScrollLeft}>

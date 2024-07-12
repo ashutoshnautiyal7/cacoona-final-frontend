@@ -23,7 +23,6 @@ const BookDownloadPage = async ({ orderId }) => {
   return (
     <div>
       <BookForm />
-      Download your book here {orderId}
     </div>
   );
 };

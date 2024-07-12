@@ -3,12 +3,9 @@ import { FaRegHeart } from "react-icons/fa";
 import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
 import Link from "next/link";
-import AddToBag from "../ui/AddToBag";
 import { Button } from "../ui/button";
 import useCart from "@/hooks/use-cart";
-import { useEffect } from "react";
 
-import { useSession, signIn, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { toast } from "react-hot-toast";
 
@@ -26,7 +23,6 @@ const Product = ({
 }) => {
   const [showButton, setShowButton] = useState(false);
 
-  // const { data: session, status } = useSession();
   const router = useRouter();
 
   const cart = useCart();
@@ -98,8 +94,6 @@ const Product = ({
               totalRatings,
               quantity: 1,
               category,
-
-
             };
             cart.addItem(productData, email);
           }}

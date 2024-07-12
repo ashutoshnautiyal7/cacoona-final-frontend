@@ -6,7 +6,7 @@ import Footer2 from "@/components/Footer/Footer2";
 import Preview from "../../../components/ui/book-preview";
 import { GoDotFill } from "react-icons/go";
 
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const data = {
   name: "John Deo",
@@ -21,6 +21,8 @@ const data = {
 const PreviewPage = () => {
   // const { formData } = props;
   // console.log("the formdata is ", formData);
+
+  const router = useRouter();
 
   const searchParams = useSearchParams();
   const formDataString = searchParams.get("data");
@@ -57,50 +59,24 @@ const PreviewPage = () => {
       html2pdf().from(HTML_CONTENT).set(opt).save();
 
       const response = await fetch(
-        "https://res.cloudinary.com/dtfz1aqwq/image/upload/v1715709946/DATABASE-MANAGEMENT-SYSTEM-Question-Paper-21-22_flakus.pdf"
+        "https://res.cloudinary.com/dtfz1aqwq/image/upload/v1719948127/gaohsu56wpsgkmonbs0b.pdf"
       );
       const blob = await response.blob();
       const url = window.URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
-      link.download = "database-management-system-question-paper.pdf";
+      link.download = "chesper-journal.pdf";
       link.click();
       window.URL.revokeObjectURL(url);
+
+      // Add a small delay to ensure the download has started
+      setTimeout(() => {
+        router.push("/"); // Redirect to home page
+      }, 1000);
     } catch (error) {
       console.error("Error downloading PDF:", error);
     }
   };
-
-  //   const handlePrint = () => {
-  //     const element = document.getElementById("pdf-content");
-  //     const opt = {
-  //       margin: 0,
-  //       filename: "myfile.pdf",
-  //       image: { type: "jpeg", quality: 0.98 },
-  //       html2canvas: { scale: 1 },
-  //       jsPDF: { unit: "in", format: "letter", orientation: "landscape" },
-  //     };
-
-  //     html2pdf().from(element).set(opt).save();
-  //   };
-  //   const DownloadPDF = async () => {
-  //     try {
-  //       const element = document.getElementById("pdf-content");
-  //   const opt = {
-  //     margin: 0,
-  //     filename: "myfile.pdf",
-  //     image: { type: "jpeg", quality: 0.98 },
-  //     html2canvas: { scale: 1 },
-  //     jsPDF: { unit: "in", format: "letter", orientation: "landscape" },
-  //   };
-
-  //       html2pdf().from(element).set(opt).save();
-
-  //
-  //     } catch (error) {
-  //       console.error("Error downloading PDF:", error);
-  //     }
-  //   };
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
@@ -175,7 +151,7 @@ const PreviewPage = () => {
               onClick={exportFileAsPDF}
               className="bg-[#4FA2AE] text-[14px] md:text-[16px] w-[10rem] p-2 md:p-3 rounded-xl mt-10 md:mt-12"
             >
-              Pay Now
+              Download Now
             </button>
           </div>
         </section>
