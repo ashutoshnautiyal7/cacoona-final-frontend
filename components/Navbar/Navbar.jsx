@@ -16,7 +16,6 @@ import { MdOutlineCancel } from "react-icons/md";
 import Link from "next/link";
 import useCart from "@/hooks/use-cart";
 import { Button } from "../ui/button";
-import { useSession } from "next-auth/react";
 import SearchBar from "../ui/search-bar";
 import { Fade as Hamburger } from "hamburger-react";
 import { useSession, signIn, signOut } from "next-auth/react";
@@ -182,12 +181,6 @@ const Navbar = () => {
               <>
                 <div className="absolute top-full left-0 h-1.5 w-52"></div>
                 <div className="absolute top-full left-0 bg-[#4FA2AE] text-white p-4 flex flex-col gap-2 text-[14px] lg:text-[16px] w-[15rem] justify-center font-normal mt-1.5 shadow-md rounded-sm z-50">
-                  {/* <Link href={"/category/charms"}>Charms</Link>
-                  <Link href={"/category/earrings"}>Elemental Earrings</Link>
-                  <Link href={"/category/rings"}>Cosmic Rings</Link>
-                  <Link href={"/category/gifts"}>Gifts</Link>
-                  <Link href={"/category/pendants"}>Pendants</Link>
-                  <Link href={"/category/bracelets"}>Bracelets</Link> */}
                   <Link href={"/category/accessories"}>
                     Chesper Accessories
                   </Link>
@@ -216,24 +209,6 @@ const Navbar = () => {
           <div className="flex flex-col gap-6 px-[1.5rem] pt-[2rem]">
             <span>Shop by Category</span>
             <ul className="flex flex-col gap-3.5 list-disc pl-6 -mt-1">
-              {/* <Link href={"/category/charms"}>
-                <li>Charms</li>
-              </Link>
-              <Link href={"/category/earrings"}>
-                <li>Elemental Earrings</li>
-              </Link>
-              <Link href={"/category/rings"}>
-                <li>Cosmic Rings</li>
-              </Link>
-              <Link href={"/category/gifts"}>
-                <li>Gifts</li>
-              </Link>
-              <Link href={"/category/pendants"}>
-                <li>Pendants</li>
-              </Link>
-              <Link href={"/category/bracelets"}>
-                <li>Bracelets</li>
-              </Link> */}
               <Link href={"/category/chesper-accessories"}>
                 Chesper Accessories
               </Link>
