@@ -19,6 +19,7 @@ import { Button } from "../ui/button";
 import { useSession } from "next-auth/react";
 import SearchBar from "../ui/search-bar";
 import { Fade as Hamburger } from "hamburger-react";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 // Add styles directly in the same file
 const styles = `
@@ -140,10 +141,13 @@ const Navbar = () => {
                     </Link> */}
 
                     {session ? (
-                      <Link href="/login" className="flex items-center gap-2">
+                      <Button
+                        onClick={() => signOut()}
+                        className="flex items-center gap-2"
+                      >
                         <TbLogout2 className="w-5 md:w-5 h-5 md:h-5 " />
                         Logout
-                      </Link>
+                      </Button>
                     ) : (
                       <Link href="/login" className="flex items-center gap-2">
                         <TbLogout2 className="w-5 md:w-5 h-5 md:h-5 " />
