@@ -79,7 +79,7 @@ const Product = ({
         <Button
           onClick={(event) => {
             if (!email) {
-              toast.error("Please login to add to cart");
+              router.push("/login");
               return;
             }
             event.stopPropagation();

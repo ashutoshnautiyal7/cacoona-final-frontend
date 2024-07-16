@@ -14,9 +14,10 @@ datasource db {
 }
 
 enum Category {
+
+  BOOKS
   Accessories
   Collection
-  BOOKS
 }
 
 model User {

@@ -115,41 +115,6 @@ const Section1 = ({ productList, timer }) => {
       </div>
       {/* below div have mt-4 if flash sale is present */}
       <div className=" text-white flex md:gap-20 justify-end">
-        {/* <div className="flex flex-col lg:flex-row lg:items-end gap-2 lg:gap-20">
-          <h3 className="font-semibold text-[30px] md:text-[36px]">
-            Flash Sales
-          </h3>
-          <div className="flex font-semibold text-[24px] md:text-[32px] gap-2.5 md:gap-4">
-            <div className="flex flex-col items-center">
-              <span className="text-[10px] md:text-[12px] leading-[110%] md:leading-3">
-                Days
-              </span>
-              <span>{remainingTime.days.toString().padStart(2, '0')}</span>
-            </div>
-            <span>:</span>
-            <div className="flex flex-col items-center">
-              <span className="text-[10px] md:text-[12px] leading-[110%] md:leading-3">
-                Hours
-              </span>
-              <span>{remainingTime.hours.toString().padStart(2, '0')}</span>
-            </div>
-            <span>:</span>
-            <div className="flex flex-col items-center">
-              <span className="text-[10px] md:text-[12px] leading-[110%] md:leading-3">
-                Minutes
-              </span>
-              <span>{remainingTime.minutes.toString().padStart(2, '0')}</span>
-            </div>
-            <span>:</span>
-            <div className="flex flex-col items-center">
-              <span className="text-[10px] md:text-[12px] leading-[110%] md:leading-3">
-                Seconds
-              </span>
-              <span>{remainingTime.seconds.toString().padStart(2, '0')}</span>
-            </div>
-          </div>
-        </div> */}
-
         <div className="flex mt-2 md:mt-0">
           <button className="md:px-2" onClick={handleScrollLeft}>
             <BsFillArrowLeftCircleFill className="h-6 md:h-8 w-6 md:w-8" />
