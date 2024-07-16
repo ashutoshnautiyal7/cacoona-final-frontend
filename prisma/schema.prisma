@@ -48,7 +48,6 @@ model Product {
   isFeatured    Boolean    @default(false)
   isArchived    Boolean    @default(false)
   author      String?
-  size          String?
   currentPrice  Float
   originalPrice Float
   images        Image[]
