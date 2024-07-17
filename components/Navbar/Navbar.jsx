@@ -191,7 +191,7 @@ const Navbar = () => {
               </>
             )}
           </span>
-          <Link href={"/home"}>Home</Link>
+          <Link href={"/home"}>Store</Link>
           <Link href={"/farm"} className="flex items-center relative">
             Cacoona Connect
           </Link>
@@ -216,7 +216,7 @@ const Navbar = () => {
                 Celestial Collection
               </Link>
             </ul>
-            <Link href={"/home"}>Home</Link>
+            <Link href={"/home"}>Store</Link>
             <Link href={"/farm"} className="flex items-center relative">
               Cacoona Connect
             </Link>

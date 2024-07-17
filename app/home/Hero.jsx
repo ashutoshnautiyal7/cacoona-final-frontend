@@ -3,7 +3,6 @@ import Link from "next/link";
 import React from "react";
 import { GoArrowUpRight } from "react-icons/go";
 
-
 const Hero = () => {
   return (
     <>
@@ -31,7 +30,7 @@ const Hero = () => {
               your inner youth.
             </p>
             <Link
-              href={"/category/books"}
+              href={"product/668ffc70fa8c7742224a05c1"}
               className="bg-[#4fa2ae] flex items-center gap-1.5 w-fit text-[14px] md:text-[20px] px-7 py-2 rounded-lg text-white mt-6 md:mt-16"
             >
               Buy Now
