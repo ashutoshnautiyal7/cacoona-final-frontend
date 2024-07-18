@@ -3,9 +3,9 @@ import React from "react";
 
 function Section3() {
   return (
-    <section className="px-[1.2rem] md:px-[4rem] pt-10 pb-14 md:pt-20 md:pb-10 flex  justify-between items-center bg-[#FFEECD]  relative">
+    <section className="px-[1.2rem] md:px-[4rem] pt-10 pb-14 md:pt-20 md:pb-10 flex  justify-between items-center bg-[#FFEECD] gap-32  relative">
       <div className="hidden lg:inline">
-        <img src="/Images/booknew.png" alt="#" className="w-[38rem]" />
+        <img src="/Images/booknew.png" alt="#" className="w-[20rem]" />
       </div>
       <div className="flex justify-between flex-1 gap-5 items-start ">
         <div className="max-w-[100%] lg:max-w-[35rem] xl:max-w-[45rem]">

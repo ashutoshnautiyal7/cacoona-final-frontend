@@ -209,12 +209,8 @@ const Navbar = () => {
           <div className="flex flex-col gap-6 px-[1.5rem] pt-[2rem]">
             <span>Shop by Category</span>
             <ul className="flex flex-col gap-3.5 list-disc pl-6 -mt-1">
-              <Link href={"/category/chesper-accessories"}>
-                Chesper Accessories
-              </Link>
-              <Link href={"/category/celestial-collection"}>
-                Celestial Collection
-              </Link>
+              <Link href={"/category/accessories"}>Chesper Accessories</Link>
+              <Link href={"/category/collection"}>Celestial Collection</Link>
             </ul>
             <Link href={"/home"}>Store</Link>
             <Link href={"/farm"} className="flex items-center relative">
