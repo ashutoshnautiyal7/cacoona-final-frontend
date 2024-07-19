@@ -5,7 +5,7 @@ const Section1 = () => {
   return (
     <section className="px-[1.2rem] md:px-[4rem] pt-10 pb-14 md:pt-20 md:pb-20 flex lg:gap-10 xl:gap-20 justify-between items-center bg-[#FFEECD]  relative">
       <div className="hidden lg:inline">
-        <img src="/Images/human2.png" alt="#" className="w-[32rem]" />
+        {/* <img src="/Images/human2.png" alt="#" className="w-[32rem]" /> */}
       </div>
       <div className="flex justify-between flex-1 gap-5 items-start ">
         <div className="max-w-[100%] lg:max-w-[35rem] xl:max-w-[45rem]">
