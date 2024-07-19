@@ -23,7 +23,7 @@ const Footer2 = () => {
             <p className="text-[16px]">
               +1 7542810741
               <br />
-              po box 101853 fort Lauderdale fl 33310.
+              Po box 101853 Fort Lauderdale fl 33310.
             </p>
             <a href="mailto:chespersupport@cacoona.com">
               chespersupport@cacoona.com
