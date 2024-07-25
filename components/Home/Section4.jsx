@@ -112,7 +112,7 @@ const Section4 = () => {
         </div>
         <div className="relative hidden md:flex">
           <img
-            src="/Images/book.png"
+            src="/Images/booknew.png"
             alt="#"
             className="w-[15rem] h-[22rem] relative z-10"
           />

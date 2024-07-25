@@ -21,7 +21,7 @@ const Footer2 = () => {
               Support
             </h2>
             <p className="text-[16px]">
-              +1 7542810741
+              <a href="tel:+1 7542810741">+1 7542810741</a>
               <br />
               Po box 101853 Fort Lauderdale fl 33310.
             </p>
