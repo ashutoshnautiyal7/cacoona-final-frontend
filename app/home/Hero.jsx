@@ -8,7 +8,7 @@ const Hero = () => {
     <>
       <section className="px-[1.2rem] md:px-[4rem] md:pt-2 lg:pt-5 pb-[7rem] flex lg:gap-12 justify-between bg-[#30304C] text-white relative">
         <div className="hidden lg:inline">
-          <img src="/Images/booknew.png" alt="#" className="w-[20rem]" />
+          <img src="/Images/3.png" alt="#" className="w-[30rem]" />
         </div>
         <div className="flex justify-between flex-1 gap-5 items-start">
           <div className="max-w-[100%] lg:max-w-[35rem] xl:max-w-[45rem]">
@@ -22,7 +22,7 @@ const Hero = () => {
               </h2>
             </div>
             <div className="inline lg:hidden">
-              <img src="/Images/booknew.png" alt="#" className="w-[20rem]" />
+              <img src="/Images/3.png" alt="#" className="w-[30rem]" />
             </div>
             <p className="text-[16px] md:text-[20px] leading-[180%] md:leading-[200%] text-[#D9D9D9] mt-6  mb-6 md:mb-10">
               A Chesper is your paper chest. It's where you can be free to
