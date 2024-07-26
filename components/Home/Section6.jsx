@@ -26,34 +26,35 @@ const Section6 = () => {
         </div>
       </div>
       <div className="flex flex-col lg:flex-row gap-3 md:gap-5 mt-6 md:mt-12">
-        <div className="bg-black text-white px-3 sm:px-5 py-8 sm:pb-6 justify-center items-center lg:items-start gap-5 flex lg:flex-col sm:h-[19rem] lg:h-[38rem] lg:w-1/2">
+        <div className="bg-black text-white px-5 sm:px-5 py-8 sm:pb-6 justify-around items-center lg:items-start gap-5 flex flex-col sm:flex-row lg:flex-col sm:h-[19rem] lg:h-[39rem] lg:w-1/2">
           <Image
-            src="/Images/s1.png"
+            src="/Images/s11.png"
             alt="#"
-            width={350}
-            height={350}
+            width={450}
+            height={450}
             className="mx-auto hidden lg:flex"
           />
           <Image
-            src="/Images/s1.png"
+            src="/Images/s11.png"
             alt="#"
             width={200}
             height={200}
             className="mx-auto hidden sm:flex lg:hidden"
           />
           <Image
-            src="/Images/s1.png"
+            src="/Images/s11.png"
             alt="#"
             width={110}
             height={110}
             className="mx-auto flex sm:hidden"
           />
-          <Link href={"/category/pendants"} className="">
+          <Link href={"product/669118087382c19c94833fe6"} className="">
             <h3 className="font-semibold text-[20px] md:text-[24px] leading-[24px]">
-              Cosmic Bliss Necklace
+              MAGNIFYING GLASS/NECKLACE
             </h3>
             <p className="text-[14px] leading-[21px] mt-2 md:mt-4">
-              Elegant pendant reflecting the beauty of the cosmos
+              Excellent for any occasion, pretty convenient Comes by color or by
+              dozen assorted
             </p>
             <p className="text-[14.5px] md:text-[16px underline mt-2 md:mt-4">
               Shop Now
@@ -61,84 +62,62 @@ const Section6 = () => {
           </Link>
         </div>
         <div className="lg:w-2/3 flex flex-col gap-3 md:gap-5 text-white">
-          <div className="lg:h-1/2 bg-black flex flex-row-reverse pl-5 md:px-5 py-5 md:py-2 items-center lg:items-end">
+          <div className="lg:h-1/2 bg-black flex flex-col sm:flex-row-reverse px-5 md:px-5 py-5 md:py-0 items-center lg:items-end">
             <Image
-              src="/Images/s2.png"
+              src="/Images/s22.png"
               alt="#"
               width={300}
               height={300}
               className="mx-auto hidden sm:flex"
             />
             <Image
-              src="/Images/s2.png"
+              src="/Images/s22.png"
               alt="#"
               width={160}
               height={160}
               className="mx-auto flex sm:hidden"
             />
-            <Link href={"/category/gifts"} className="lg:mb-5">
+            <Link href={"/product/669114937737d3388d8394e9"} className="lg:mb-5">
               <h3 className="font-semibold text-[20px] md:text-[24px] leading-[24px]">
-                Astro Keyring Set
+                Celestial Fidget Spinning Ring
               </h3>
               <p className="text-[14px] leading-[21px] mt-2 md:mt-4">
-                Three keyrings representing earth, air, and fire elements
+                This out-of-this-world Celestial Fidget Ring is here to give you
+                the heavenly stress relief you need! Boasting a sleek and
+                stylish spinning ring design, this accessory offers a unique
+                spin on traditional anxiety relief.
               </p>
               <p className="text-[14.5px] md:text-[16px underline mt-2 md:mt-4">
                 Shop Now
               </p>
             </Link>
           </div>
-          <div className="h-1/2 flex gap-3 md:gap-5 sm:flex-row">
-            <div className="w-1/2 bg-black p-5 justify-around flex flex-col">
-              <Image
-                src="/Images/s3.png"
-                alt="#"
-                width={200}
-                height={200}
-                className="mx-auto"
-              />
-              <Link href={"/category/gifts"} className=" m">
-                <h3 className="font-semibold text-[20px] md:text-[24px] leading-[24px]">
-                  Starlight Anklet
-                </h3>
-                <p className="text-[14px] leading-[21px] mt-2 md:mt-4">
-                  Shining celestial elegance.
-                </p>
-                <p className="text-[14.5px] md:text-[16px] underline mt-2 md:mt-4">
-                  Shop Now
-                </p>
-              </Link>
-            </div>
-            <div className="w-1/2 bg-black p-5 justify-around  flex flex-col">
-              <span>
-                <Image
-                  src="/Images/s4.png"
-                  alt="#"
-                  width={130}
-                  height={130}
-                  className="mx-auto hidden sm:flex"
-                />
-                <Image
-                  src="/Images/s4.png"
-                  alt="#"
-                  width={80}
-                  height={80}
-                  className="mx-auto flex md:hidden"
-                />
-              </span>
-
-              <Link href={"/category/gifts"} className=" mt-2">
-                <h3 className="font-semibold text-[20px] md:text-[24px] leading-[24px]">
-                  Galaxy Keychain
-                </h3>
-                <p className="text-[14px] leading-[21px] mt-2 md:mt-4">
-                  Portable cosmic charm.
-                </p>
-                <p className="text-[14.5px] md:text-[16px underline mt-2 md:mt-4">
-                  Shop Now
-                </p>
-              </Link>
-            </div>
+          <div className="lg:h-1/2 bg-black flex flex-col sm:flex-row-reverse px-5 md:px-5 py-5 md:py-0 items-center lg:items-end">
+            <Image
+              src="/Images/s33.png"
+              alt="#"
+              width={300}
+              height={300}
+              className="mx-auto hidden sm:flex"
+            />
+            <Image
+              src="/Images/s33.png"
+              alt="#"
+              width={160}
+              height={160}
+              className="mx-auto flex sm:hidden"
+            />
+            <Link href={"/product/669113e17737d3388d8394e7"} className="lg:mb-5">
+              <h3 className="font-semibold text-[20px] md:text-[24px] leading-[24px]">
+                Eight Planets Natural Stone Beaded Bracelet
+              </h3>
+              {/* <p className="text-[14px] leading-[21px] mt-2 md:mt-4">
+                Three keyrings representing earth, air, and fire elements
+              </p> */}
+              <p className="text-[14.5px] md:text-[16px underline mt-2 md:mt-4">
+                Shop Now
+              </p>
+            </Link>
           </div>
         </div>
       </div>
