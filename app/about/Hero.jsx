@@ -16,12 +16,12 @@ const Hero = () => {
             journey of exploration, empowerment, and transformation
           </p>
         </div>
-        <div className="hidden lg:inline">
+        <div className="hidden lg:inline -mt-16 -mr-16">
           <Image
-            src="/Images/about-banner.png"
+            src="/Images/bn1.png"
             alt="#"
-            width={400}
-            height={400}
+            width={750}
+            height={750}
           />
         </div>
       </div>
