@@ -1,59 +1,64 @@
 import NextAuth from "next-auth"
 import GoogleProvider from "next-auth/providers/google"
 import CredentialsProvider from "next-auth/providers/credentials"
-// import bcrypt from "bcrypt"
 import prisma from "@/lib/db"
-const handler = NextAuth({
+
+export const authOptions = {
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
     }),
-    
     CredentialsProvider({
       name: "Credentials",
       credentials: {
         name: {label: "Name", required: true, type: "text", placeholder: "name"},
-        email: { label: "Email",required: true, type: "email", placeholder: "jsmith@gmail.com" },
-        password: { label: "Password",required: true, type: "password" }
+        email: { label: "Email", required: true, type: "email", placeholder: "jsmith@gmail.com" },
+        password: { label: "Password", required: true, type: "password" }
       },
-      async authorize(credentials, req) {
+      async authorize(credentials) {
+        if (!credentials) return null;
         const { name, email, password } = credentials
 
-        let user = await db.user.findFirst({ where: { email } })
+        let user = await prisma.user.findFirst({ where: { email } })
         if (!user) {
-         
-          user = await db.user.create({
+          user = await prisma.user.create({
             data: {
               name,
               email,
-              password: password,
+              password: password, // Note: It's recommended to hash passwords before storing
             }
           })
-
-          console.log("the user after creation " , user);
-
           return user
         }
 
-        if (user.password === password && user.name === name ) {
-        
-            return user
+        if (user.password === password && user.name === name) {
+          return user
         }
         return null
       }
     })
   ],
   secret: process.env.NEXTAUTH_SECRET,
+  session: {
+    strategy: 'jwt',
+    maxAge: 30 * 24 * 60 * 60,
+  },
   callbacks: {
-    async session({ session }) {
-      return session
+    async jwt({ token, user }) {
+      if (user) {
+        token.id = user.id;
+      }
+      return token;
     },
-    async signIn({credentials,  profile }) {
-
+    async session({ session, token }) {
+      if (token) {
+        session.user.id = token.id;
+      }
+      return session;
+    },
+    async signIn({ credentials, profile }) {
       if (credentials) {
-        // If it's from the Credentials provider, we don't need to create a new user
-        // as the user will be created or authenticated in the `authorize` method
         return true;
       }
   
@@ -61,7 +66,7 @@ const handler = NextAuth({
         const userExist = await prisma.user.findFirst({ where: { email: profile.email } })
 
         if (!userExist) {
-          const user = await prisma.user.create({
+          await prisma.user.create({
             data: {
               name: profile.name,
               email: profile.email,
@@ -70,14 +75,16 @@ const handler = NextAuth({
             }
           })
         }
+        return true;
       } catch (error) {
-        console.log(error)
+        console.error(error)
         return false
       }
-
-      return true
     }
-  }
-})
+  },
+  
+}
+
+const handler = NextAuth(authOptions)
 
 export { handler as GET, handler as POST }
