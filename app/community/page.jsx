@@ -24,9 +24,11 @@ const CommunityPage = () => {
   const email = session?.user?.email;
   console.log("the email is ", email);
 
-  if (!session) {
-    router.push("/login");
-  }
+  useEffect(() => {
+    if (!session) {
+      router.push("/login");
+    }
+  }, [session]);
 
   useEffect(() => {
     const getUser = async () => {

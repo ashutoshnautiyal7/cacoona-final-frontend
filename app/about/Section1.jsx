@@ -78,17 +78,12 @@ const Section1 = () => {
               expanded2 ? "expand" : "collapse"
             }`}
           >
-            <img src="/Images/human3.jpg" className="w-[30rem] bg-white" />
             <p>
-              I am Annastacia Robinson, creator of Cacoona and Chesper by
-              Cacoona, embarked on a journey of self-discovery and healing from
-              past struggles. Despite facing numerous challenges, particularly
-              as a black woman born in Miami, Florida in 1987, she has
-              persevered with therapy in her youth and now finds solace and
-              motivation in her rediscovery journey with Chesper. Through
-              discipline and a positive spirit, she continues to grow as an
-              individual, drawing inspiration from various cultures and
-              embracing different forms of self-discovery
+              Cacoona is dedicated to being the conscience and core connector
+              for the charm you are. We strive to remind you to stay connected
+              within, providing tools and experiences that inspire
+              self-discovery, self-love, and a harmonious connection with
+              nature.
             </p>
           </div>
         </div>
@@ -109,17 +104,10 @@ const Section1 = () => {
               expanded3 ? "expand" : "collapse"
             }`}
           >
-            <img src="/Images/human3.jpg" className="w-[30rem] bg-white" />
             <p>
-              I am Annastacia Robinson, creator of Cacoona and Chesper by
-              Cacoona, embarked on a journey of self-discovery and healing from
-              past struggles. Despite facing numerous challenges, particularly
-              as a black woman born in Miami, Florida in 1987, she has
-              persevered with therapy in her youth and now finds solace and
-              motivation in her rediscovery journey with Chesper. Through
-              discipline and a positive spirit, she continues to grow as an
-              individual, drawing inspiration from various cultures and
-              embracing different forms of self-discovery
+              To provide a holistic experience that nurtures self-discovery,
+              self-love, and a connection to nature through innovative products
+              and experiences.
             </p>
           </div>
         </div>

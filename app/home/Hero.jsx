@@ -25,9 +25,12 @@ const Hero = () => {
               <img src="/Images/3.png" alt="#" className="w-[30rem]" />
             </div>
             <p className="text-[16px] md:text-[20px] leading-[180%] md:leading-[200%] text-[#D9D9D9] mt-6  mb-6 md:mb-10">
-              A Chesper is your paper chest. It's where you can be free to
-              imagine and record your story, outline your journey and display
-              your inner youth.
+              Dive into the world of cacoona by connecting with others. Share
+              your creations, uplift us with your journeys and bond with your
+              fellow connectors.
+              <br />
+              Unleash Your Creativity and Rediscover Yourself with Our
+              Thoughtfully Crafted Chesper!
             </p>
             <Link
               href={"product/668ffc70fa8c7742224a05c1"}
