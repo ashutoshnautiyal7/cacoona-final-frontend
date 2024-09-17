@@ -4,8 +4,12 @@ import Image from "next/image";
 import axios from "axios";
 import Link from "next/link";
 import Comment from "../comment/Comment";
+import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
+import { FaComment } from "react-icons/fa";
+import { GrGallery } from "react-icons/gr";
+import { format } from "timeago.js";
 
-const Post = ({ post, user, prof }) => {
+const Post = ({ post, user }) => {
   const [isLiked, setIsLiked] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
   const [openUpdate, setOpenUpdate] = useState(false);
@@ -192,33 +196,24 @@ const Post = ({ post, user, prof }) => {
 
   return (
     <div
-      className={`bg-white p-4 md:p-6 flex text-black ${
-        prof !== "prof" && "last:rounded-b-3xl"
-      }`}
+      className={`bg-white p-4 md:p-6 flex text-black relative last:rounded-b-3xl
+      `}
     >
-      <div className="w-full md:w-9/12">
+      <div className="w-full ">
         <div className="flex items-center gap-2 my-2">
           <div className="relative rounded-full h-[60px] w-[60px]">
             <Image
-              alt="image"
-              className="rounded-full object-cover"
+              alt="User image"
+              className={`rounded-full object-cover ${
+                post.userImage ? "" : "border-[3px] border-[#cccccc]"
+              }`}
               fill={true}
-              src={
-                prof === "prof"
-                  ? user.image
-                    ? user.image
-                    : "/prof.jpg"
-                  : post.userImage
-                  ? post.userImage
-                  : "/prof.jpg"
-              }
-            ></Image>
+              src={post.userImage || "/Images/noAvatar.png"}
+            />
           </div>
           <div className="flex flex-col">
-            <h2 className="text-sm font-semibold">
-              {prof === "prof" ? user.name : post?.user}
-            </h2>
-            {/* <h3 className="text-xs">{format(post?.createdAt)}</h3> */}
+            <h2 className="text-sm font-semibold">{post?.user}</h2>
+            <h3 className="text-xs">{format(post?.createdAt)}</h3>
           </div>
         </div>
         {openUpdate ? (
@@ -265,14 +260,9 @@ const Post = ({ post, user, prof }) => {
             <div className="flex w-full justify-between items-center py-2">
               <label
                 htmlFor="photo"
-                className="cursor-pointer flex items-center justify-center gap-2 md:gap-4 rounded-full bg-[#C2F6C8] text-black px-6 py-2"
+                className="cursor-pointer flex gap-2 items-center text-white bg-[#4fa2ae] text-[14px] md:text-[16px] px-5 py-2 rounded-lg font-medium"
               >
-                <Image
-                  alt="image"
-                  width={20}
-                  height={20}
-                  src={"/gallery.png"}
-                ></Image>
+                <GrGallery />
                 <span>Gallery</span>
               </label>
               <input
@@ -285,7 +275,7 @@ const Post = ({ post, user, prof }) => {
               />
               <button
                 type="submit"
-                className="bg-[#2CC34D] px-3 py-1 text-white rounded-md font-medium"
+                className="cursor-pointer flex gap-2 items-center text-white bg-[#4fa2ae] text-[14px] md:text-[16px] px-5 py-2 rounded-lg font-medium"
               >
                 {update}
               </button>
@@ -321,23 +311,20 @@ const Post = ({ post, user, prof }) => {
             </div>
             <div className="flex items-center gap-8 mt-4">
               <div className="cursor-pointer flex items-center justify-center gap-2">
-                <Image
-                  alt="image"
-                  onClick={handleLike}
-                  height={25}
-                  width={25}
-                  src={isLiked ? "/like.png" : "/empty.png"}
-                ></Image>
+                <div onClick={handleLike}>
+                  {isLiked ? (
+                    <MdFavorite className="w-6 h-6 text-[#FF0000]" />
+                  ) : (
+                    <MdFavoriteBorder className="w-6 h-6 text-[#FF0000]" />
+                  )}
+                </div>
                 <span className="font-medium">{likes}</span>
               </div>
               <div className="cursor-pointer flex items-center justify-center gap-2">
-                <Image
-                  alt="image"
+                <FaComment
+                  className="w-5 h-5 text-[#4fa2ae]"
                   onClick={() => setcommopen(!commOpen)}
-                  height={20}
-                  width={23}
-                  src={"/comment.png"}
-                ></Image>
+                />
                 <span className="font-medium">{comments.length}</span>
               </div>
             </div>
@@ -348,12 +335,12 @@ const Post = ({ post, user, prof }) => {
             <form onSubmit={handleSubmit} className="py-1 flex gap-2">
               <input
                 required={true}
-                className="outline-none w-full bg-slate-200 px-2 py-1 rounded-lg"
+                className="outline-none w-full bg-[#ECECEC] px-2.5 py-2 rounded-lg"
                 placeholder="Write Comment"
               ></input>
               <button
                 type="submit"
-                className="px-3 py-1 bg-[#2CC34D] rounded-lg text-white"
+                className="px-3 py-1 bg-[#4fa2ae] text-[14px] md:text-[16px] rounded-lg text-white"
               >
                 Post
               </button>
@@ -362,15 +349,19 @@ const Post = ({ post, user, prof }) => {
               {comments?.slice(0, numCommentsToShow).map((comment) => (
                 <div
                   key={comment.commentId}
-                  className="flex flex-col gap-0.5 px-2 py-1 bg-slate-200 rounded-lg"
+                  className="flex flex-col gap-0.5 px-3 py-2 bg-[#ECECEC] rounded-lg"
                 >
                   <div className="flex gap-1 items-center">
                     <Image
                       alt="image"
-                      className="relative h-[35px] w-[35px] rounded-full bg-cover"
+                      className="relative h-[35px] w-[35px] rounded-full bg-cover "
                       height={1000}
                       width={1000}
-                      src={comment.userImage ? comment.userImage : "/prof.jpg"}
+                      src={
+                        comment.userImage
+                          ? comment.userImage
+                          : "/Images/noAvatar.png"
+                      }
                     ></Image>
                     <span className="text-sm font-semibold">
                       {comment.username}
@@ -383,7 +374,7 @@ const Post = ({ post, user, prof }) => {
                         onClick={(e) => {
                           handleDeleteComment(e, comment.commentId);
                         }}
-                        className="flex items-center justify-center bg-[#2CC34D] px-1.5 py-1 rounded-md text-sm text-white"
+                        className="flex items-center justify-center bg-[#4fa2ae] px-2.5 py-1 rounded-md text-sm text-white"
                       >
                         Delete
                       </button>
@@ -405,7 +396,7 @@ const Post = ({ post, user, prof }) => {
           </div>
         )}
       </div>
-      <div className="w-1/12 md:w-3/12 flex justify-end">
+      <div className="absolute top-5 right-5  flex justify-end">
         <div className="flex flex-col items-end">
           <span
             onClick={() => {
@@ -418,10 +409,10 @@ const Post = ({ post, user, prof }) => {
             •••
           </span>
           {openMenu && post.userId === user.id && (
-            <div className="flex flex-col bg-slate-400 gap-[1px]">
+            <div className="flex flex-col bg-[#4fa2ae] text-white rounded-md">
               <div
                 onClick={handleDelete}
-                className="cursor-pointer flex justify-center items-center bg-slate-300 px-5 py-1"
+                className="cursor-pointer flex justify-center items-center px-5 py-2 border-b border-gray-300"
               >
                 Delete
               </div>
@@ -429,7 +420,7 @@ const Post = ({ post, user, prof }) => {
                 onClick={() => {
                   setOpenUpdate(!openUpdate), setOpenMenu(false);
                 }}
-                className="cursor-pointer flex justify-center items-center bg-slate-300 px-5 py-1"
+                className="cursor-pointer flex justify-center items-center px-5 py-2"
               >
                 {openUpdate ? "Cancel" : "Update"}
               </div>

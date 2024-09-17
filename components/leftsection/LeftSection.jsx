@@ -1,6 +1,8 @@
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
-
+import { GrGallery } from "react-icons/gr";
+import { FaRegComments } from "react-icons/fa";
+import { MdOutlinePublish } from "react-icons/md";
 import axios from "axios";
 import Link from "next/link";
 import Post from "../post/Post";
@@ -94,23 +96,23 @@ const LeftSection = ({
         onSubmit={handleSubmit}
         className="bg-white text-black my-2 rounded-t-xl p-3 md:p-5 overflow-hidden"
       >
-        <h2 className="text-base font-medium ml-5">Create Post</h2>
-        <div className="flex items-center gap-2 my-2 bg-[#F6F3F3] rounded-xl py-3 px-5">
+        <h2 className="font-bold ml-1 text-[18px]">Create Post</h2>
+        <div className="flex items-center gap-2 my-2 bg-[#ECECEC] rounded-xl py-3 px-5">
           <input
             required={true}
             ref={titleRef}
-            className="outline-none rounded-r-xl w-full bg-[#F6F3F3] placeholder:text-black"
+            className="outline-none rounded-r-xl w-full bg-[#ECECEC] placeholder:text-black"
             placeholder="Title"
           ></input>
         </div>
-        <div className="flex items-center gap-2 my-4 bg-[#F6F3F3] rounded-xl p-5">
-          <div className="relative h-[30px] w-[30px] rounded-l-xl ">
-            <Image alt="image" fill={true} src={"/person.png"}></Image>
+        <div className="flex items-center gap-2 my-4 bg-[#ECECEC] rounded-xl p-5">
+          <div className="relative h-[30px] w-[30px] rounded-l-xl flex items-center">
+            <FaRegComments className="w-5 h-5" />
           </div>
           <input
             ref={contentRef}
             required={true}
-            className="outline-none rounded-r-xl w-full bg-[#F6F3F3] placeholder:text-black"
+            className="outline-none rounded-r-xl w-full bg-[#ECECEC] placeholder:text-black"
             placeholder="What's on your mind"
           ></input>
         </div>
@@ -141,14 +143,9 @@ const LeftSection = ({
           <div className="flex items-center justify-center gap-1.5 md:gap-5">
             <label
               for="gallery"
-              className="cursor-pointer flex items-center justify-center gap-2 md:gap-4 rounded-t-2xl bg-[#C2F6C8] text-black px-6 py-2"
+              className="cursor-pointer flex gap-2 items-center text-white bg-[#4fa2ae] text-[14px] md:text-[16px] px-5 py-2 rounded-lg font-medium"
             >
-              <Image
-                alt="image"
-                width={20}
-                height={20}
-                src={"/gallery.png"}
-              ></Image>
+              <GrGallery />
               <span>Gallery</span>
             </label>
             <input
@@ -159,26 +156,12 @@ const LeftSection = ({
               className="hidden"
               type="file"
             />
-            <label className="flex items-center justify-center gap-2 md:gap-4 rounded-t-2xl bg-[#C2F6C8] text-black px-6 py-2">
-              <Image
-                alt="image"
-                width={20}
-                height={20}
-                src={"/tag.png"}
-              ></Image>
-              <span>Tag</span>
-            </label>
           </div>
           <button
             type="submit"
-            className="bg-[#2CC34D] flex items-center justify-center gap-2 text-white rounded-t-2xl px-6 py-2"
+            className="bg-[#4fa2ae] text-white text-[14px] md:text-[16px] px-5 py-2 rounded-lg font-medium flex gap-2 items-center"
           >
-            <Image
-              alt="image"
-              width={20}
-              height={20}
-              src={"/publish.png"}
-            ></Image>
+            <MdOutlinePublish className="w-5 h-5" />
             <span>{publish}</span>
           </button>
         </div>
@@ -188,38 +171,36 @@ const LeftSection = ({
       ) : (
         <div className="flex flex-col gap-2">
           {posts?.map((p, index) => (
-            <Post key={p?.id} post={p} user={user}  />
+            <Post key={p?.id} post={p} user={user} />
           ))}
         </div>
       )}
       <div
-        className={`w-full flex ${
-          currentPage <= 1 || currentPage === lastPage
-            ? "justify-center"
-            : "justify-between"
-        } my-8`}
+        className={`w-full flex relative ${
+          currentPage > 1 && currentPage < lastPage ? "mt-8" : "mt-0"
+        }`}
       >
         {currentPage > 1 && (
-          <div className="bg-white p-0.5 md:p-1 rounded-lg">
+          <div className="left-0 absolute">
             <button
               onClick={() => {
                 setCurrentPage((prev) => prev - 1),
                   window.scrollTo({ top: 0, behavior: "smooth" });
               }}
-              className="rounded-lg py-2 px-8 bg-gradient-to-b from-[#FF1111] to-[#692323] md:text-xl text-base text-white"
+              className="cursor-pointer flex gap-2 items-center text-white bg-[#4fa2ae] text-[14px] md:text-[16px] px-5 py-2.5 rounded-lg font-medium"
             >
               Previous Page
             </button>
           </div>
         )}
         {currentPage < lastPage && (
-          <div className="bg-white p-0.5 md:p-1 rounded-lg">
+          <div className="right-0 absolute">
             <button
               onClick={() => {
                 setCurrentPage((prev) => prev + 1),
                   window.scrollTo({ top: 0, behavior: "smooth" });
               }}
-              className="rounded-lg py-2 px-8 bg-gradient-to-b from-[#FF1111] to-[#692323] md:text-xl text-base text-white"
+              className="cursor-pointer flex gap-2 items-center text-white bg-[#4fa2ae] text-[14px] md:text-[16px] px-5 py-2.5 rounded-lg font-medium"
             >
               Next Page
             </button>
