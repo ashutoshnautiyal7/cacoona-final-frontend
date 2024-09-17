@@ -34,7 +34,7 @@ const CommunityPage = () => {
     const getUser = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:3000/api/get_user?email=${encodeURIComponent(
+          `https://cacoona.com/api/get_user?email=${encodeURIComponent(
             email
           )}`
         );
@@ -56,7 +56,7 @@ const CommunityPage = () => {
       try {
         setLoading(true);
         const res = await axios.get(
-          "http://localhost:3000/api/posts?page=" + currentPage
+          "https://cacoona.com/api/posts?page=" + currentPage
         );
         const data = res.data.posts;
 

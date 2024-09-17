@@ -72,7 +72,7 @@ const LeftSection = ({
       images,
     };
     try {
-      const res = await axios.post("http://localhost:3000/api/posts", data);
+      const res = await axios.post("https://cacoona.com/api/posts", data);
       titleRef.current.value = "";
       contentRef.current.value = "";
       imageRef.current.value = [];

@@ -59,10 +59,7 @@ const Post = ({ post, user }) => {
       email: user.email,
     };
     try {
-      const res = await axios.post(
-        "http://localhost:3000/api/posts/like",
-        body
-      );
+      const res = await axios.post("https://cacoona.com/api/posts/like", body);
       setIsLiked(!isLiked);
       setLikes(likes + (isLiked ? -1 : 1));
     } catch (err) {}
@@ -84,7 +81,7 @@ const Post = ({ post, user }) => {
     };
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/posts/comment",
+        "https://cacoona.com/api/posts/comment",
         commentData
       );
       const data = res.data;
@@ -106,7 +103,7 @@ const Post = ({ post, user }) => {
     const postId = post.id;
 
     try {
-      const res = await axios.delete("http://localhost:3000/api/posts", {
+      const res = await axios.delete("https://cacoona.com/api/posts", {
         data: { postId, email: user.email },
       });
       setOpenMenu(false);
@@ -151,7 +148,7 @@ const Post = ({ post, user }) => {
       images: updatedImages,
     };
     try {
-      const res = await axios.put("http://localhost:3000/api/posts", data);
+      const res = await axios.put("https://cacoona.com/api/posts", data);
       setOpenUpdate(false);
       location.reload();
       setUpdate("Update");
@@ -164,10 +161,9 @@ const Post = ({ post, user }) => {
     e.preventDefault();
     const commentId = commId;
     try {
-      const res = await axios.delete(
-        "http://localhost:3000/api/posts/comment",
-        { data: { email: user.email, commentId } }
-      );
+      const res = await axios.delete("https://cacoona.com/api/posts/comment", {
+        data: { email: user.email, commentId },
+      });
       const newcomms = [];
       comments.forEach((comment) => {
         if (comment.commentId !== commId) {
