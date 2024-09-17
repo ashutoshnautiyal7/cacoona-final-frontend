@@ -24,19 +24,15 @@ const CommunityPage = () => {
   const email = session?.user?.email;
   console.log("the email is ", email);
 
-  useEffect(() => {
-    if (!session) {
-      router.push("/login");
-    }
-  }, [session, router]);
+  if (!session) {
+    router.push("/login");
+  }
 
   useEffect(() => {
     const getUser = async () => {
       try {
         const res = await axios.get(
-          `https://cacoona.com/api/get_user?email=${encodeURIComponent(
-            email
-          )}`
+          `https://cacoona.com/api/get_user?email=${encodeURIComponent(email)}`
         );
         const data = res.data;
 
