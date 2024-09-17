@@ -6,8 +6,10 @@ import axios from "axios";
 import { useSession } from "next-auth/react";
 import Topbar from "@/components/topbar/Topbar";
 import LeftSection from "@/components/leftsection/LeftSection";
+import Navbar from "@/components/Navbar/Navbar";
+import Footer2 from "@/components/Footer/Footer2";
 
-const page = () => {
+const CommunityPage = () => {
   const router = useRouter();
   const [user, setUser] = useState("");
   const [size, setSize] = useState(0);
@@ -21,6 +23,12 @@ const page = () => {
 
   const email = session?.user?.email;
   console.log("the email is ", email);
+
+  useEffect(() => {
+    if (!session) {
+      router.push("/login");
+    }
+  }, [session, router]);
 
   useEffect(() => {
     const getUser = async () => {
@@ -82,24 +90,24 @@ const page = () => {
   };
 
   return (
-    <div className="w-full">
-      <div className="w-full md:px-0">
-        <div className="md:w-10/12 mx-auto px-2 flex flex-col justify-center items-center my-5">
-          <div className="w-full md:w-[65%]">
-            <Topbar onSearch={onSearch} user={user} />
-            <LeftSection
-              loading={loading}
-              user={user}
-              posts={filteredPosts}
-              size={size}
-              currentPage={currentPage}
-              setCurrentPage={setCurrentPage}
-            />
-          </div>
+    <main className="w-full">
+      <Navbar />
+      <div className="px-[1.2rem] md:px-[4rem] md:pt-6 pb-16 md:pb-24 flex items-center flex-col bg-[#30304C]">
+        <div className="w-full md:w-[65%]">
+          <Topbar onSearch={onSearch} user={user} />
+          <LeftSection
+            loading={loading}
+            user={user}
+            posts={filteredPosts}
+            size={size}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+          />
         </div>
       </div>
-    </div>
+      <Footer2 />
+    </main>
   );
 };
 
-export default page;
+export default CommunityPage;

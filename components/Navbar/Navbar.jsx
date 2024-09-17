@@ -80,6 +80,8 @@ const Navbar = () => {
     };
   }, [isOpen]);
 
+  const communityHref = session ? "/community" : "/login";
+
   return (
     <>
       <section className="px-[1.5rem] md:px-[2.5rem] xl:px-[7.5rem] pt-1 pb-5 flex flex-col justify-between bg-[#30304C] text-white">
@@ -197,6 +199,7 @@ const Navbar = () => {
           </Link>
           <Link href={"/about"}> About Us</Link>
           <span>More At Cacoona</span>
+          <Link href={communityHref}>Community</Link>
         </div>
       </section>
       <section>
@@ -218,6 +221,8 @@ const Navbar = () => {
             </Link>
             <Link href={"/about"}> About Us</Link>
             <span>More At Cacoona</span>
+          <Link href={communityHref}>Community</Link>
+
           </div>
         </div>
       </section>
