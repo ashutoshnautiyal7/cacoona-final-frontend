@@ -132,6 +132,13 @@ const Navbar = () => {
                       <FiUser className="w-5 md:w-5 h-5 md:h-5 " />
                       Manage My Account
                     </Link>
+                    <Link
+                      href="book/668ffcaffa8c7742224a05c6"
+                      className="flex items-center gap-2"
+                    >
+                      <FiUser className="w-5 md:w-5 h-5 md:h-5 " />
+                      My Activities.
+                    </Link>
                     <Link href="/orders" className="flex items-center gap-2">
                       <FiShoppingBag className="w-5 md:w-5 h-5 md:h-5 " />
                       My Order
@@ -183,9 +190,7 @@ const Navbar = () => {
               <>
                 <div className="absolute top-full left-0 h-1.5 w-52"></div>
                 <div className="absolute top-full left-0 bg-[#4FA2AE] text-white p-4 flex flex-col gap-2 text-[14px] lg:text-[16px] w-[15rem] justify-center font-normal mt-1.5 shadow-md rounded-sm z-50">
-                  <Link href={"/category/accessories"}>
-                    Chesper Accessories
-                  </Link>
+                  <Link href={"/category/accessories"}>Chesper Craft</Link>
                   <Link href={"/category/collection"}>
                     Celestial Collection
                   </Link>
@@ -211,7 +216,7 @@ const Navbar = () => {
           <div className="flex flex-col gap-6 px-[1.5rem] pt-[2rem]">
             <span>Shop by Category</span>
             <ul className="flex flex-col gap-3.5 list-disc pl-6 -mt-1">
-              <Link href={"/category/accessories"}>Chesper Accessories</Link>
+              <Link href={"/category/accessories"}>Chesper Craft</Link>
               <Link href={"/category/collection"}>Celestial Collection</Link>
             </ul>
             <Link href={"/home"}>Store</Link>

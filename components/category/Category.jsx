@@ -11,24 +11,26 @@ const Category = ({ productList }) => {
 
   return (
     <div
-      className="mt-6 md:mt-10 flex flex-wrap justify-center md:justify-start gap-5 md:gap-10"
+      className="mt-6 md:mt-10 flex flex-wrap justify-center md:justify-start gap-5 md:gap-10 min-h-[40vh]"
       style={{ scrollbarWidth: "none" }}
     >
-      {productList.map((product) => (
-        <Product
-          email={email}
-          key={product.id}
-          Id={product.id}
-          imageSrc={product.images[0].url}
-          productName={product.name}
-          currentPrice={product.currentPrice}
-          originalPrice={product.originalPrice}
-          discount={product.category}
-          category={product.category}
-          // rating={4.5}
-          // totalRatings={5}
-        />
-      ))}
+      {productList
+        ?.filter((product) => product.isArchived === true)
+        .map((product) => (
+          <Product
+            email={email}
+            key={product.id}
+            Id={product.id}
+            imageSrc={product.images[0].url}
+            productName={product.name}
+            currentPrice={product.currentPrice}
+            originalPrice={product.originalPrice}
+            discount={product.category}
+            category={product.category}
+            // rating={4.5}
+            // totalRatings={5}
+          />
+        ))}
     </div>
   );
 };

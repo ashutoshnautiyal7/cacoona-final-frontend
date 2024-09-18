@@ -38,6 +38,8 @@ const OrderPage = () => {
     fetchOrders();
   }, [session, status]);
 
+  console.log("the orders are ", orders);
+
   if (status === "loading" || loading) {
     return (
       <div className="flex justify-center items-center h-screen">
