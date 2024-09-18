@@ -9,6 +9,7 @@ import LeftSection from "@/components/leftsection/LeftSection";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer2 from "@/components/Footer/Footer2";
 import Link from "next/link";
+import { ThreeCircles } from "react-loader-spinner";
 
 const CommunityPage = () => {
   const { data: session, status } = useSession();
@@ -90,8 +91,8 @@ const CommunityPage = () => {
 
   if (status === "loading" || userloading) {
     return (
-      <div className="flex justify-center items-center h-screen">
-        Loading...
+      <div className="flex items-center justify-center">
+        <ThreeCircles height="30" width="100" color="#000" />
       </div>
     );
   }
