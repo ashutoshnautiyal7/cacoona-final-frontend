@@ -28,6 +28,13 @@ const Page = ({ params }) => {
       buttonText: "Get Started",
       link: "/profile",
     },
+    {
+      title: "",
+      image: "/Images/community.webp",
+      description: "Get connected to others via Cacoona community.",
+      buttonText: "Explore",
+      link: "/community",
+    },
   ];
   return (
     <div className="flex flex-col md:flex-row justify-center items-stretch gap-8 p-8">
