@@ -11,13 +11,14 @@ const BookForm = () => {
   const router = useRouter();
 
   const [formData, setFormData] = useState({
-    fullName: "",
-    placeOfBirth: "",
-    gender: "",
-    zodiacSign: "",
-    dateOfBirth: "",
-    timeOfBirth: "",
-    interests: "",
+    hobbies: "",
+    workbest: "",
+    bestwith: "",
+    encouraged: "",
+    about: "",
+    lasttime: "",
+    methodof: "",
+    believe: "",
   });
 
   const handleInputChange = (e) => {
@@ -51,103 +52,106 @@ const BookForm = () => {
           <form onSubmit={handleSubmit} className="w-full text-[14px]">
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5  w-full">
               <div className="flex flex-col flex-1 gap-3">
-                <label htmlFor="fullName">Full Name</label>
+                <label htmlFor="hobbies">Hobbies / Interests</label>
                 <input
                   type="text"
-                  name="fullName"
-                  placeholder="Enter your Full Name"
+                  name="hobbies"
+                  placeholder="Enter your Hobies / Interests"
                   required
-                  value={formData.fullName}
+                  value={formData.hobbies}
                   onChange={handleInputChange}
                   className="text-[#333333] p-2.5 border border-[#C4C4C4] rounded-lg outline-none bg-white w-full"
                 />
               </div>
               <div className="flex flex-col flex-1 gap-3">
-                <label htmlFor="placeOfBirth">Place of Birth</label>
+                <label htmlFor="workbest">I WORK BEST WHEN: </label>
                 <input
                   type="text"
-                  name="placeOfBirth"
-                  placeholder="Enter your Place of Birth"
+                  name="workbest"
+                  placeholder="WORK BEST WHEN:"
                   required
-                  value={formData.placeOfBirth}
-                  onChange={handleInputChange}
-                  className="text-[#333333] p-2.5 border border-[#C4C4C4] rounded-lg outline-none bg-white w-full"
-                />
-              </div>
-              <div className="flex flex-col flex-1 gap-3 relative">
-                <label htmlFor="gender">Gender</label>
-                <div className="relative">
-                  <select
-                    id="gender"
-                    name="gender"
-                    required
-                    value={formData.gender}
-                    onChange={handleInputChange}
-                    className="text-[#333333] p-2.5 pr-10 border border-[#C4C4C4] rounded-lg outline-none bg-white w-full appearance-none"
-                  >
-                    <option value="">Select Gender</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
-                  </select>
-                  <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                    <MdKeyboardArrowDown className="text-black h-5 w-5" />
-                  </div>
-                </div>
-              </div>
-              <div className="flex flex-col flex-1 gap-3 relative">
-                <label htmlFor="zodiacSign">Zodiac Sign</label>
-                <div className="relative">
-                  <select
-                    id="zodiacSign"
-                    name="zodiacSign"
-                    required
-                    value={formData.zodiacSign}
-                    onChange={handleInputChange}
-                    className="text-[#333333] p-2.5 pr-10 border border-[#C4C4C4] rounded-lg outline-none bg-white w-full appearance-none"
-                  >
-                    <option value="">Select your Zodiac Sign</option>
-                    <option value="option1">Option 1</option>
-                    <option value="option2">Option 2</option>
-                  </select>
-                  <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                    <MdKeyboardArrowDown className="text-black h-5 w-5" />
-                  </div>
-                </div>
-              </div>
-              <div className="flex flex-col flex-1 gap-3">
-                <label htmlFor="dateOfBirth">Date of Birth</label>
-                <input
-                  type="date"
-                  name="dateOfBirth"
-                  placeholder="Enter your Birth Date"
-                  required
-                  max={maxD}
-                  value={formData.dateOfBirth}
+                  value={formData.workbest}
                   onChange={handleInputChange}
                   className="text-[#333333] p-2.5 border border-[#C4C4C4] rounded-lg outline-none bg-white w-full"
                 />
               </div>
               <div className="flex flex-col flex-1 gap-3">
-                <label htmlFor="timeOfBirth">Time of Birth</label>
-                <input
-                  type="time"
-                  name="timeOfBirth"
-                  placeholder="Enter your Birth Time"
-                  required
-                  value={formData.timeOfBirth}
-                  onChange={handleInputChange}
-                  className="text-[#333333] p-2.5 border border-[#C4C4C4] rounded-lg outline-none bg-white w-full"
-                />
-              </div>
-              <div className="flex flex-col flex-1 gap-3">
-                <label htmlFor="interests">Interests</label>
+                <label htmlFor="bestwith">I WORK MY BEST WITH: </label>
                 <input
                   type="text"
-                  name="interests"
-                  placeholder="Interests"
+                  name="bestwith"
+                  placeholder="WORK MY BEST WITH"
                   required
-                  value={formData.interests}
+                  value={formData.bestwith}
+                  onChange={handleInputChange}
+                  className="text-[#333333] p-2.5 border border-[#C4C4C4] rounded-lg outline-none bg-white w-full"
+                />
+              </div>
+              <div className="flex flex-col flex-1 gap-3">
+                <label htmlFor="encouraged">I AM MOST ENCOURAGED BY:</label>
+                <input
+                  type="text"
+                  name="encouraged"
+                  placeholder="MOST ENCOURAGED BY:"
+                  required
+                  value={formData.encouraged}
+                  onChange={handleInputChange}
+                  className="text-[#333333] p-2.5 border border-[#C4C4C4] rounded-lg outline-none bg-white w-full"
+                />
+              </div>
+              <div className="flex flex-col flex-1 gap-3">
+                <label htmlFor="about">MORE ABOUT ME:</label>
+                <input
+                  type="text"
+                  name="about"
+                  placeholder="ABOUT"
+                  required
+                  value={formData.about}
+                  onChange={handleInputChange}
+                  className="text-[#333333] p-2.5 border border-[#C4C4C4] rounded-lg outline-none bg-white w-full"
+                />
+              </div>
+              <div className="flex flex-col flex-1 gap-3">
+                <label htmlFor="lasttime">
+                  Can you remember the last time you learned something new about
+                  yourself?
+                </label>
+                <input
+                  type="text"
+                  name="lasttime"
+                  placeholder="something new about
+                  yourself?"
+                  required
+                  value={formData.lasttime}
+                  onChange={handleInputChange}
+                  className="text-[#333333] p-2.5 border border-[#C4C4C4] rounded-lg outline-none bg-white w-full"
+                />
+              </div>
+              <div className="flex flex-col flex-1 gap-3">
+                <label htmlFor="methodof">
+                  What is your preferred method of learning? Auditory, Visual,
+                  or Kinesthetic (Observing and Doing)
+                </label>
+                <input
+                  type="text"
+                  name="methodof"
+                  placeholder="preferred method of learning"
+                  required
+                  value={formData.methodof}
+                  onChange={handleInputChange}
+                  className="text-[#333333] p-2.5 border border-[#C4C4C4] rounded-lg outline-none bg-white w-full"
+                />
+              </div>
+              <div className="flex flex-col flex-1 gap-3">
+                <label htmlFor="believe">
+                  What do you believe about yourself?
+                </label>
+                <input
+                  type="text"
+                  name="believe"
+                  placeholder="believe about yourself"
+                  required
+                  value={formData.believe}
                   onChange={handleInputChange}
                   className="text-[#333333] p-2.5 border border-[#C4C4C4] rounded-lg outline-none bg-white w-full"
                 />

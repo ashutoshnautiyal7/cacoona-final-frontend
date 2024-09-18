@@ -13,36 +13,40 @@ const Preview = ({ backgroundImage, data }) => {
     >
       <div className="flex flex-col items-center justify-center lg:mb-14">
         <div className="flex gap-1">
-          <span>Name:</span>
-          <span>{data?.fullName}</span>
+          <span>Hobies / Interests:</span>
+          <span>{data?.hobbies}</span>
         </div>
         <div className="flex sm:gap-0.5 lg:gap-8 mt-2 sm:mt-6 lg:mt-8 flex-col lg:flex-row">
           <div className="flex flex-col  min-w-[7rem] sm:gap-0.5">
             <div className="flex gap-1">
-              <span>Date of Birth:</span>
-              <span>{data?.dateOfBirth}</span>
+              <span>I WORK BEST WHEN::</span>
+              <span>{data?.workbest}</span>
             </div>
             <div className="flex gap-1">
-              <span>Time of Birth:</span>
-              <span>{data?.timeOfBirth}</span>
+              <span>I WORK MY BEST WITH::</span>
+              <span>{data?.bestwith}</span>
             </div>
             <div className="flex gap-1">
-              <span>Interest:</span>
-              <span>{data?.interests}</span>
+              <span>I AM MOST ENCOURAGED BY::</span>
+              <span>{data?.encouraged}</span>
             </div>
           </div>
           <div className="flex flex-col sm:gap-0.5">
             <div className="flex gap-1">
-              <span>Gender:</span>
-              <span>{data?.gender}</span>
+              <span>MORE ABOUT ME:</span>
+              <span>{data?.about}</span>
             </div>
             <div className="flex gap-1">
-              <span>Place of Birth:</span>
-              <span>{data?.placeOfBirth}</span>
+              <span>Last time learned something new about yourself?</span>
+              <span>{data?.lasttime}</span>
             </div>
             <div className="flex gap-1">
-              <span>Zodiac Sign:</span>
-              <span>{data?.zodiacSign}</span>
+              <span>Preferred method of learning:</span>
+              <span>{data?.methodof}</span>
+            </div>
+            <div className="flex gap-1">
+              <span>Belief about yourself:</span>
+              <span>{data?.believe}</span>
             </div>
           </div>
         </div>
