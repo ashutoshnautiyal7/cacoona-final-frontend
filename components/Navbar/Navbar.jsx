@@ -198,7 +198,6 @@ const Navbar = () => {
             Cacoona Connect
           </Link>
           <Link href={"/about"}> About Us</Link>
-          <span>More At Cacoona</span>
           <Link href={communityHref}>Community</Link>
         </div>
       </section>
@@ -220,9 +219,7 @@ const Navbar = () => {
               Cacoona Connect
             </Link>
             <Link href={"/about"}> About Us</Link>
-            <span>More At Cacoona</span>
-          <Link href={communityHref}>Community</Link>
-
+            <Link href={communityHref}>Community</Link>
           </div>
         </div>
       </section>
