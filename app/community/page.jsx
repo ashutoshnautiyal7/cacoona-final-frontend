@@ -8,46 +8,47 @@ import Topbar from "@/components/topbar/Topbar";
 import LeftSection from "@/components/leftsection/LeftSection";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer2 from "@/components/Footer/Footer2";
+import Link from "next/link";
 
 const CommunityPage = () => {
-  const router = useRouter();
+  const { data: session, status } = useSession();
+  // const router = useRouter();
   const [user, setUser] = useState("");
   const [size, setSize] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [userloading, setUserLoading] = useState(true);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [filteredPosts, setFilteredPosts] = useState([]);
   const [posts, setPosts] = useState([]);
 
-  const { data: session } = useSession();
-
   const email = session?.user?.email;
   console.log("the email is ", email);
 
   useEffect(() => {
-    if (!session) {
-      router.push("/login");
-    }
-  }, [session]);
-
-  useEffect(() => {
     const getUser = async () => {
-      try {
-        const res = await axios.get(
-          `https://cacoona.com/api/get_user?email=${encodeURIComponent(email)}`
-        );
-        const data = res.data;
+      if (status === "authenticated" && session?.user?.email) {
+        try {
+          const res = await axios.get(
+            `https://cacoona.com/api/get_user?email=${encodeURIComponent(
+              email
+            )}`
+          );
+          const data = res.data;
 
-        setUser(data[0]);
-      } catch (err) {
-        console.log("Some error occurred fetching user data", err);
+          setUser(data[0]);
+        } catch (err) {
+          console.log("Some error occurred fetching user data", err);
+        } finally {
+          setUserLoading(false);
+        }
+      } else if (status !== "loading") {
+        setUserLoading(false);
       }
     };
 
-    if (email) {
-      getUser();
-    }
-  }, [email]);
+    getUser();
+  }, [session, status]);
 
   useEffect(() => {
     const getPosts = async () => {
@@ -86,6 +87,26 @@ const CommunityPage = () => {
       setFilteredPosts(filtered);
     }
   };
+
+  if (status === "loading" || userloading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        Loading...
+      </div>
+    );
+  }
+
+  if (!session) {
+    return (
+      <>
+        <Navbar />
+        <div className="flex justify-center items-center h-screen">
+          Please sign in to view this page.
+          <Link href={"/login"}>Sign In</Link>
+        </div>
+      </>
+    );
+  }
 
   return (
     <main className="w-full">
