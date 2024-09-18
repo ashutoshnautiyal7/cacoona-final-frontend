@@ -13,9 +13,7 @@ import { useRouter } from "next/navigation";
 import useCart from "@/hooks/use-cart";
 
 const Hero = ({ data }) => {
-  const [material, setMaterial] = useState("hardcover");
-  const [selectedMaterial, setSelectedMaterial] = useState("hardcover");
-  console.log("the data in the hero is ", data);
+  var material = "online";
 
   const router = useRouter();
 
@@ -74,7 +72,7 @@ const Hero = ({ data }) => {
         {
           id: data.id,
           quantity: value,
-          material: material,
+          material: "online",
         },
       ];
       const res = await axios.post("https://admin.cacoona.com/api/checkout", {
@@ -144,7 +142,7 @@ const Hero = ({ data }) => {
             <span className="flex md:hidden gap-4 w-full mt-6">
               {isCheckoutLoading ? (
                 <ThreeCircles height="30" width="100" color="#000" />
-              ) : data.category === "BOOKS" ? (
+              ) : data.category === "Book_Online" ? (
                 <button
                   onClick={() => {
                     session ? handleBuyNowBook() : router.push("/login");
@@ -190,7 +188,7 @@ const Hero = ({ data }) => {
             </span>
           </div>
 
-          {data.category === "BOOKS" ? (
+          {/* {data.category === "BOOKS" ? (
             <div className="flex flex-col gap-2 md:gap-3 mt-5 md:mt-8">
               <span>Founder: {data.author || "unknown"}</span>
               <span>More From - Cacoona</span>
@@ -228,7 +226,7 @@ const Hero = ({ data }) => {
             </div>
           ) : (
             <></>
-          )}
+          )} */}
           <div className="mt-7 md:mt-6 leading-[28.8px]">
             <p className="whitespace-pre-wrap">
               {data.description.substr(0, 300) || "Here comes the description "}
@@ -261,7 +259,7 @@ const Hero = ({ data }) => {
             <div className="hidden md:flex gap-8 w-full">
               {isCheckoutLoading ? (
                 <ThreeCircles height="30" width="100" color="#000" />
-              ) : data.category === "BOOKS" ? (
+              ) : data.category === "Book_Online" ? (
                 <button
                   onClick={() => {
                     session ? handleBuyNowBook() : router.push("/login");
