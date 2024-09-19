@@ -2,78 +2,40 @@ import Link from "next/link";
 import BookDownloadPage from "../../../components/ui/book-pdf";
 import Image from "next/image";
 
-const Page = async ({ params }) => {
-  console.log("the order id is ", params.orderId);
-  const isValidOrder = await prisma.order.findFirst({
-    where: {
-      id: params.orderId,
-      isPaid: true,
-      orderItems: {
-        some: {
-          product: {
-            category: "Book_Online",
-          },
-        },
-      },
+const Page = ({ params }) => {
+  const cards = [
+    {
+      title: "Chesper By cacoona",
+      image: "/Images/ches.jpg",
+      description:
+        "Get instant access to expert insights – download your copy of the ebook today!",
+      buttonText: "Download Now",
+      link: "https://res.cloudinary.com/dtfz1aqwq/image/upload/v1719948127/gaohsu56wpsgkmonbs0b.pdf",
     },
-  });
-
-  let cards = [];
-
-  if (isValidOrder) {
-    cards = [
-      {
-        title: "Chesper By cacoona",
-        image: "/Images/ches.jpg",
-        description:
-          "Get instant access to expert insights – download your copy of the ebook today!",
-        buttonText: "Download Now",
-        link: "https://res.cloudinary.com/dtfz1aqwq/image/upload/v1719948127/gaohsu56wpsgkmonbs0b.pdf",
-      },
-      {
-        title: "Preview form",
-        image: "/Images/form.jpg",
-        description:
-          "Curious about what's inside? Complete our preview form for an exclusive look.",
-        buttonText: "Explore",
-        link: `/bookdownload/${params.orderId}`,
-      },
-      {
-        title: "Instant Notes",
-        image: "/Images/notes.jpg",
-        description:
-          "Turn inspiration into action with Instant Notes - quick, easy, and always ready.",
-        buttonText: "Get Started",
-        link: "/profile",
-      },
-      {
-        title: "",
-        image: "/Images/community.webp",
-        description: "Get connected to others via Cacoona community.",
-        buttonText: "Explore",
-        link: "/community",
-      },
-    ];
-  } else {
-    cards = [
-      {
-        title: "Instant Notes",
-        image: "/Images/notes.jpg",
-        description:
-          "Turn inspiration into action with Instant Notes - quick, easy, and always ready.",
-        buttonText: "Get Started",
-        link: "/profile",
-      },
-      {
-        title: "",
-        image: "/Images/community.webp",
-        description: "Get connected to others via Cacoona community.",
-        buttonText: "Explore",
-        link: "/community",
-      },
-    ];
-  }
-
+    {
+      title: "Preview form",
+      image: "/Images/form.jpg",
+      description:
+        "Curious about what's inside? Complete our preview form for an exclusive look.",
+      buttonText: "Explore",
+      link: `/bookdownload/${params.orderId}`,
+    },
+    {
+      title: "Instant Notes",
+      image: "/Images/notes.jpg",
+      description:
+        "Turn inspiration into action with Instant Notes - quick, easy, and always ready.",
+      buttonText: "Get Started",
+      link: "/profile",
+    },
+    {
+      title: "",
+      image: "/Images/community.webp",
+      description: "Get connected to others via Cacoona community.",
+      buttonText: "Explore",
+      link: "/community",
+    },
+  ];
   return (
     <div className="flex flex-col md:flex-row justify-center items-stretch gap-8 p-8">
       {cards.map((card, index) => (
