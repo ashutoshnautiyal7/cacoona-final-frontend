@@ -1,7 +1,6 @@
 import Link from "next/link";
 import BookDownloadPage from "../../../components/ui/book-pdf";
 import Image from "next/image";
-import { Category } from "@prisma/client";
 
 const Page = async ({ params }) => {
   console.log("the order id is ", params.orderId);
@@ -12,7 +11,7 @@ const Page = async ({ params }) => {
       orderItems: {
         some: {
           product: {
-            category: Category.Book_Online,
+            category: "Book_Online",
           },
         },
       },
