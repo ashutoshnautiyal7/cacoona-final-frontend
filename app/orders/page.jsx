@@ -8,61 +8,7 @@ const OrderPage = () => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const fetchOrders = async () => {
-      if (status === "authenticated" && session?.user?.email) {
-        try {
-          const response = await fetch("/api/orders", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email: session.user.email }),
-          });
-
-          if (!response.ok) {
-            throw new Error("Failed to fetch orders");
-          }
-
-          const data = await response.json();
-          setOrders(data);
-        } catch (err) {
-          setError(err.message);
-        } finally {
-          setLoading(false);
-        }
-      } else if (status !== "loading") {
-        setLoading(false);
-      }
-    };
-
-    fetchOrders();
-  }, [session, status]);
-
-  console.log("the orders are ", orders);
-
-  if (status === "loading" || loading) {
-    return (
-      <div className="flex justify-center items-center h-screen">
-        Loading...
-      </div>
-    );
-  }
-
-  if (!session) {
-    return (
-      <div className="flex justify-center items-center h-screen">
-        Please sign in to view your orders.
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="flex justify-center items-center h-screen text-red-500">
-        Error: {error}
-      </div>
-    );
-  }
+  //
 
   console.log("the orders are ", orders);
 
