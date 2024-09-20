@@ -136,7 +136,7 @@ const Navbar = () => {
                       <FiUser className="w-5 md:w-5 h-5 md:h-5 " />
                       My Activities.
                     </Link>
-                    <Link href="/orders" className="flex items-center gap-2">
+                    <Link href="/order" className="flex items-center gap-2">
                       <FiShoppingBag className="w-5 md:w-5 h-5 md:h-5 " />
                       My Order
                     </Link>
