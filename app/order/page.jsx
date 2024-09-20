@@ -1,6 +1,6 @@
-import Orders from "@/components/orders/Orders";
-import { Prisma } from "@prisma/client";
 import React from "react";
+import Orders from "@/components/orders/Orders";
+import prisma from "@/lib/db";
 
 const page = async () => {
   const orders = await prisma.user.findMany({
@@ -16,7 +16,6 @@ const page = async () => {
       },
     },
   });
-  console.log("the orders are ", orders[0].order[2].orderItems);
   return <Orders orders={orders} />;
 };
 
