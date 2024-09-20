@@ -22,7 +22,7 @@ function Section3() {
             empowerment
           </p>
           <button className="bg-[#4fa2ae] text-[14px] md:text-[18px] px-7 py-2 rounded-lg mt-6 md:mt-10 font-medium">
-            <Link href={"/product/668ffc70fa8c7742224a05c1"}>Explore Now</Link>
+            <Link href={"/product/66ea8e382206abf4f92cb3da"}>Explore Now</Link>
           </button>
         </div>
       </div>
