@@ -80,10 +80,8 @@ const Orders = ({ orders }) => {
             <h3 className="text-lg font-semibold mb-2">Items:</h3>
             <ul className="list-disc list-inside">
               {order.orderItems.map((item, index) => (
-                <Link href={`/product/${item.productId}`}>
-                  <li key={index} className="mb-1">
-                    {item.product.name}
-                  </li>
+                <Link key={index} href={`/product/${item.productId}`}>
+                  <li className="mb-1">{item.product.name}</li>
                 </Link>
               ))}
             </ul>
