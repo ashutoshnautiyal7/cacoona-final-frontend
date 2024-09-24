@@ -1,6 +1,6 @@
 import React from "react";
 
-const Preview = ({ backgroundImage, data }) => {
+const Demo = ({ backgroundImage, data }) => {
   console.log("the data in the preview page is : ", data);
 
   return (
@@ -13,12 +13,14 @@ const Preview = ({ backgroundImage, data }) => {
     >
       <div className="flex flex-col items-center justify-center">
         <div className="flex flex-col mt-2 sm:mt-6 lg:mt-8 gap-2 w-full">
+
           <div className="flex items-start">
             <span className="font-semibold w-24 sm:w-36 lg:w-48">
               Hobbies / Interests
             </span>
             <span className="mr-3">:</span>
-            <span>{data?.hobbies}</span>
+            <span className="flex-grow">shkdfh skfhishffi</span>
+            {/* <span>{data?.hobbies}</span> */}
           </div>
 
           <div className="flex items-start">
@@ -26,7 +28,11 @@ const Preview = ({ backgroundImage, data }) => {
               I work best when
             </span>
             <span className="mr-3">:</span>
-            <span>{data?.workbest}</span>
+            <span className="flex-grow">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta,
+              labore.
+            </span>
+            {/* <span>{data?.workbest}</span> */}
           </div>
 
           <div className="flex items-start">
@@ -34,7 +40,11 @@ const Preview = ({ backgroundImage, data }) => {
               I work my best with
             </span>
             <span className="mr-3">:</span>
-            <span>{data?.bestwith}</span>
+            <span className="flex-grow">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta,
+              labore.
+            </span>
+            {/* <span>{data?.bestwith}</span> */}
           </div>
 
           <div className="flex items-start">
@@ -42,8 +52,11 @@ const Preview = ({ backgroundImage, data }) => {
               I am most encouraged by
             </span>
             <span className="mr-3">:</span>
-
-            <span>{data?.encouraged}</span>
+            <span className="flex-grow">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta,
+              labore.
+            </span>
+            {/* <span>{data?.encouraged}</span> */}
           </div>
 
           <div className="flex items-start">
@@ -51,7 +64,11 @@ const Preview = ({ backgroundImage, data }) => {
               More about me
             </span>
             <span className="mr-3">:</span>
-            <span>{data?.about}</span>
+            <span className="flex-grow">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta,
+              labore.
+            </span>
+            {/* <span>{data?.about}</span> */}
           </div>
 
           <div className="flex items-start">
@@ -59,7 +76,11 @@ const Preview = ({ backgroundImage, data }) => {
               Last time learned something new
             </span>
             <span className="mr-3">:</span>
-            <span>{data?.lasttime}</span>
+            <span className="flex-grow">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta,
+              labore.
+            </span>
+            {/* <span>{data?.lasttime}</span> */}
           </div>
 
           <div className="flex items-start">
@@ -67,7 +88,11 @@ const Preview = ({ backgroundImage, data }) => {
               Preferred method of learning
             </span>
             <span className="mr-3">:</span>
-            <span>{data?.methodof}</span>
+            <span className="flex-grow">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta,
+              labore.
+            </span>
+            {/* <span>{data?.methodof}</span> */}
           </div>
 
           <div className="flex  items-start">
@@ -75,7 +100,11 @@ const Preview = ({ backgroundImage, data }) => {
               Belief about yourself
             </span>
             <span className="mr-3">:</span>
-            <span>{data?.believe}</span>
+            <span className="flex-grow">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta,
+              labore.
+            </span>
+            {/* <span>{data?.believe}</span> */}
           </div>
         </div>
       </div>
@@ -83,4 +112,4 @@ const Preview = ({ backgroundImage, data }) => {
   );
 };
 
-export default Preview;
+export default Demo;
