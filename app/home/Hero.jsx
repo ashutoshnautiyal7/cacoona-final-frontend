@@ -28,12 +28,9 @@ const Hero = () => {
               Dive into the world of cacoona by connecting with others. Share
               your creations, uplift us with your journeys and bond with your
               fellow connectors.
-              <br />
-              Unleash Your Creativity and Rediscover Yourself with Our
-              Thoughtfully Crafted Chesper!
             </p>
             <Link
-              href={"product/668ffc70fa8c7742224a05c1"}
+              href={"product/66ea8e382206abf4f92cb3da"}
               className="bg-[#4fa2ae] flex items-center gap-1.5 w-fit text-[14px] md:text-[20px] px-7 py-2 rounded-lg text-white mt-6 md:mt-16"
             >
               Buy Now

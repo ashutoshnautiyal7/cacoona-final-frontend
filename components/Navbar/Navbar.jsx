@@ -132,14 +132,11 @@ const Navbar = () => {
                       <FiUser className="w-5 md:w-5 h-5 md:h-5 " />
                       Manage My Account
                     </Link>
-                    <Link
-                      href="book/668ffcaffa8c7742224a05c6"
-                      className="flex items-center gap-2"
-                    >
+                    <Link href="/activity" className="flex items-center gap-2">
                       <FiUser className="w-5 md:w-5 h-5 md:h-5 " />
                       My Activities.
                     </Link>
-                    <Link href="/orders" className="flex items-center gap-2">
+                    <Link href="/order" className="flex items-center gap-2">
                       <FiShoppingBag className="w-5 md:w-5 h-5 md:h-5 " />
                       My Order
                     </Link>

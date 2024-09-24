@@ -3,6 +3,7 @@ import BookDownloadPage from "../../../components/ui/book-pdf";
 import Image from "next/image";
 
 const Page = ({ params }) => {
+  console.log("The order >  id is ", params.orderId);
   const cards = [
     {
       title: "Chesper By cacoona",

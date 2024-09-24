@@ -18,12 +18,11 @@ const Section1 = () => {
             <img src="/Images/human2.png" alt="#" className="w-[28rem]" />
           </div>
           <p className="text-[16px] md:text-[20px] leading-[180%] md:leading-[200%] mt-6 md:mt-10">
-            A Chesper is your paper chest. It's where you can be free to imagine
-            and record your story, outline your journey and display your inner
-            youth.
+            Unleash Your Creativity and Rediscover Yourself with Our
+            Thoughtfully Crafted Chesper!
           </p>
           <button className="bg-[#4fa2ae] text-[14px] md:text-[18px] px-7 py-2 rounded-lg mt-6 md:mt-10 font-medium">
-            <Link href="product/668ffc70fa8c7742224a05c1">Explore Now</Link>
+            <Link href="product/66ea8e382206abf4f92cb3da">Explore Now</Link>
           </button>
         </div>
       </div>
