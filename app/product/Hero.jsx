@@ -13,9 +13,7 @@ import { useRouter } from "next/navigation";
 import useCart from "@/hooks/use-cart";
 
 const Hero = ({ data }) => {
-  const [material, setMaterial] = useState("hardcover");
-  const [selectedMaterial, setSelectedMaterial] = useState("hardcover");
-  console.log("the data in the hero is ", data);
+  var material = "online";
 
   const router = useRouter();
 
@@ -74,7 +72,7 @@ const Hero = ({ data }) => {
         {
           id: data.id,
           quantity: value,
-          material: material,
+          material: "online",
         },
       ];
       const res = await axios.post("https://admin.cacoona.com/api/checkout", {
@@ -92,7 +90,7 @@ const Hero = ({ data }) => {
     <section className="bg-[#30304C] pt-7 md:pt-10 px-[1.2rem] md:px-[2.5rem]">
       <div className="flex gap-10 flex-col xl:flex-row  justify-center items-center xl:items-start">
         <div className="lg:min-w-[49rem] flex flex-col-reverse md:flex-row gap-5 sm:gap-8 md:gap-4 lg:gap-6 ">
-          <div className="flex md:flex-col gap-4 lg:gap-5 justify-around">
+          <div className="flex md:flex-col gap-4 lg:gap-5 justify-center">
             {data.images.map((image, index) => (
               <img
                 key={index}
@@ -140,9 +138,57 @@ const Hero = ({ data }) => {
             <span className="text-gray-500 line-through text-[24px] leading-[32px] font-semibold">
               ${data.originalPrice}
             </span>
+            {/* add to card and book now button for small device */}
+            <span className="flex md:hidden gap-4 w-full mt-6">
+              {isCheckoutLoading ? (
+                <ThreeCircles height="30" width="100" color="#000" />
+              ) : data.category === "Book_Online" ? (
+                <button
+                  onClick={() => {
+                    session ? handleBuyNowBook() : router.push("/login");
+                  }}
+                  className="w-full bg-[#4FA2AE] text-white px-6 font-semibold text-[14px] md:text-[16px] py-3 rounded-md"
+                >
+                  BUY NOW
+                </button>
+              ) : (
+                <>
+                  <button
+                    onClick={() => {
+                      session ? handleBuyNow() : router.push("/login");
+                    }}
+                    className="w-full bg-[#4FA2AE] text-white px-6 font-semibold text-[14px] md:text-[16px] py-3 rounded-md"
+                  >
+                    BUY NOW
+                  </button>
+                  <button
+                    onClick={(event) => {
+                      if (!email) {
+                        toast.error("Please login to add to cart");
+                        return;
+                      }
+                      event.stopPropagation();
+                      const productData = {
+                        id: data.id,
+                        imageSrc: data.images[0].url,
+                        productName: data.name,
+                        currentPrice: data.currentPrice,
+                        originalPrice: data.originalPrice,
+                        quantity: value,
+                        category: data.category,
+                      };
+                      cart.addItem(productData, email);
+                    }}
+                    className={`w-full  bg-[#4FA2AE] text-white px-6 font-semibold text-[14px] md:text-[16px] rounded-md`}
+                  >
+                    Add To Cart
+                  </button>
+                </>
+              )}
+            </span>
           </div>
 
-          {data.category === "BOOKS" ? (
+          {/* {data.category === "BOOKS" ? (
             <div className="flex flex-col gap-2 md:gap-3 mt-5 md:mt-8">
               <span>Founder: {data.author || "unknown"}</span>
               <span>More From - Cacoona</span>
@@ -155,7 +201,7 @@ const Hero = ({ data }) => {
                     setMaterial("hardcover");
                     setSelectedMaterial("hardcover");
                   }}
-                  className={`px-4 py-2 md:py-2.5 md:w-[8rem] border text-[14px] md:text-[16px] transition-colors duration-200 ${
+                  className={`px-4 py-2 md:py-2.5 w-[6.2rem] md:w-[8rem] border text-[14px] md:text-[16px] transition-colors duration-200 ${
                     selectedMaterial === "hardcover"
                       ? "bg-white text-black"
                       : "hover:bg-white hover:text-black"
@@ -168,7 +214,7 @@ const Hero = ({ data }) => {
                     setMaterial("online");
                     setSelectedMaterial("online");
                   }}
-                  className={`px-4 py-2 md:py-2.5 md:w-[8rem] border text-[14px] md:text-[16px] transition-colors duration-200 ${
+                  className={`px-4 py-2 md:py-2.5 w-[6.2rem] md:w-[8rem] border text-[14px] md:text-[16px] transition-colors duration-200 ${
                     selectedMaterial === "online"
                       ? "bg-white text-black"
                       : "hover:bg-white hover:text-black"
@@ -180,8 +226,8 @@ const Hero = ({ data }) => {
             </div>
           ) : (
             <></>
-          )}
-          <div className="mt-5 md:mt-6 leading-[28.8px]">
+          )} */}
+          <div className="mt-7 md:mt-6 leading-[28.8px]">
             <p className="whitespace-pre-wrap">
               {data.description.substr(0, 300) || "Here comes the description "}
             </p>
@@ -194,7 +240,7 @@ const Hero = ({ data }) => {
             <span className="font-semibold">Let us know abour your query!</span>
           </div> */}
           <div className="mt-8 md:mt-10 flex gap-8">
-            <div className="number-input border w-[140px] py-2 px-4 flex ">
+            <div className="number-input border w-[125px] md:w-[140px] py-2 px-4 flex rounded-md">
               <button onClick={decrement} className="text-[20px]">
                 -
               </button>
@@ -208,51 +254,56 @@ const Hero = ({ data }) => {
                 +
               </button>
             </div>
-            {isCheckoutLoading ? (
-              <ThreeCircles height="30" width="100" color="#000" />
-            ) : data.category === "BOOKS" ? (
-              <button
-                onClick={() => {
-                  session ? handleBuyNowBook() : router.push("/login");
-                }}
-                className="w-full bg-[#4FA2AE] text-white px-6 font-semibold text-[14px] md:text-[16px]"
-              >
-                BUY NOW
-              </button>
-            ) : (
-              <>
+
+            {/* add to card and book now button for large device */}
+            <div className="hidden md:flex gap-8 w-full">
+              {isCheckoutLoading ? (
+                <ThreeCircles height="30" width="100" color="#000" />
+              ) : data.category === "Book_Online" ? (
                 <button
                   onClick={() => {
-                    session ? handleBuyNow() : router.push("/login");
+                    session ? handleBuyNowBook() : router.push("/login");
                   }}
-                  className="w-full bg-[#4FA2AE] text-white px-6 font-semibold text-[14px] md:text-[16px]"
+                  className="w-full bg-[#4FA2AE] text-white px-6 font-semibold text-[14px] md:text-[16px] rounded-md"
                 >
                   BUY NOW
                 </button>
-                <button
-                  onClick={(event) => {
-                    if (!email) {
-                      toast.error("Please login to add to cart");
-                      return;
-                    }
-                    event.stopPropagation();
-                    const productData = {
-                      id: data.id,
-                      imageSrc: data.images[0].url,
-                      productName: data.name,
-                      currentPrice: data.currentPrice,
-                      originalPrice: data.originalPrice,
-                      quantity: value,
-                      category: data.category,
-                    };
-                    cart.addItem(productData, email);
-                  }}
-                  className={`w-full  bg-[#4FA2AE] text-white px-6 font-semibold text-[14px] md:text-[16px]`}
-                >
-                  Add To Cart
-                </button>
-              </>
-            )}
+              ) : (
+                <>
+                  <button
+                    onClick={() => {
+                      session ? handleBuyNow() : router.push("/login");
+                    }}
+                    className="w-full bg-[#4FA2AE] text-white px-6 font-semibold text-[14px] md:text-[16px] rounded-md"
+                  >
+                    BUY NOW
+                  </button>
+                  <button
+                    onClick={(event) => {
+                      if (!email) {
+                        router.push("/login");
+                        // toast.error("Please login to add to cart");
+                        return;
+                      }
+                      event.stopPropagation();
+                      const productData = {
+                        id: data.id,
+                        imageSrc: data.images[0].url,
+                        productName: data.name,
+                        currentPrice: data.currentPrice,
+                        originalPrice: data.originalPrice,
+                        quantity: value,
+                        category: data.category,
+                      };
+                      cart.addItem(productData, email);
+                    }}
+                    className={`w-full  bg-[#4FA2AE] text-white px-6 font-semibold text-[14px] md:text-[16px] rounded-md`}
+                  >
+                    Add To Cart
+                  </button>
+                </>
+              )}
+            </div>
           </div>
         </div>
       </div>

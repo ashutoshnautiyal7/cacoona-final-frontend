@@ -29,7 +29,7 @@ const Hero = () => {
             fellow connectors via Facebook, Instagram, Twitter, and X
           </p>
           <button className="bg-[#FFEECD] px-5 py-2 rounded-lg text-black text-[15px] md:text-[18px] mt-6 md:mt-16 flex items-center gap-1">
-            <Link href={"/profile"}>Let's connect</Link>
+            <Link href={"/community"}>Let's connect</Link>
             <GoArrowUpRight className="h-4 md:h-5 w-4 md:w-5" />
           </button>
         </div>

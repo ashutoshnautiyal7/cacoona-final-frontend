@@ -21,13 +21,14 @@ const Footer2 = () => {
               Support
             </h2>
             <p className="text-[16px]">
-              111 XXXX AAAA, BBBB,
-              <br /> AS 1515, USA.
+              <a href="tel:+1 7542810741">+1 7542810741</a>
+              <br />
+              Po box 101853 Fort Lauderdale fl 33310.
             </p>
             <a href="mailto:chespersupport@cacoona.com">
               chespersupport@cacoona.com
             </a>
-            <a href="tel:+18888899999">+1-88888-99999</a>
+            <a href="tel:+1 7542810741">+1 7542810741</a>
           </div>
         </div>
         {/* for large device */}
@@ -39,7 +40,7 @@ const Footer2 = () => {
             <Link href="/login">Login / Register</Link>
             <Link href="/cart">Cart</Link>
             <Link href="/wishlist">Wishlist</Link>
-            <Link href="/">Shop</Link>
+            <Link href="/home">Shop</Link>
           </div>
           <div className="flex flex-col gap-2 md:gap-3">
             <h2 className="text-[16px] md:text-[20px] font-bold mb-1 md:mb-2">
@@ -75,7 +76,7 @@ const Footer2 = () => {
               <Link href="/login">Login / Register</Link>
               <Link href="/cart">Cart</Link>
               <Link href="/wishlist">Wishlist</Link>
-              <Link href="/">Shop</Link>
+              <Link href="/home">Shop</Link>
             </div>
             <div className="flex flex-col gap-2 md:gap-3">
               <h2 className="text-[16px] md:text-[20px] font-bold mb-1 md:mb-2">

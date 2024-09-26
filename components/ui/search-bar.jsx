@@ -1,13 +1,13 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import { IoSearchOutline } from "react-icons/io5";
-import axios from 'axios';
-import { useRouter } from 'next/navigation';
+import axios from "axios";
+import { useRouter } from "next/navigation";
 
 const SearchBar = () => {
   const router = useRouter();
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const [products, setProducts] = useState([]);
   const [showResults, setShowResults] = useState(false);
 
@@ -16,7 +16,7 @@ const SearchBar = () => {
       if (searchQuery) {
         try {
           const response = await axios.get(`/api/search?query=${searchQuery}`);
-          console.log("response is ", response)
+          console.log("response is ", response);
           console.log("data is ", response.data);
           setProducts(response.data);
           setShowResults(true);
@@ -33,8 +33,8 @@ const SearchBar = () => {
   }, [searchQuery]);
 
   const handleSearch = (e) => {
-    console.log("handle search is called")
-    console.log("e.target.value", e.target.value)
+    console.log("handle search is called");
+    console.log("e.target.value", e.target.value);
     setSearchQuery(e.target.value);
   };
 
@@ -50,7 +50,6 @@ const SearchBar = () => {
         />
         <IoSearchOutline className="w-6 h-6 text-black absolute top-2 right-4 cursor-pointer" />
       </div> */}
-
 
       <div className="w-full text-[13.5px] md:text-[14px] relative">
         <input

@@ -72,21 +72,23 @@ const Section1 = ({ productList }) => {
         style={{ scrollbarWidth: "none" }}
         ref={scrollContainerRef}
       >
-        {productList?.map((product) => (
-          <Product
-            email={email}
-            key={product.id}
-            Id={product.id}
-            imageSrc={product.images[0].url}
-            productName={product.name}
-            currentPrice={product.currentPrice}
-            originalPrice={product.originalPrice}
-            discount={product.category}
-            rating={4.5}
-            totalRatings={5}
-            category={product.category}
-          />
-        ))}
+        {productList
+          ?.filter((product) => product.isArchived === true)
+          .map((product) => (
+            <Product
+              email={email}
+              key={product.id}
+              Id={product.id}
+              imageSrc={product.images[0].url}
+              productName={product.name}
+              currentPrice={product.currentPrice}
+              originalPrice={product.originalPrice}
+              discount={product.category}
+              rating={4.5}
+              totalRatings={5}
+              category={product.category}
+            />
+          ))}
       </div>
       <div className="flex justify-center mt-8 md:mt-12">
         <Link

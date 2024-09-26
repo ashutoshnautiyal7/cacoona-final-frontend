@@ -9,7 +9,7 @@ import {
 import { useSession, signIn, signOut } from "next-auth/react";
 
 const Section5 = ({ productList }) => {
-  const {data: session, status} = useSession();
+  const { data: session, status } = useSession();
 
   const email = session?.user?.email;
 
@@ -40,7 +40,6 @@ const Section5 = ({ productList }) => {
       });
     }
   };
-
 
   return (
     <section className="px-[1.2rem] md:px-[2.5rem] py-8 md:py-14 bg-[#30304C]">
@@ -73,21 +72,23 @@ const Section5 = ({ productList }) => {
         style={{ scrollbarWidth: "none" }}
         ref={scrollContainerRef}
       >
-        {productList.map((product) => (
-          <Product
-            email={email}
-            key={product.id}
-            Id={product.id}
-            imageSrc={product.images[0].url}
-            productName={product.name}
-            currentPrice={product.currentPrice}
-            originalPrice={product.originalPrice}
-            discount={product.category}
-            rating={4.5}
-            totalRatings={5}
-            category={product.category}
-          />
-        ))}
+        {productList
+          ?.filter((product) => product.isArchived === true)
+          .map((product) => (
+            <Product
+              email={email}
+              key={product.id}
+              Id={product.id}
+              imageSrc={product.images[0].url}
+              productName={product.name}
+              currentPrice={product.currentPrice}
+              originalPrice={product.originalPrice}
+              discount={product.category}
+              rating={4.5}
+              totalRatings={5}
+              category={product.category}
+            />
+          ))}
       </div>
       <div className="flex justify-center mt-8 md:mt-12">
         <button className="text-white bg-[#4FA2AE] text-[14px] md:text-[16px] flex justify-center items-center py-2 md:py-2.5 px-6 md:px-10 rounded-sm">

@@ -10,7 +10,7 @@ const BookDownloadPage = async ({ orderId }) => {
       orderItems: {
         some: {
           product: {
-            category: Category.BOOKS,
+            category: Category.Book_Online,
           },
         },
       },
@@ -18,7 +18,7 @@ const BookDownloadPage = async ({ orderId }) => {
   });
 
   if (!isValidOrder) {
-    return <div>Invalid Order or you didnt paid</div>;
+    return <div>This form is online valid for online purchase of the book</div>;
   }
   return (
     <div>

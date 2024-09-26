@@ -3,9 +3,9 @@ import React from "react";
 
 function Section3() {
   return (
-    <section className="px-[1.2rem] md:px-[4rem] pt-10 pb-14 md:pt-20 md:pb-10 flex  justify-between items-center bg-[#FFEECD]  relative">
+    <section className="px-[1.2rem] md:px-[4rem] pt-10 pb-14 md:pt-20 md:pb-10 flex  justify-between items-center bg-[#FFEECD] gap-32  relative">
       <div className="hidden lg:inline">
-        <img src="/Images/book2.png" alt="#" className="w-[38rem]" />
+        <img src="/Images/3.png" alt="#" className="w-[30rem]" />
       </div>
       <div className="flex justify-between flex-1 gap-5 items-start ">
         <div className="max-w-[100%] lg:max-w-[35rem] xl:max-w-[45rem]">
@@ -22,7 +22,7 @@ function Section3() {
             empowerment
           </p>
           <button className="bg-[#4fa2ae] text-[14px] md:text-[18px] px-7 py-2 rounded-lg mt-6 md:mt-10 font-medium">
-            <Link href={"/category/books"}>Explore Now</Link>
+            <Link href={"/product/66ea8e382206abf4f92cb3da"}>Explore Now</Link>
           </button>
         </div>
       </div>
