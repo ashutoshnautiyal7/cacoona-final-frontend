@@ -25,8 +25,8 @@ const Hero = () => {
             your core!
           </p>
         </div>
-        <div className="hidden lg:inline -mt-16 -mr-16">
-          <Image src="/Images/bn1.png" alt="#" width={750} height={750} />
+        <div className="hidden lg:inline ">
+          <Image src="/3.png" alt="#" width={400} height={500} />
         </div>
       </div>
     </section>

@@ -11,22 +11,22 @@ const testimonials = [
   {
     id: 1,
     content:
-      "As someone who's struggled with self-doubt and anxiety, Chesper has been a lifeline. It's helped me cultivate a more positive mindset and develop healthier habits. The Cacoona Clipcuts are like little bursts of inspiration, and the journaling prompts have encouraged me to confront my fears and embrace growth. I can't recommend it enough!",
+      "Cacoone has become my go-to for buying books! The prices are unbeatable, and I always find the accessories I need for my home office. Highly recommend for great deals!",
     author: "David L.",
     rating: 5,
   },
   {
     id: 1,
     content:
-      "As someone who's struggled with self-doubt and anxiety, Chesper has been a lifeline. It's helped me cultivate a more positive mindset and develop healthier habits. The Cacoona Clipcuts are like little bursts of inspiration, and the journaling prompts have encouraged me to confront my fears and embrace growth. I can't recommend it enough!",
-    author: "David L.",
+      "I love shopping on Cacoone! They have a fantastic range of books at super low prices, and the accessories are always top-notch quality. Fast shipping, too!",
+    author: "Tom cruise",
     rating: 5,
   },
   {
     id: 1,
     content:
-      "As someone who's struggled with self-doubt and anxiety, Chesper has been a lifeline. It's helped me cultivate a more positive mindset and develop healthier habits. The Cacoona Clipcuts are like little bursts of inspiration, and the journaling prompts have encouraged me to confront my fears and embrace growth. I can't recommend it enough!",
-    author: "David L.",
+      "Cacoone is the best place for budget-friendly books and cool accessories. I’ve saved so much money here and the delivery is always quick. Highly recommend it!",
+    author: "Emilia clarke",
     rating: 5,
   },
   {
@@ -94,7 +94,9 @@ const Section3 = () => {
   return (
     <section className="px-[1.2rem] md:px-[4rem] pb-8 pt-8 md:pt-20 md:pb-20 bg-[#30304C] text-white">
       <div className="flex flex-col items-center justify-center">
-        <h2 className="text-[36px] md:text-[48px] font-bold ">Hear From Our Customers</h2>
+        <h2 className="text-[36px] md:text-[48px] font-bold ">
+          Hear From Our Customers
+        </h2>
         <p className="text-[24px] md:text-[30px] max-w-[586px] mt-3 leading-[160%] md:text-center">
           Discover the Impact of Chesper: Stories of Transformation and
           Empowerment

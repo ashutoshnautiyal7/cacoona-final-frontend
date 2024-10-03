@@ -27,7 +27,7 @@ const Footer = () => {
               <h2 className="text-[16px] font-bold mb-1 md:mb-2">
                 Social Media
               </h2>
-              <Link href="/">Facebook</Link>
+              {/* <Link href="/">Facebook</Link> */}
               <Link href="/">Instagram</Link>
               <Link href="/">X</Link>
             </div>
