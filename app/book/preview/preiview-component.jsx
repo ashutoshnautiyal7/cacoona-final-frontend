@@ -68,11 +68,6 @@ const PreviewPage = () => {
       link.download = "chesper-journal.pdf";
       link.click();
       window.URL.revokeObjectURL(url);
-
-      // Add a small delay to ensure the download has started
-      setTimeout(() => {
-        router.push("/"); // Redirect to home page
-      }, 1000);
     } catch (error) {
       console.error("Error downloading PDF:", error);
     }
