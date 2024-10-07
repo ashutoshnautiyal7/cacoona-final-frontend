@@ -11,21 +11,21 @@ const testimonials = [
   {
     id: 1,
     content:
-      "Cacoone has become my go-to for buying books! The prices are unbeatable, and I find the accessories I need for my home office. Highly recommend for great deals!",
+      "Cacoona has become my go-to for buying books! The prices are unbeatable, and I find the accessories I need for my home office. Highly recommend for great deals!",
     author: "David L.",
     rating: 5,
   },
   {
     id: 1,
     content:
-      "I love shopping on Cacoone! They have a fantastic range of books at super low prices, and the accessories are always top-notch quality. Fast shipping, too!",
+      "I love shopping on Cacoona! They have a fantastic range of books at super low prices, and the accessories are always top-notch quality. Fast shipping, too!",
     author: "Tom cruise",
     rating: 5,
   },
   {
     id: 1,
     content:
-      "Cacoone is the best place for budget-friendly books and cool accessories. I’ve saved so much money here and the delivery is always quick. Highly recommend it!",
+      "Cacoona is the best place for budget-friendly books and cool accessories. I’ve saved so much money here and the delivery is always quick. Highly recommend it!",
     author: "Emilia clarke",
     rating: 5,
   },

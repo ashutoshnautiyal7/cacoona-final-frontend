@@ -36,16 +36,11 @@ const Section2 = () => {
 
         <div className="flex flex-col items-start justify-center">
           <h3 className="font-semibold text-[22px] md:text-[32px]">
-            Cacoona Accessories
+            Cacoona Craft
           </h3>
           <p className="text-[18px] md:text-[20px] leading-[160%] mt-2">
-            Elevate and connect your style with the celestial realm through
-            Cacoona Charms and Accessories. Our astrology-inspired charms and
-            accessories are more than mere adornments; they&apos;re symbols of
-            cosmic alignment and spiritual empowerment. Each piece is
-            thoughtfully designed to resonate with your unique astrological
-            energy, allowing you to harness the power of the universe and
-            express your inner essence authentically
+            A little piece of cacoona just for you! Explore our printable sheets
+            and be one of the first to order the hard copy before its released.
           </p>
         </div>
         <Image
