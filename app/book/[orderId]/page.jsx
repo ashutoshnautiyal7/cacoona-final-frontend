@@ -1,42 +1,293 @@
 import Link from "next/link";
 import BookDownloadPage from "../../../components/ui/book-pdf";
 import Image from "next/image";
+import prisma from "@/lib/db";
+import { includes } from "lodash";
 
-const Page = ({ params }) => {
+const Page = async ({ params }) => {
   console.log("The order >  id is ", params.orderId);
-  const cards = [
-    {
-      title: "Chesper By cacoona",
-      image: "/Images/ches.jpg",
-      description:
-        "Get instant access to expert insights – download your copy of the ebook today!",
-      buttonText: "Download Now",
-      link: "https://res.cloudinary.com/dtfz1aqwq/image/upload/v1719948127/gaohsu56wpsgkmonbs0b.pdf",
+
+  const orderId = params.orderId;
+
+  const orderWithProductDetails = await prisma.order.findUnique({
+    where: { id: orderId },
+    include: {
+      orderItems: {
+        include: {
+          product: {
+            include: {
+              images: true,
+            },
+          },
+        },
+      },
     },
-    {
-      title: "Preview form",
-      image: "/Images/form.jpg",
-      description:
-        "Curious about what's inside? Complete our preview form for an exclusive look.",
-      buttonText: "Explore",
-      link: `/bookdownload/${params.orderId}`,
-    },
-    {
-      title: "Instant Notes",
-      image: "/Images/notes.jpg",
-      description:
-        "Turn inspiration into action with Instant Notes - quick, easy, and always ready.",
-      buttonText: "Get Started",
-      link: "/profile",
-    },
-    {
-      title: "",
-      image: "/Images/community.webp",
-      description: "Get connected to others via Cacoona community.",
-      buttonText: "Explore",
-      link: "/community",
-    },
-  ];
+  });
+
+  const productId = orderWithProductDetails.orderItems[0].productId;
+  const img = orderWithProductDetails.orderItems[0].product.images[0].url;
+  const name = orderWithProductDetails.orderItems[0].product.name;
+  const des = orderWithProductDetails.orderItems[0].product.description;
+
+  console.log(
+    "order with the product details is  ",
+    orderWithProductDetails.orderItems[0].product
+  );
+
+  let cards = [];
+
+  // a few of my fav
+  if (productId === "6706c664b19a8367e04dfe5c") {
+    cards = [
+      {
+        title: name,
+        image: img,
+        description: des.substring(0, 80) + "..",
+        buttonText: "Download Now",
+        link: "https://drive.google.com/file/d/1588EwdZxBdC2sXGTK-PUSghzTg2Y63Sn/view?usp=sharing",
+      },
+      {
+        title: "Preview form",
+        image: "/Images/form.jpg",
+        description:
+          "Curious about what's inside? Complete our preview form for an exclusive look.",
+        buttonText: "Explore",
+        link: `/bookdownload/${params.orderId}`,
+      },
+      {
+        title: "Instant Notes",
+        image: "/Images/notes.jpg",
+        description:
+          "Turn inspiration into action with Instant Notes - quick, easy, and always ready.",
+        buttonText: "Get Started",
+        link: "/profile",
+      },
+      {
+        title: "",
+        image: "/Images/community.webp",
+        description: "Get connected to others via Cacoona community.",
+        buttonText: "Explore",
+        link: "/community",
+      },
+    ];
+  }
+
+  // milestones
+  if (productId === "6706ccaf6b43e64bde2e93a2") {
+    cards = [
+      {
+        title: name,
+        image: img,
+        description: des.substring(0, 80) + "..",
+        buttonText: "Download Now",
+        link: "https://drive.google.com/file/d/18RHwIg3bDs1Vs_1VqPcvRu742L576fxv/view?usp=sharing",
+      },
+      {
+        title: "Preview form",
+        image: "/Images/form.jpg",
+        description:
+          "Curious about what's inside? Complete our preview form for an exclusive look.",
+        buttonText: "Explore",
+        link: `/bookdownload/${params.orderId}`,
+      },
+      {
+        title: "Instant Notes",
+        image: "/Images/notes.jpg",
+        description:
+          "Turn inspiration into action with Instant Notes - quick, easy, and always ready.",
+        buttonText: "Get Started",
+        link: "/profile",
+      },
+      {
+        title: "",
+        image: "/Images/community.webp",
+        description: "Get connected to others via Cacoona community.",
+        buttonText: "Explore",
+        link: "/community",
+      },
+    ];
+  }
+
+  // 3 c
+  if (productId === "6706cc4d6b43e64bde2e93a0") {
+    cards = [
+      {
+        title: name,
+        image: img,
+        description: des.substring(0, 80) + "..",
+        buttonText: "Download Now",
+        link: "https://drive.google.com/file/d/17OsV127ieTbVGtrwTtCW3c0poqfZPMRP/view?usp=sharing",
+      },
+      {
+        title: "Preview form",
+        image: "/Images/form.jpg",
+        description:
+          "Curious about what's inside? Complete our preview form for an exclusive look.",
+        buttonText: "Explore",
+        link: `/bookdownload/${params.orderId}`,
+      },
+      {
+        title: "Instant Notes",
+        image: "/Images/notes.jpg",
+        description:
+          "Turn inspiration into action with Instant Notes - quick, easy, and always ready.",
+        buttonText: "Get Started",
+        link: "/profile",
+      },
+      {
+        title: "",
+        image: "/Images/community.webp",
+        description: "Get connected to others via Cacoona community.",
+        buttonText: "Explore",
+        link: "/community",
+      },
+    ];
+  }
+
+  // 369
+  if (productId === "6706cbde6b43e64bde2e939e") {
+    cards = [
+      {
+        title: name,
+        image: img,
+        description: des.substring(0, 80) + "..",
+        buttonText: "Download Now",
+        link: "https://drive.google.com/file/d/1F3z_rnJPAxy4C8ZMUQjJJQoilH_NqPFf/view?usp=sharing",
+      },
+      {
+        title: "Preview form",
+        image: "/Images/form.jpg",
+        description:
+          "Curious about what's inside? Complete our preview form for an exclusive look.",
+        buttonText: "Explore",
+        link: `/bookdownload/${params.orderId}`,
+      },
+      {
+        title: "Instant Notes",
+        image: "/Images/notes.jpg",
+        description:
+          "Turn inspiration into action with Instant Notes - quick, easy, and always ready.",
+        buttonText: "Get Started",
+        link: "/profile",
+      },
+      {
+        title: "",
+        image: "/Images/community.webp",
+        description: "Get connected to others via Cacoona community.",
+        buttonText: "Explore",
+        link: "/community",
+      },
+    ];
+  }
+
+  // cacoona blank
+  if (productId === "6706cb536b43e64bde2e939c") {
+    cards = [
+      {
+        title: name,
+        image: img,
+        description: des.substring(0, 80) + "..",
+        buttonText: "Download Now",
+        link: "https://drive.google.com/file/d/1F3z_rnJPAxy4C8ZMUQjJJQoilH_NqPFf/view?usp=sharing",
+      },
+      {
+        title: "Preview form",
+        image: "/Images/form.jpg",
+        description:
+          "Curious about what's inside? Complete our preview form for an exclusive look.",
+        buttonText: "Explore",
+        link: `/bookdownload/${params.orderId}`,
+      },
+      {
+        title: "Instant Notes",
+        image: "/Images/notes.jpg",
+        description:
+          "Turn inspiration into action with Instant Notes - quick, easy, and always ready.",
+        buttonText: "Get Started",
+        link: "/profile",
+      },
+      {
+        title: "",
+        image: "/Images/community.webp",
+        description: "Get connected to others via Cacoona community.",
+        buttonText: "Explore",
+        link: "/community",
+      },
+    ];
+  }
+  // brother why change
+  if (productId === "6706ca736b43e64bde2e9399") {
+    cards = [
+      {
+        title: name,
+        image: img,
+        description: des.substring(0, 80) + "..",
+        buttonText: "Download Now",
+        link: "https://drive.google.com/file/d/1AwEtMw6dmOJmxgKn66eMziBZMwDTfVoq/view?usp=sharing",
+      },
+      {
+        title: "Preview form",
+        image: "/Images/form.jpg",
+        description:
+          "Curious about what's inside? Complete our preview form for an exclusive look.",
+        buttonText: "Explore",
+        link: `/bookdownload/${params.orderId}`,
+      },
+      {
+        title: "Instant Notes",
+        image: "/Images/notes.jpg",
+        description:
+          "Turn inspiration into action with Instant Notes - quick, easy, and always ready.",
+        buttonText: "Get Started",
+        link: "/profile",
+      },
+      {
+        title: "",
+        image: "/Images/community.webp",
+        description: "Get connected to others via Cacoona community.",
+        buttonText: "Explore",
+        link: "/community",
+      },
+    ];
+  }
+
+  // e book
+  if (productId === "66ea8e382206abf4f92cb3da") {
+    cards = [
+      {
+        title: "Chesper By cacoona",
+        image: "/Images/ches.jpg",
+        description:
+          "Get instant access to expert insights – download your copy of the ebook today!",
+        buttonText: "Download Now",
+        link: "https://res.cloudinary.com/dtfz1aqwq/image/upload/v1719948127/gaohsu56wpsgkmonbs0b.pdf",
+      },
+      {
+        title: "Preview form",
+        image: "/Images/form.jpg",
+        description:
+          "Curious about what's inside? Complete our preview form for an exclusive look.",
+        buttonText: "Explore",
+        link: `/bookdownload/${params.orderId}`,
+      },
+      {
+        title: "Instant Notes",
+        image: "/Images/notes.jpg",
+        description:
+          "Turn inspiration into action with Instant Notes - quick, easy, and always ready.",
+        buttonText: "Get Started",
+        link: "/profile",
+      },
+      {
+        title: "",
+        image: "/Images/community.webp",
+        description: "Get connected to others via Cacoona community.",
+        buttonText: "Explore",
+        link: "/community",
+      },
+    ];
+  }
+
   return (
     <div className="flex flex-col md:flex-row justify-center items-stretch gap-8 p-8">
       {cards.map((card, index) => (
