@@ -61,7 +61,7 @@ const CartComponent = () => {
       }));
 
       const res = await axios.post(
-        "https://admin.cacoona.com/api/checkout",
+        "https://cacoona-admin.vercel.app/api/checkout",
         {
           productData,
           email
