@@ -40,7 +40,12 @@ const page = async ({ params }) => {
             {params.category}
           </Link>
         </div>
-        <Category productList={productList} />
+
+        <div className="m-2 font-extrabold text-gray-200 text-2xl md:text-9xl py-10">
+          Coming soon..
+        </div>
+
+        {/* <Category productList={productList} /> */}
       </div>
       <Footer2 />
     </main>

@@ -29,8 +29,7 @@ const page = async () => {
       <Section2 />
       <Section3 productList={products} />
       <Section4 timer={timer} />
-      <Section6 />
-      <Section7 />
+      {/* <Section6 /> */}
       <Footer2 />
     </main>
   );

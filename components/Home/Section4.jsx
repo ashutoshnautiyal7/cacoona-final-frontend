@@ -68,11 +68,11 @@ const Section4 = () => {
   // }
 
   return (
-    <div className="py-6 md:py-10 bg-[#30304C]">
-      <div className="bg-black text-white px-[1.2rem] lg:px-32 py-12 md:py-16 flex justify-around">
+    <div className="py-4 md:py-6  bg-[#181833] ">
+      <div className=" text-white px-[1.2rem] lg:px-32 py-6 md:py-10 flex justify-around">
         <div className="">
           <h2 className="text-[#4FA2AE] font-semibold">Categories</h2>
-          <p className="text-[36px] md:text-[48px] max-w-[440px] leading-[120%] mt-4 md:mt-6 ">
+          <p className="text-[36px] md:text-[48px] max-w-[440px] leading-[120%] mt-4 md:mt-6 font-extrabold  font-serif">
             Improve Your Daily Life
           </p>
           {/* {timer[0].isRunning ? (
@@ -103,7 +103,7 @@ const Section4 = () => {
           )} */}
           <div className="flex mt-6 md:mt-8">
             <Link
-              href={"/product/663b45a1c30b2773d0ca499a"}
+              href={"/product/66ea8e382206abf4f92cb3da"}
               className="text-white bg-[#4FA2AE] text-[14px] md:text-[16px] flex justify-center items-center py-2 md:py-2.5 px-5 md:px-6 rounded-sm whitespace-nowrap"
             >
               Buy Now!
@@ -112,9 +112,9 @@ const Section4 = () => {
         </div>
         <div className="relative hidden md:flex">
           <img
-            src="/Images/booknew.png"
+            src="/2.png"
             alt="#"
-            className="w-[15rem] h-[22rem] relative z-10"
+            className="w-[20rem] h-[22rem] relative z-10"
           />
         </div>
       </div>

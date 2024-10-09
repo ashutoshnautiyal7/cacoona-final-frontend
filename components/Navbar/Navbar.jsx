@@ -175,31 +175,27 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:flex gap-5 lg:gap-10 xl:gap-16 text-[14px] lg:text-[16px] font-light justify-center items-center w-full cursor-pointer">
-          <span
+          {/* <span
             className="flex items-center relative"
             onMouseEnter={toggleDropdown1}
             onMouseLeave={toggleDropdown1}
           >
             Shop by Category
             {dropdown1Open ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}
-            {/* Dropdown */}
             {dropdown1Open && (
               <>
                 <div className="absolute top-full left-0 h-1.5 w-52"></div>
                 <div className="absolute top-full left-0 bg-[#4FA2AE] text-white p-4 flex flex-col gap-2 text-[14px] lg:text-[16px] w-[15rem] justify-center font-normal mt-1.5 shadow-md rounded-sm z-50">
                   <Link href={"/category/accessories"}>Chesper Craft</Link>
-                  {/* <Link href={"/category/collection"}>
-                    Celestial Collection
-                  </Link> */}
                 </div>
               </>
             )}
-          </span>
-          <Link href={"/home"}>Store</Link>
+          </span> */}
+          <Link href={"/home"}>Chesper Craft</Link>
+          <Link href={"/about"}> About Us</Link>
           <Link href={"/farm"} className="flex items-center relative">
             Cacoona Connect
           </Link>
-          <Link href={"/about"}> About Us</Link>
           <Link href={communityHref}>Community</Link>
         </div>
       </section>

@@ -67,12 +67,12 @@ const Footer2 = () => {
             <Link href="https://www.tiktok.com/@_cacoona">
               <FaTiktok className="w-5 h-5" />
             </Link>
-            <Link href="/x.com">
+            {/* <Link href="/x.com">
               <FaXTwitter className="w-5 h-5" />
             </Link>
             <Link href="/linkedin.com">
               <FaLinkedin className="w-5 h-5" />
-            </Link>
+            </Link> */}
           </div>
         </div>
         {/* for small device */}
