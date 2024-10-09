@@ -188,9 +188,9 @@ const Navbar = () => {
                 <div className="absolute top-full left-0 h-1.5 w-52"></div>
                 <div className="absolute top-full left-0 bg-[#4FA2AE] text-white p-4 flex flex-col gap-2 text-[14px] lg:text-[16px] w-[15rem] justify-center font-normal mt-1.5 shadow-md rounded-sm z-50">
                   <Link href={"/category/accessories"}>Chesper Craft</Link>
-                  <Link href={"/category/collection"}>
+                  {/* <Link href={"/category/collection"}>
                     Celestial Collection
-                  </Link>
+                  </Link> */}
                 </div>
               </>
             )}
@@ -214,7 +214,7 @@ const Navbar = () => {
             <span>Shop by Category</span>
             <ul className="flex flex-col gap-3.5 list-disc pl-6 -mt-1">
               <Link href={"/category/accessories"}>Chesper Craft</Link>
-              <Link href={"/category/collection"}>Celestial Collection</Link>
+              {/* <Link href={"/category/collection"}>Celestial Collection</Link> */}
             </ul>
             <Link href={"/home"}>Store</Link>
             <Link href={"/farm"} className="flex items-center relative">

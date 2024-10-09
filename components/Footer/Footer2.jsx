@@ -1,7 +1,14 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { FaXTwitter, FaFacebook, FaInstagram } from "react-icons/fa6";
+import {
+  FaXTwitter,
+  FaFacebook,
+  FaInstagram,
+  FaTiktok,
+  FaLinkedinIn,
+  FaLinkedin,
+} from "react-icons/fa6";
 const Footer2 = () => {
   return (
     <>
@@ -54,14 +61,17 @@ const Footer2 = () => {
             <h2 className="text-[16px] md:text-[20px] font-bold mb-1 md:mb-2">
               Social Media
             </h2>
-            <Link href="/">
-              <FaFacebook className="w-5 h-5" />
-            </Link>
-            <Link href="/">
+            <Link href="https://www.instagram.com/_cacoona">
               <FaInstagram className="w-5 h-5" />
             </Link>
-            <Link href="/">
+            <Link href="https://www.tiktok.com/@_cacoona">
+              <FaTiktok className="w-5 h-5" />
+            </Link>
+            <Link href="/x.com">
               <FaXTwitter className="w-5 h-5" />
+            </Link>
+            <Link href="/linkedin.com">
+              <FaLinkedin className="w-5 h-5" />
             </Link>
           </div>
         </div>

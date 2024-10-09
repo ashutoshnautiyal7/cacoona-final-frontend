@@ -53,8 +53,13 @@ const PreviewPage = () => {
         margin: 0,
         filename: "myfile.pdf",
         image: { type: "jpeg", quality: 0.98 },
-        html2canvas: { scale: 1 },
-        jsPDF: { unit: "in", format: "letter", orientation: "landscape" },
+        html2canvas: {
+          scale: 2,
+          logging: true,
+          dpi: 192,
+          letterRendering: true,
+        },
+        jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
       };
       html2pdf().from(HTML_CONTENT).set(opt).save();
 
@@ -68,11 +73,6 @@ const PreviewPage = () => {
       link.download = "chesper-journal.pdf";
       link.click();
       window.URL.revokeObjectURL(url);
-
-      // Add a small delay to ensure the download has started
-      setTimeout(() => {
-        router.push("/"); // Redirect to home page
-      }, 1000);
     } catch (error) {
       console.error("Error downloading PDF:", error);
     }

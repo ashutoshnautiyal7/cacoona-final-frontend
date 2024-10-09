@@ -24,9 +24,9 @@ const Hero = () => {
             />
           </div>
           <p className="text-[16px] md:text-[22px] leading-[240%] md:leading-[45px]  mt-6 text-[#D9D9D9]">
-            Dive into the world of cacoona by connecting with other connectors.
-            Share your creations Uplift us with your journey and bond with your
-            fellow connectors via Facebook, Instagram, Twitter, and X
+            Dive into the world of cacoona by connecting with others Share your
+            creations Uplift us with your journey and bond with your fellow
+            connectors.
           </p>
           <button className="bg-[#FFEECD] px-5 py-2 rounded-lg text-black text-[15px] md:text-[18px] mt-6 md:mt-16 flex items-center gap-1">
             <Link href={"/community"}>Let's connect</Link>

@@ -5,7 +5,7 @@ const Preview = ({ backgroundImage, data }) => {
 
   return (
     <section
-      className="text-black w-[18.5rem] sm:w-[37rem] md:w-[44.5rem] lg:w-[55rem] h-[14.5rem] sm:h-[29rem] md:h-[34rem] lg:h-[42rem] bg-no-repeat bg-contain flex items-center justify-center text-[6px] sm:text-[12px] md:text-[14px] lg:text-[18px] font-medium p-10 bg-red-400"
+      className="text-black w-[18.5rem] sm:w-[37rem] md:w-[44.5rem] lg:w-[49.47rem] h-[14.5rem] sm:h-[29rem] md:h-[34rem] lg:h-[38.05rem] bg-no-repeat bg-contain flex items-center justify-center text-[6px] sm:text-[12px] md:text-[14px] lg:text-[17px] font-medium p-10 mt-2"
       style={{
         backgroundImage: `url('${backgroundImage}')`,
         backgroundPosition: "center",

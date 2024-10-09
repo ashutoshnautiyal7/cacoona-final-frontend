@@ -28,7 +28,7 @@ const Section1 = () => {
           From self-reflection to self-creation, a sanctuary for imagination and
           growth
         </h2>
-        <div className="">
+        {/* <div className="">
           <div className="flex justify-between items-center mt-8 md:mt-10">
             <h3 className="text-[28px] md:text-[36px] leading-10">
               Annastacia Robinson
@@ -60,7 +60,7 @@ const Section1 = () => {
               embracing different forms of self-discovery
             </p>
           </div>
-        </div>
+        </div> */}
         <div className="border-black border-t">
           <div className="flex justify-between items-center mt-8 md:mt-10">
             <h3 className="text-[28px] md:text-[36px] leading-10">Mission</h3>
