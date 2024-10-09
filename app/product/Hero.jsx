@@ -55,7 +55,7 @@ const Hero = ({ data }) => {
           quantity: value,
         },
       ];
-      const res = await axios.post("https://admin.cacoona.com/api/checkout", {
+      const res = await axios.post("https://cacoona-admin.vercel.app/api/checkout", {
         productData,
         email,
       });
@@ -75,7 +75,7 @@ const Hero = ({ data }) => {
           material: "online",
         },
       ];
-      const res = await axios.post("https://admin.cacoona.com/api/checkout", {
+      const res = await axios.post("https://cacoona-admin.vercel.app/api/checkout", {
         productData,
         email,
       });
