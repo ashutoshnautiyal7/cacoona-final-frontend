@@ -34,12 +34,8 @@ const Footer = () => {
           </div>
           <div className="flex flex-col gap-3">
             <h2 className="text-[16px] font-bold mb-2">Contacts</h2>
-            <Link href="mailto:chespersupport@cacoona.com">
-              chespersupport@cacoona.com
-            </Link>
-            <Link href="mailto:customersupport@chesper.com">
-              customersupport@chesper.com
-            </Link>
+            <Link href="mailto:Chesper@cacoona.com">Chesper@cacoona.com</Link>
+            <Link href="mailto:Chesper@cacoona.com">Chesper@cacoona.com</Link>
           </div>
         </div>
       </section>

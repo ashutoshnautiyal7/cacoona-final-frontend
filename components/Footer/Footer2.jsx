@@ -32,9 +32,7 @@ const Footer2 = () => {
               <br />
               Po box 101853 Fort Lauderdale fl 33310.
             </p>
-            <a href="mailto:chespersupport@cacoona.com">
-              chespersupport@cacoona.com
-            </a>
+            <a href="mailto:chesper@cacoona.com">Chesper@cacoona.com</a>
             <a href="tel:+1 7542810741">+1 7542810741</a>
           </div>
         </div>
