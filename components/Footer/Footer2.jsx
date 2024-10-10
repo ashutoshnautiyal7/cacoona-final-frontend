@@ -67,12 +67,6 @@ const Footer2 = () => {
             <Link href="https://www.tiktok.com/@_cacoona">
               <FaTiktok className="w-5 h-5" />
             </Link>
-            {/* <Link href="/x.com">
-              <FaXTwitter className="w-5 h-5" />
-            </Link>
-            <Link href="/linkedin.com">
-              <FaLinkedin className="w-5 h-5" />
-            </Link> */}
           </div>
         </div>
         {/* for small device */}
@@ -98,18 +92,15 @@ const Footer2 = () => {
               <Link href="/about">About</Link>
             </div>
           </div>
-          <div className="flex flex-col gap-2 md:gap-3 mt-6 lg:mt-0">
+          <div className="flex flex-col gap-2 md:gap-3">
             <h2 className="text-[16px] md:text-[20px] font-bold mb-1 md:mb-2">
               Social Media
             </h2>
-            <Link href="/">
-              <FaFacebook className="w-4 h-4" />
+            <Link href="https://www.instagram.com/_cacoona">
+              <FaInstagram className="w-5 h-5 bg-[#e95950] rounded-md" />
             </Link>
-            <Link href="/">
-              <FaInstagram className="w-4 h-4" />
-            </Link>
-            <Link href="/">
-              <FaXTwitter className="w-4 h-4" />
+            <Link href="https://www.tiktok.com/@_cacoona">
+              <FaTiktok className="w-5 h-5" />
             </Link>
           </div>
         </div>
