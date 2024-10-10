@@ -207,16 +207,11 @@ const Navbar = () => {
           } fixed bg-[#1F1F3A] h-screen w-[50vw] shadow-2xl text-white text-[14px] transition-transform duration-500 ease-in-out z-50 -mt-[1px]`}
         >
           <div className="flex flex-col gap-6 px-[1.5rem] pt-[2rem]">
-            <span>Shop by Category</span>
-            <ul className="flex flex-col gap-3.5 list-disc pl-6 -mt-1">
-              <Link href={"/category/accessories"}>Chesper Craft</Link>
-              {/* <Link href={"/category/collection"}>Celestial Collection</Link> */}
-            </ul>
-            <Link href={"/home"}>Store</Link>
+            <Link href={"/home"}>Chesper Craft</Link>
+            <Link href={"/about"}> About Us</Link>
             <Link href={"/farm"} className="flex items-center relative">
               Cacoona Connect
             </Link>
-            <Link href={"/about"}> About Us</Link>
             <Link href={communityHref}>Community</Link>
           </div>
         </div>
