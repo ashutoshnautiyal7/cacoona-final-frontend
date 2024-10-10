@@ -62,7 +62,7 @@ const Footer2 = () => {
               Social Media
             </h2>
             <Link href="https://www.instagram.com/_cacoona">
-              <FaInstagram className="w-5 h-5" />
+              <FaInstagram className="w-5 h-5 text-[#e95950]" />
             </Link>
             <Link href="https://www.tiktok.com/@_cacoona">
               <FaTiktok className="w-5 h-5" />
