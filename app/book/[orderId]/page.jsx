@@ -44,15 +44,7 @@ const Page = async ({ params }) => {
         image: img,
         description: des.substring(0, 80) + "..",
         buttonText: "Download Now",
-        link: "https://drive.google.com/file/d/1588EwdZxBdC2sXGTK-PUSghzTg2Y63Sn/view?usp=sharing",
-      },
-      {
-        title: "Preview form",
-        image: "/Images/form.jpg",
-        description:
-          "Curious about what's inside? Complete our preview form for an exclusive look.",
-        buttonText: "Explore",
-        link: `/bookdownload/${params.orderId}`,
+        link: "https://asset.cloudinary.com/do3h4idyc/9d520d63852cf2b86be3a8ebe56b9b45",
       },
       {
         title: "Instant Notes",
@@ -80,15 +72,7 @@ const Page = async ({ params }) => {
         image: img,
         description: des.substring(0, 80) + "..",
         buttonText: "Download Now",
-        link: "https://drive.google.com/file/d/18RHwIg3bDs1Vs_1VqPcvRu742L576fxv/view?usp=sharing",
-      },
-      {
-        title: "Preview form",
-        image: "/Images/form.jpg",
-        description:
-          "Curious about what's inside? Complete our preview form for an exclusive look.",
-        buttonText: "Explore",
-        link: `/bookdownload/${params.orderId}`,
+        link: "https://asset.cloudinary.com/do3h4idyc/a6eaa9804ae709f3754aef167fb23de3",
       },
       {
         title: "Instant Notes",
@@ -116,15 +100,7 @@ const Page = async ({ params }) => {
         image: img,
         description: des.substring(0, 80) + "..",
         buttonText: "Download Now",
-        link: "https://drive.google.com/file/d/17OsV127ieTbVGtrwTtCW3c0poqfZPMRP/view?usp=sharing",
-      },
-      {
-        title: "Preview form",
-        image: "/Images/form.jpg",
-        description:
-          "Curious about what's inside? Complete our preview form for an exclusive look.",
-        buttonText: "Explore",
-        link: `/bookdownload/${params.orderId}`,
+        link: "https://asset.cloudinary.com/do3h4idyc/431ab58ccc81e3ddb7553db97fbdcc62",
       },
       {
         title: "Instant Notes",
@@ -152,15 +128,7 @@ const Page = async ({ params }) => {
         image: img,
         description: des.substring(0, 80) + "..",
         buttonText: "Download Now",
-        link: "https://drive.google.com/file/d/1F3z_rnJPAxy4C8ZMUQjJJQoilH_NqPFf/view?usp=sharing",
-      },
-      {
-        title: "Preview form",
-        image: "/Images/form.jpg",
-        description:
-          "Curious about what's inside? Complete our preview form for an exclusive look.",
-        buttonText: "Explore",
-        link: `/bookdownload/${params.orderId}`,
+        link: "https://asset.cloudinary.com/do3h4idyc/aa6a740213af793fb35ab7ecd85640a9",
       },
       {
         title: "Instant Notes",
@@ -188,15 +156,7 @@ const Page = async ({ params }) => {
         image: img,
         description: des.substring(0, 80) + "..",
         buttonText: "Download Now",
-        link: "https://drive.google.com/file/d/1F3z_rnJPAxy4C8ZMUQjJJQoilH_NqPFf/view?usp=sharing",
-      },
-      {
-        title: "Preview form",
-        image: "/Images/form.jpg",
-        description:
-          "Curious about what's inside? Complete our preview form for an exclusive look.",
-        buttonText: "Explore",
-        link: `/bookdownload/${params.orderId}`,
+        link: "https://asset.cloudinary.com/do3h4idyc/4dd6a4d9515a063b8ace9f45cf591fdc",
       },
       {
         title: "Instant Notes",
@@ -223,15 +183,7 @@ const Page = async ({ params }) => {
         image: img,
         description: des.substring(0, 80) + "..",
         buttonText: "Download Now",
-        link: "https://drive.google.com/file/d/1AwEtMw6dmOJmxgKn66eMziBZMwDTfVoq/view?usp=sharing",
-      },
-      {
-        title: "Preview form",
-        image: "/Images/form.jpg",
-        description:
-          "Curious about what's inside? Complete our preview form for an exclusive look.",
-        buttonText: "Explore",
-        link: `/bookdownload/${params.orderId}`,
+        link: "https://asset.cloudinary.com/do3h4idyc/a9a795defeb88c92bb625c0ef1a06415",
       },
       {
         title: "Instant Notes",
