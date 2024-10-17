@@ -10,7 +10,7 @@ const Hero = () => {
         <div className="max-w-[100%] lg:max-w-[35rem] xl:max-w-[50rem]">
           <span className="text-[#FFEECD] flex items-center gap-4">
             <span className="w-[4.6rem] md:w-[6rem] h-[2px] bg-[#FFEECD]"></span>
-            <p>Connect by Cacoona</p>
+            <p>Connect with Cacoona</p>
           </span>
           <h1 className="font-black text-[42px] md:text-[52px] xl:text-[64px] leading-[140%] md:leading-[120.7%] mt-6 mb-10 lg:mb-0">
             Embark on a Journey with Cacoona Connect

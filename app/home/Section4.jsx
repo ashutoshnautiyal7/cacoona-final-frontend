@@ -11,22 +11,15 @@ const testimonials = [
   {
     id: 1,
     content:
-      "Cacoona has become my go-to for buying books! The prices are unbeatable, and I find the accessories I need for my home office. Highly recommend for great deals!",
-    author: "David L.",
+      "I appreciated this experience so much to learn about Cacoona. There was great key points shared, the book has so many detailed pages that I loved. Helped stimulate my mind because sometimes I need that lol, it’s so many cute things to do. It’s a great space to learn new things about myself the more and more I use the book. Im usually all over the place and this book helps me balance now, I recommend !!",
+    author: "Jeree Solano",
     rating: 5,
   },
   {
-    id: 1,
+    id: 2,
     content:
-      "I love shopping on Cacoona! They have a fantastic range of books at super low prices, and the accessories are always top-notch quality. Fast shipping, too!",
-    author: "Tom cruise",
-    rating: 5,
-  },
-  {
-    id: 1,
-    content:
-      "Cacoona is the best place for budget-friendly books and cool accessories. I’ve saved so much money here and the delivery is always quick. Highly recommend it!",
-    author: "Emilia clarke",
+      " I had the pleasure of experiencing Chesper at a live event. This journal is different from others that I have purchased. The pages are engaging and colorful. You get to explore different areas of who you are. I feel honored as I was one of the first people to dive into this experience. I recommend anyone who is looking for self discovery to engage in this journey of chesper. You can also order additional sheets.",
+    author: "Monalisa Weber",
     rating: 5,
   },
 ];
@@ -121,7 +114,7 @@ const Section4 = () => {
             </div>
           ))}
         </Slider>
-        <div className="flex mt-8 md:mt-12 gap-6 md:gap-8 justify-center text-white  mx-auto">
+        <div className="flex mt-8 md:mt-12 gap-6 md:gap-8 justify-center text-white  mx-auto md:hidden">
           <button onClick={prevSlide}>
             <MdKeyboardArrowLeft className="w-10 h-10 bg-[#4FA2AE] rounded-sm" />
           </button>

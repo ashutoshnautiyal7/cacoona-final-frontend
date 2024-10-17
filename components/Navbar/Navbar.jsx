@@ -192,11 +192,11 @@ const Navbar = () => {
             )}
           </span> */}
           <Link href={"/home"}>Chesper Craft</Link>
-          <Link href={"/about"}> About Us</Link>
           <Link href={"/farm"} className="flex items-center relative">
             Cacoona Connect
           </Link>
           <Link href={communityHref}>Community</Link>
+          <Link href={"/about"}> About Us</Link>
         </div>
       </section>
       <section>
@@ -208,11 +208,11 @@ const Navbar = () => {
         >
           <div className="flex flex-col gap-6 px-[1.5rem] pt-[2rem]">
             <Link href={"/home"}>Chesper Craft</Link>
-            <Link href={"/about"}> About Us</Link>
             <Link href={"/farm"} className="flex items-center relative">
               Cacoona Connect
             </Link>
             <Link href={communityHref}>Community</Link>
+            <Link href={"/about"}> About Us</Link>
           </div>
         </div>
       </section>

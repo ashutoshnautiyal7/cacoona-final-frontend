@@ -7,25 +7,26 @@ const Hero = () => {
       <h1 className="font-bold text-[42px] md:text-[52px] xl:text-[64px] leading-[140%] md:leading-[120.7%] lg:mt-3">
         What is a Chesper and Cacoona you ask…
       </h1>
-      <div className="flex justify-between flex-1 gap-5 items-start mt-6">
+      <div className=" flex flex-col-reverse md:flex-row justify-between flex-1 gap-5 items-start mt-6">
         <div className="max-w-[100%] lg:max-w-[35rem] xl:max-w-[45rem]">
           <p className="text-[20px]  leading-[160%] md:leading-[35px] text-[#D9D9D9]">
-            What is a Chesper and Cacoona you ask… Well, A Chesper is your
-            personal chest. It's where you can be free to imagine and record
-            your story, outline your journey and display your inner youth. Good
-            things and positive thoughts stays in your chesper about you.
-            There's always room for growth within you but to do so you must
-            relinquish your burdens, anger and fears and there are specific
-            pages for those moments. Your Chesper is a safe for your secrets and
-            deep reflections. Cacoona is the conscience and core connector for
-            the Charm you are. It's my pleasure to introduce you to Cacoona to
-            rediscover and reconnect yourself to you. There is no right or wrong
-            way to discover yourself but I know there is one thing truly needed
-            and that's curiosity. Are you ready to be curious and creative from
-            your core!
+            Welcome to Cacoona a creative sanctuary dedicated to fostering
+            self-discovery and personal growth through thoughtfully crafted
+            Chesper. Chesper, Our flagship product, serves as a private haven
+            for individuals to express their thoughts, feelings, and aspirations
+            without judgment. Chesper creates a new outlook on journaling and
+            features insightful prompts like Cacoona Clipcuts, which focus on
+            cultivating a positive mindset. We empower users to explore their
+            inner worlds and unlock hidden potential. We believe in the
+            transformative power of journaling, offering a space where
+            creativity flourishes and connections deepen. Committed to quality
+            and affordability, Cacoona also provides a diverse range of single
+            sheets to start your journey. Are you ready to be curious and
+            creative from your core! Join us in celebrating the art of
+            self-expression and discover your path with Cacoona!
           </p>
         </div>
-        <div className="hidden lg:inline ">
+        <div className=" lg:inline ">
           <Image src="/3.png" alt="#" width={400} height={500} />
         </div>
       </div>
